@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Review ROI Calculator — What Is Your Rating Costing You? | VouchTrack</title>
+<meta name="description" content="Free calculator: estimate how many new Google reviews your business could collect in 12 months, your projected rating, and the revenue a higher rating could add. Conservative, transparent math.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../index.html" class="logo"><span class="star">★</span>VouchTrack</a>
+    <button class="menu-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+      <li><a href="../how-it-works.html">How it works</a></li>
+      <li><a href="../features/index.html">Features</a></li>
+      <li><a href="../industries/index.html">Industries</a></li>
+      <li><a href="../pricing.html">Pricing</a></li>
+      <li><a href="../blog/index.html">Blog</a></li>
+      <li><a href="https://zcal.co/akshaysudarsan/30min" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Book a free demo</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="industry-hero" style="padding-bottom:32px;">
+  <div class="wrap">
+    <span class="eyebrow">Free tool</span>
+    <h1>What is your rating costing you?</h1>
+    <p class="lede" style="max-width:38em; margin-top:18px;">Slide in four numbers about your business and see what a steady review engine would do to your review count, your rating, and your revenue over the next 12 months. Estimates are deliberately conservative.</p>
+  </div>
+</section>
+
+<section class="band-white" style="padding-top:48px;">
+  <div class="wrap" style="max-width:980px;">
+    <div class="calc-wrap">
+      <div class="calc-panel">
+        <div class="calc-field">
+          <label>Customers per month <span class="u-val" id="v-cust">200</span></label>
+          <input type="range" id="in-cust" min="20" max="2000" step="20" value="200">
+          <p class="field-hint">Roughly how many customers or jobs you serve monthly.</p>
+        </div>
+        <div class="calc-field">
+          <label>Average sale <span class="u-val" id="v-sale">$60</span></label>
+          <input type="range" id="in-sale" min="10" max="500" step="5" value="60">
+          <p class="field-hint">Typical amount one customer spends per visit.</p>
+        </div>
+        <div class="calc-field">
+          <label>Current Google rating <span class="u-val" id="v-rating">4.0★</span></label>
+          <input type="range" id="in-rating" min="3.0" max="5.0" step="0.1" value="4.0">
+          <p class="field-hint">What your profile shows today.</p>
+        </div>
+        <div class="calc-field">
+          <label>Current review count <span class="u-val" id="v-count">45</span></label>
+          <input type="range" id="in-count" min="0" max="500" step="5" value="45">
+          <p class="field-hint">Total Google reviews right now.</p>
+        </div>
+      </div>
+      <div class="calc-result" aria-live="polite">
+        <h3>Your 12-month estimate</h3>
+        <div class="calc-line"><span>New reviews in the first 90 days</span><strong id="r-90">—</strong></div>
+        <div class="calc-line"><span>New reviews in 12 months</span><strong id="r-year">—</strong></div>
+        <div class="calc-line"><span>Projected rating in 12 months</span><strong id="r-rating">—</strong></div>
+        <div class="calc-line big"><span>Estimated added revenue per year</span><strong id="r-rev">—</strong></div>
+        <p class="calc-note">Assumes a conservative 25% of asked customers leave a review, new reviews averaging 4.8★, and revenue sensitivity of 5% per full star of rating improvement — the low end of published research on ratings and revenue. Estimates, not a guarantee: your results depend on your customer volume and starting point.</p>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:32px;">
+      <a href="https://zcal.co/akshaysudarsan/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Check these numbers against my real profile</a>
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap" style="max-width:760px;">
+    <div class="section-head center"><h2>About the math</h2></div>
+    <details>
+      <summary>Where does the 25% response rate come from?</summary>
+      <p>Industry research consistently finds that a majority of customers say they'd leave a review if asked — but real-world response to requests is lower. We model 25% of asked customers actually posting, which most active businesses beat. We'd rather surprise you upward.</p>
+    </details>
+    <details>
+      <summary>How is the projected rating calculated?</summary>
+      <p>A weighted average: your current rating times your current review count, plus new reviews at an assumed 4.8★ average, divided by the new total. That 4.8 reflects a simple truth — when every customer gets asked (not just the angry ones who show up uninvited), the average skews strongly positive.</p>
+    </details>
+    <details>
+      <summary>Is the revenue number realistic?</summary>
+      <p>Published research on ratings and revenue generally lands between 5% and 9% of revenue per full star. We use 5% — the floor — applied to your annualized revenue and your projected rating lift. It also ignores second-order effects like better local ranking bringing more customers, so the true upside is likely higher.</p>
+    </details>
+  </div>
+</section>
+
+<section class="band-ink cta-band">
+  <div class="wrap">
+    <h2>Want the real version of this?</h2>
+    <p>The calculator estimates. A free 15-minute call gets you the real thing: your actual profile, your actual competitor, and your actual gap.</p>
+    <a href="https://zcal.co/akshaysudarsan/30min" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-lg">Book my free demo</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="../index.html" class="logo"><span class="star">★</span>VouchTrack</a>
+        <p style="font-size:0.9rem; max-width:26em;">AI-powered review collection and reputation management for main-street businesses across the United States — human-approved, done for you.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="../how-it-works.html">How it works</a></li>
+          <li><a href="../features/index.html">Features</a></li>
+          <li><a href="../review-sites.html">67+ review sites</a></li>
+          <li><a href="../pricing.html">Pricing</a></li>
+          <li><a href="../tools/review-calculator.html">Review ROI calculator</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Industries</h4>
+        <ul>
+          <li><a href="../industries/hair-salons.html">Hair salons</a></li>
+          <li><a href="../industries/nail-salons-spas.html">Nail salons &amp; spas</a></li>
+          <li><a href="../industries/auto-repair.html">Auto repair</a></li>
+          <li><a href="../industries/dental.html">Dental offices</a></li>
+          <li><a href="../industries/restaurants.html">Restaurants</a></li>
+          <li><a href="../industries/hvac-home-services.html">HVAC &amp; home services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="../blog/index.html">Blog</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@vouchtrack.com">hello@vouchtrack.com</a></li>
+          <li><a href="https://zcal.co/akshaysudarsan/30min" target="_blank" rel="noopener noreferrer">Book a demo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 VouchTrack. All rights reserved.</span>
+      <span>Made for main-street businesses.</span>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var fmt = function (n) { return n.toLocaleString('en-US'); };
+  function calc() {
+    var cust = +$('in-cust').value, sale = +$('in-sale').value,
+        rating = +$('in-rating').value, count = +$('in-count').value;
+    $('v-cust').textContent = fmt(cust);
+    $('v-sale').textContent = '$' + fmt(sale);
+    $('v-rating').textContent = rating.toFixed(1) + '\u2605';
+    $('v-count').textContent = fmt(count);
+
+    var perMonth = cust * 0.25;
+    var in90 = Math.round(perMonth * 3);
+    var inYear = Math.round(perMonth * 12);
+    var newRating = Math.min(4.9, (rating * count + 4.8 * inYear) / (count + inYear));
+    var lift = Math.max(0, newRating - rating);
+    var annualRev = cust * sale * 12;
+    var added = Math.round(annualRev * 0.05 * lift / 100) * 100;
+
+    $('r-90').textContent = '+' + fmt(in90);
+    $('r-year').textContent = '+' + fmt(inYear);
+    $('r-rating').textContent = newRating.toFixed(1) + '\u2605';
+    $('r-rev').textContent = '$' + fmt(added) + '+';
+  }
+  ['in-cust', 'in-sale', 'in-rating', 'in-count'].forEach(function (id) {
+    $(id).addEventListener('input', calc);
+  });
+  calc();
+})();
+</script>
+
+</body>
+</html>

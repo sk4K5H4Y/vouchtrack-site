@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pricing — VouchTrack | Simple Monthly Plans, No Contracts</title>
-<meta name="description" content="VouchTrack pricing: transparent monthly plans for local business reputation management. Founding rate $199/mo. No contracts, no setup fees, cancel anytime.">
+<title>Pricing — VouchTrack | Simple Plans, No Contracts, 30-Day Guarantee</title>
+<meta name="description" content="VouchTrack pricing: transparent plans for AI-powered local business reputation management. Founding rate $199/mo, save 20% annually. No contracts, 30-day money-back guarantee.">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,121 +14,167 @@
     <a href="index.html" class="logo"><span class="star">★</span>VouchTrack</a>
     <button class="menu-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
     <ul class="nav-links">
-      <li><a href="index.html#how">How it works</a></li>
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="features/index.html">Features</a></li>
       <li><a href="industries/index.html">Industries</a></li>
       <li><a href="pricing.html" class="active">Pricing</a></li>
       <li><a href="blog/index.html">Blog</a></li>
-      
       <li><a href="https://zcal.co/akshaysudarsan/30min" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Book a free demo</a></li>
     </ul>
   </div>
 </header>
 
-<section class="hero" style="padding:64px 0 40px;">
+<section class="hero" style="padding:64px 0 32px;">
   <div class="wrap" style="max-width:760px; text-align:center;">
     <span class="eyebrow">Pricing</span>
     <h1>Simple pricing, published right here</h1>
-    <p class="lede" style="margin:20px auto 0;">No "book a call to find out." No annual contracts. No setup fees. No renewal surprises. Every plan is month to month — cancel anytime with one email.</p>
+    <p class="lede" style="margin:20px auto 0;">No "book a call to find out." No setup fees. No renewal surprises. Every plan is month to month by default — prepay a year only if you want the discount. Either way, your first 30 days are covered by a full money-back guarantee.</p>
+    <div class="billing-toggle" role="group" aria-label="Billing period">
+      <button type="button" id="bt-monthly" class="on" aria-pressed="true" onclick="setBilling('monthly')">Monthly</button>
+      <button type="button" id="bt-annual" aria-pressed="false" onclick="setBilling('annual')">Annual <span class="save-pill">Save 20%</span></button>
+    </div>
+    <p class="billing-note" id="billing-note">Billed month to month. Cancel anytime with one email.</p>
   </div>
 </section>
 
-<section style="padding-top:24px;">
+<section style="padding-top:16px;">
   <div class="wrap">
     <div class="plans">
 
-      <div class="plan featured">
+      <div class="plan featured" data-monthly="199" data-annual="159" data-strike-monthly="249" data-strike-annual="199">
         <span class="plan-flag">Founding rate — first 15 businesses</span>
         <div class="plan-name">Founding Member</div>
         <div class="plan-for">For businesses joining us early. Lock this rate in for life.</div>
-        <div class="plan-price"><span class="plan-strike">$249</span>$199<span>/mo</span></div>
+        <div class="plan-price"><span class="plan-strike p-strike">$249</span><span class="p-base">$199</span><span>/mo</span></div>
+        <div class="plan-cycle p-cycle">per month, billed monthly</div>
         <ul class="checklist">
           <li>Automatic review requests after every visit</li>
           <li><strong>500 emails + 100 texts</strong> included monthly</li>
-          <li>Every review answered within hours</li>
-          <li>All your reviews in one inbox (Google, Facebook, Yelp + more)</li>
+          <li>Every review answered — AI-drafted in your voice, approved by a human</li>
+          <li>All your reviews in one inbox (<a href="review-sites.html">67+ review sites</a>)</li>
           <li>Reviews displayed on your website</li>
           <li>Monthly report card</li>
           <li>Full white-glove setup — done for you</li>
           <li>Direct line to your account manager</li>
         </ul>
-        
+        <div class="usage">
+          <div class="usage-title">Need more messages? Slide to add</div>
+          <div class="usage-row">
+            <label>Extra texts <span class="u-val sms-val">+0</span></label>
+            <input type="range" class="sms-slider" min="0" max="2000" step="100" value="0" aria-label="Extra texts per month">
+          </div>
+          <div class="usage-row">
+            <label>Extra emails <span class="u-val em-val">+0</span></label>
+            <input type="range" class="em-slider" min="0" max="10000" step="1000" value="0" aria-label="Extra emails per month">
+          </div>
+          <p class="usage-hint">Rule of thumb: one text per customer visit.</p>
+        </div>
+        <div class="plan-total"><span>Your total</span><strong class="p-total">$199/mo</strong></div>
         <a href="https://zcal.co/akshaysudarsan/30min" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Claim a founding spot</a>
       </div>
 
-      <div class="plan">
+      <div class="plan" data-monthly="249" data-annual="199" data-strike-monthly="" data-strike-annual="249">
         <div class="plan-name">Standard</div>
         <div class="plan-for">For single-location businesses ready to own their reputation.</div>
-        <div class="plan-price">$249<span>/mo</span></div>
+        <div class="plan-price"><span class="plan-strike p-strike" style="display:none;"></span><span class="p-base">$249</span><span>/mo</span></div>
+        <div class="plan-cycle p-cycle">per month, billed monthly</div>
         <ul class="checklist">
           <li>Everything in Founding Member</li>
           <li><strong>1,500 emails + 300 texts</strong> included monthly</li>
           <li>Neighborhood ranking map — see where you show up on Google, block by block</li>
           <li>Competitor watch — track the shop down the street</li>
           <li>Private feedback flow for unhappy customers</li>
+          <li>AI insights — what customers love, and what's costing you stars</li>
         </ul>
-        
+        <div class="usage">
+          <div class="usage-title">Need more messages? Slide to add</div>
+          <div class="usage-row">
+            <label>Extra texts <span class="u-val sms-val">+0</span></label>
+            <input type="range" class="sms-slider" min="0" max="2000" step="100" value="0" aria-label="Extra texts per month">
+          </div>
+          <div class="usage-row">
+            <label>Extra emails <span class="u-val em-val">+0</span></label>
+            <input type="range" class="em-slider" min="0" max="10000" step="1000" value="0" aria-label="Extra emails per month">
+          </div>
+          <p class="usage-hint">Rule of thumb: one text per customer visit.</p>
+        </div>
+        <div class="plan-total"><span>Your total</span><strong class="p-total">$249/mo</strong></div>
         <a href="https://zcal.co/akshaysudarsan/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Book a free demo</a>
       </div>
 
-      <div class="plan">
+      <div class="plan" data-monthly="299" data-annual="239" data-strike-monthly="" data-strike-annual="299">
         <div class="plan-name">Pro</div>
         <div class="plan-for">For busy locations and businesses with higher customer volume.</div>
-        <div class="plan-price">$299<span>/mo</span></div>
+        <div class="plan-price"><span class="plan-strike p-strike" style="display:none;"></span><span class="p-base">$299</span><span>/mo</span></div>
+        <div class="plan-cycle p-cycle">per month, billed monthly</div>
         <ul class="checklist">
           <li>Everything in Standard</li>
           <li><strong>4,000 emails + 800 texts</strong> included monthly</li>
           <li>AI search visibility — do ChatGPT &amp; Gemini recommend you?</li>
+          <li>Your best reviews turned into ready-to-post social content</li>
           <li>Quarterly strategy call</li>
           <li>Priority support</li>
         </ul>
-        
+        <div class="usage">
+          <div class="usage-title">Need more messages? Slide to add</div>
+          <div class="usage-row">
+            <label>Extra texts <span class="u-val sms-val">+0</span></label>
+            <input type="range" class="sms-slider" min="0" max="2000" step="100" value="0" aria-label="Extra texts per month">
+          </div>
+          <div class="usage-row">
+            <label>Extra emails <span class="u-val em-val">+0</span></label>
+            <input type="range" class="em-slider" min="0" max="10000" step="1000" value="0" aria-label="Extra emails per month">
+          </div>
+          <p class="usage-hint">Rule of thumb: one text per customer visit.</p>
+        </div>
+        <div class="plan-total"><span>Your total</span><strong class="p-total">$299/mo</strong></div>
         <a href="https://zcal.co/akshaysudarsan/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Book a free demo</a>
       </div>
 
     </div>
-    <p style="text-align:center; margin-top:28px; font-size:0.92rem;">Multi-location business? <a href="https://zcal.co/akshaysudarsan/30min" target="_blank" rel="noopener noreferrer">Talk to us</a> — multi-location pricing is simple and fair, we promise.</p>
+    <p style="text-align:center; margin-top:24px; font-size:0.9rem;">Extra texts are $4 per 100 · extra emails are $4 per 1,000 — always billed monthly, add or remove anytime. Need more than the sliders go, or have multiple locations? <a href="https://zcal.co/akshaysudarsan/30min" target="_blank" rel="noopener noreferrer">Talk to us</a>.</p>
   </div>
 </section>
 
 <section class="band-white">
   <div class="wrap" style="max-width:860px;">
-    <div class="section-head center">
-      <h2>Need more messages? Add them anytime.</h2>
-      <p>Every plan includes a generous monthly allowance of review-request texts and emails. Busy month? Add a message pack — it stacks on top of any plan and you can add or remove it whenever.</p>
+    <div class="grid-2" style="align-items:center;">
+      <div>
+        <span class="eyebrow">The 30-day guarantee</span>
+        <h2 style="margin-bottom:16px;">Try it for a month. Keep it only if it works.</h2>
+        <p>If you're not seeing more reviews coming in — or you simply don't want to continue, for any reason — email us within your first 30 days and we'll refund every dollar. One email. No forms, no phone tree, no "retention specialist."</p>
+      </div>
+      <div class="card" style="padding:32px;">
+        <h3 style="margin-bottom:14px;">Why we can offer it</h3>
+        <p style="margin-bottom:12px;">Most happy customers will leave a review — if someone actually asks them. VouchTrack makes sure every single customer gets asked, every single time. The math does the rest.</p>
+        <p style="font-size:0.92rem;">The guarantee covers annual plans too: 30 days, full refund, no questions asked.</p>
+      </div>
     </div>
-    <table>
-      <thead>
-        <tr><th>Message pack</th><th>What you get monthly</th><th>Price</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><strong>Boost</strong></td><td>+1,000 emails and +500 texts</td><td><strong>$29/mo</strong></td></tr>
-        <tr><td><strong>Scale</strong></td><td>+3,000 emails and +1,500 texts</td><td><strong>$79/mo</strong></td></tr>
-        <tr><td class="muted">Pay as you go</td><td class="muted">Beyond your allowance</td><td class="muted">4¢ per text · 0.4¢ per email</td></tr>
-      </tbody>
-    </table>
-    <p style="font-size:0.88rem; margin-top:16px; text-align:center;">Most single-location businesses never need a pack — the included allowance covers a typical month of customers comfortably.</p>
   </div>
 </section>
 
 <section>
-  <div class="wrap" style="max-width:860px;">
+  <div class="wrap" style="max-width:980px;">
     <div class="section-head center">
-      <h2>How we compare to the big platforms</h2>
-      <p>The enterprise reputation platforms are built for franchises with hundreds of locations. Here's what that means for a single-location business like yours.</p>
+      <h2>Where VouchTrack sits</h2>
+      <p>Cheaper tools exist — you're the one operating them. Bigger platforms exist — they're built for franchises with marketing teams. VouchTrack is the done-for-you middle, priced for a single location.</p>
     </div>
+    <div style="overflow-x:auto;">
     <table>
       <thead>
-        <tr><th></th><th>VouchTrack</th><th>Typical enterprise platform</th></tr>
+        <tr><th></th><th>DIY review software</th><th class="hl">VouchTrack</th><th>Enterprise platforms</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Monthly price</strong></td><td>$199–299, published here</td><td class="muted">$299–449/location — after multiple sales calls</td></tr>
-        <tr><td><strong>Setup fee</strong></td><td>None</td><td class="muted">$500–1,500</td></tr>
-        <tr><td><strong>Contract</strong></td><td>Month to month</td><td class="muted">Annual, often with 90-day cancellation notice</td></tr>
-        <tr><td><strong>Renewal surprises</strong></td><td>None — your rate is your rate</td><td class="muted">"Innovation fees" and increases at renewal</td></tr>
-        <tr><td><strong>Setup &amp; onboarding</strong></td><td>Done for you, one call</td><td class="muted">Self-serve portals and training videos</td></tr>
-        <tr><td><strong>Support</strong></td><td>A person you know by name</td><td class="muted">Ticket queues</td></tr>
+        <tr><td><strong>Monthly price</strong></td><td class="muted">$75–125</td><td class="hl">$199–299, published here</td><td class="muted">$300–450+/location, after sales calls</td></tr>
+        <tr><td><strong>Who does the work</strong></td><td class="muted">You do — it's software you operate</td><td class="hl">We do — you run your business</td><td class="muted">Your (nonexistent) marketing team</td></tr>
+        <tr><td><strong>Setup</strong></td><td class="muted">Self-serve, DIY</td><td class="hl">Done for you, one call</td><td class="muted">Paid onboarding, $500–1,500</td></tr>
+        <tr><td><strong>AI review replies</strong></td><td class="muted">Paid add-on or top tier</td><td class="hl">Included — drafted by AI, approved by a human</td><td class="muted">Enterprise tiers only</td></tr>
+        <tr><td><strong>Contract</strong></td><td class="muted">Monthly</td><td class="hl">Monthly — annual only if you choose the discount</td><td class="muted">Annual, often with 90-day cancellation notice</td></tr>
+        <tr><td><strong>Support</strong></td><td class="muted">Chat widget + help docs</td><td class="hl">A person you know by name</td><td class="muted">Ticket queues</td></tr>
+        <tr><td><strong>Guarantee</strong></td><td class="muted">Free trial, then you're on your own</td><td class="hl">30-day money-back guarantee</td><td class="muted">None</td></tr>
       </tbody>
     </table>
+    </div>
   </div>
 </section>
 
@@ -138,16 +184,28 @@
       <h2>Pricing questions</h2>
     </div>
     <details>
+      <summary>How does the annual discount work?</summary>
+      <p>Choose annual billing and every plan drops 20%: Founding Member $159/mo, Standard $199/mo, Pro $239/mo — billed once per year. It's entirely optional; monthly is the default and always will be. And the 30-day money-back guarantee applies to annual plans in full, so choosing annual never means risking a year's money.</p>
+    </details>
+    <details>
+      <summary>How does the 30-day guarantee work?</summary>
+      <p>Simple: if you don't want to keep VouchTrack — any reason at all — email us within 30 days of your first payment and we refund it in full. That applies to monthly and annual plans alike.</p>
+    </details>
+    <details>
       <summary>What counts as a "text" or "email"?</summary>
-      <p>Each review request we send on your behalf counts as one message. A typical customer receives one text or one email after their visit (plus at most one gentle reminder). If you serve 200 customers a month, you'll use roughly 200–400 messages — well within every plan's allowance.</p>
+      <p>Each review request we send on your behalf counts as one message. A typical customer receives one text or one email after their visit (plus at most one gentle reminder). If you serve 200 customers a month, you'll use roughly 200–400 messages — within every plan's included allowance.</p>
+    </details>
+    <details>
+      <summary>How do the message sliders work?</summary>
+      <p>Every plan includes a monthly allowance of texts and emails. If your customer volume is higher, slide to add more: extra texts are $4 per 100 and extra emails are $4 per 1,000. Add-ons are always billed monthly — even on annual plans — so you can raise or lower them any time your volume changes.</p>
     </details>
     <details>
       <summary>Will my price go up later?</summary>
-      <p>No. The rate you join at is the rate you keep. Founding Members lock in $199/month for as long as they stay subscribed — even after the founding rate closes.</p>
+      <p>No. The rate you join at is the rate you keep. Founding Members lock in $199/month (or $159/month annual) for as long as they stay subscribed — even after the founding rate closes.</p>
     </details>
     <details>
       <summary>Is there really no contract?</summary>
-      <p>Really. Month to month, cancel with one email, effective at the end of your billing cycle. We keep customers by being good, not by locking doors.</p>
+      <p>Really. Month to month, cancel with one email, effective at the end of your billing cycle. The annual option is a discount for prepaying — not a contract we hold you to, and it's covered by the same 30-day guarantee. We keep customers by being good, not by locking doors.</p>
     </details>
     <details>
       <summary>What happens on the free demo call?</summary>
@@ -159,8 +217,7 @@
 <section class="band-ink cta-band">
   <div class="wrap">
     <h2>Lock in the founding rate</h2>
-    <p>The first 15 businesses join at $199/month — for life. After that, the door closes and standard pricing applies.</p>
-    
+    <p>The first 15 businesses join at $199/month — for life. After that, the door closes and standard pricing applies. Your first 30 days are money-back guaranteed either way.</p>
     <a href="https://zcal.co/akshaysudarsan/30min" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-lg">Book my free demo</a>
   </div>
 </section>
@@ -170,7 +227,17 @@
     <div class="foot-grid">
       <div>
         <a href="index.html" class="logo"><span class="star">★</span>VouchTrack</a>
-        <p style="font-size:0.9rem; max-width:26em;">Automatic review collection and reputation management for main-street businesses across the United States.</p>
+        <p style="font-size:0.9rem; max-width:26em;">AI-powered review collection and reputation management for main-street businesses across the United States — human-approved, done for you.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="features/index.html">Features</a></li>
+          <li><a href="review-sites.html">67+ review sites</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="tools/review-calculator.html">Review ROI calculator</a></li>
+        </ul>
       </div>
       <div>
         <h4>Industries</h4>
@@ -184,17 +251,18 @@
         </ul>
       </div>
       <div>
-        <h4>Company</h4>
+        <h4>Resources</h4>
         <ul>
-          <li><a href="pricing.html">Pricing</a></li>
           <li><a href="blog/index.html">Blog</a></li>
-          <li><a href="https://zcal.co/akshaysudarsan/30min" target="_blank" rel="noopener noreferrer">Book a demo</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="about.html">About</a></li>
         </ul>
       </div>
       <div>
         <h4>Contact</h4>
         <ul>
           <li><a href="mailto:hello@vouchtrack.com">hello@vouchtrack.com</a></li>
+          <li><a href="https://zcal.co/akshaysudarsan/30min" target="_blank" rel="noopener noreferrer">Book a demo</a></li>
         </ul>
       </div>
     </div>
@@ -204,6 +272,56 @@
     </div>
   </div>
 </footer>
+
+<script>
+(function () {
+  var billing = 'monthly';
+  var fmt = function (n) { return n.toLocaleString('en-US'); };
+
+  function updatePlan(plan) {
+    var base = parseInt(plan.dataset[billing], 10);
+    var strike = plan.dataset['strike' + (billing === 'monthly' ? 'Monthly' : 'Annual')];
+    var sms = parseInt(plan.querySelector('.sms-slider').value, 10);
+    var em = parseInt(plan.querySelector('.em-slider').value, 10);
+    var smsCost = (sms / 100) * 4;
+    var emCost = (em / 1000) * 4;
+
+    plan.querySelector('.p-base').textContent = '$' + base;
+    var strikeEl = plan.querySelector('.p-strike');
+    if (strike) { strikeEl.textContent = '$' + strike; strikeEl.style.display = ''; }
+    else { strikeEl.style.display = 'none'; }
+
+    plan.querySelector('.p-cycle').textContent = billing === 'monthly'
+      ? 'per month, billed monthly'
+      : 'per month, billed annually ($' + fmt(base * 12) + '/yr)';
+
+    plan.querySelector('.sms-val').textContent = sms === 0 ? '+0' : '+' + fmt(sms) + ' (+$' + smsCost + '/mo)';
+    plan.querySelector('.em-val').textContent = em === 0 ? '+0' : '+' + fmt(em) + ' (+$' + emCost + '/mo)';
+
+    var total = base + smsCost + emCost;
+    plan.querySelector('.p-total').textContent = '$' + fmt(total) + '/mo';
+  }
+
+  function updateAll() {
+    document.querySelectorAll('.plan').forEach(updatePlan);
+    document.getElementById('bt-monthly').classList.toggle('on', billing === 'monthly');
+    document.getElementById('bt-annual').classList.toggle('on', billing === 'annual');
+    document.getElementById('bt-monthly').setAttribute('aria-pressed', billing === 'monthly');
+    document.getElementById('bt-annual').setAttribute('aria-pressed', billing === 'annual');
+    document.getElementById('billing-note').textContent = billing === 'monthly'
+      ? 'Billed month to month. Cancel anytime with one email.'
+      : 'One payment per year, 20% off — covered by the 30-day money-back guarantee.';
+  }
+
+  window.setBilling = function (b) { billing = b; updateAll(); };
+
+  document.querySelectorAll('.plan input[type="range"]').forEach(function (r) {
+    r.addEventListener('input', function () { updatePlan(r.closest('.plan')); });
+  });
+
+  updateAll();
+})();
+</script>
 
 </body>
 </html>

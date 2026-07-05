@@ -284,7 +284,7 @@ details p { margin-top: 12px; font-size: 0.96rem; }
 
 /* ---------- Footer ---------- */
 footer { background: var(--ink); color: #B9C4D4; padding: 56px 0 32px; }
-.foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+.foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 36px; margin-bottom: 40px; }
 @media (max-width: 800px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
 footer .logo { color: var(--white); margin-bottom: 12px; }
 footer h4 { color: var(--white); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 14px; }
@@ -298,3 +298,94 @@ footer a:hover { color: var(--white); }
 a:focus-visible, button:focus-visible, summary:focus-visible {
   outline: 3px solid var(--gold); outline-offset: 2px; border-radius: 4px;
 }
+
+/* ============================================================
+   Additions — pricing toggle, usage sliders, chips, calculator
+   ============================================================ */
+
+/* ---------- Billing toggle ---------- */
+.billing-toggle {
+  display: inline-flex; align-items: center; gap: 0;
+  background: var(--white); border: 1px solid var(--line); border-radius: 999px;
+  padding: 5px; margin: 28px auto 0; box-shadow: var(--shadow);
+}
+.billing-toggle button {
+  border: none; background: transparent; cursor: pointer;
+  font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 0.95rem;
+  color: var(--slate); padding: 9px 22px; border-radius: 999px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.billing-toggle button.on { background: var(--ink); color: var(--white); }
+.billing-toggle .save-pill {
+  background: var(--leaf-soft); color: var(--leaf); font-size: 0.72rem;
+  font-weight: 700; padding: 2px 8px; border-radius: 999px; margin-left: 6px;
+}
+.billing-toggle button.on .save-pill { background: var(--gold); color: var(--ink); }
+.billing-note { text-align: center; font-size: 0.88rem; margin-top: 12px; min-height: 1.4em; }
+
+.plan-cycle { font-size: 0.85rem; color: var(--slate); margin-top: 4px; min-height: 1.3em; }
+
+/* ---------- Usage sliders inside plan cards ---------- */
+.usage {
+  border-top: 1px dashed var(--line); margin-top: 4px; padding-top: 18px;
+}
+.usage-title { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--slate); margin-bottom: 12px; }
+.usage-row { margin-bottom: 14px; }
+.usage-row label { display: flex; justify-content: space-between; font-size: 0.88rem; color: var(--ink); font-weight: 500; margin-bottom: 6px; gap: 8px; }
+.usage-row label .u-val { color: var(--slate); font-weight: 600; white-space: nowrap; }
+.usage-row input[type="range"] {
+  width: 100%; accent-color: var(--gold); cursor: pointer; height: 22px;
+}
+.plan-total {
+  background: var(--paper); border-radius: var(--radius); padding: 12px 16px;
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 0.9rem; color: var(--slate); margin: 6px 0 20px;
+}
+.plan-total strong { font-family: 'Fraunces', serif; font-size: 1.3rem; color: var(--ink); }
+.usage-hint { font-size: 0.8rem; color: var(--slate); margin-top: -6px; margin-bottom: 16px; }
+
+/* ---------- Comparison table highlight ---------- */
+th.hl { background: var(--gold); color: var(--ink); }
+td.hl { background: #FDF6E9; font-weight: 600; }
+
+/* ---------- Review-site chips ---------- */
+.chip-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip {
+  background: var(--white); border: 1px solid var(--line); border-radius: 999px;
+  padding: 8px 16px; font-size: 0.9rem; font-weight: 500; color: var(--ink);
+  display: inline-flex; align-items: center; gap: 8px; box-shadow: var(--shadow);
+}
+.chip::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+.chip.leaf::before { background: var(--leaf); }
+.chip.ink::before { background: var(--ink); }
+.chip-more { background: var(--ink); color: var(--white); text-decoration: none; border-color: var(--ink); }
+.chip-more::before { background: var(--gold); }
+.chip-more:hover { background: var(--ink-soft); }
+.site-cat { margin-bottom: 40px; }
+.site-cat h3 { margin-bottom: 6px; }
+.site-cat .cat-note { font-size: 0.93rem; margin-bottom: 16px; }
+
+/* ---------- AI band ---------- */
+.ai-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--gold-soft); color: var(--ink); border-radius: 999px;
+  font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+  padding: 6px 14px; margin-bottom: 16px;
+}
+
+/* ---------- Calculator ---------- */
+.calc-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+@media (max-width: 900px) { .calc-wrap { grid-template-columns: 1fr; } }
+.calc-panel { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 30px; box-shadow: var(--shadow); }
+.calc-field { margin-bottom: 20px; }
+.calc-field label { display: flex; justify-content: space-between; font-weight: 600; font-size: 0.95rem; margin-bottom: 8px; gap: 8px; }
+.calc-field label .u-val { color: var(--gold); font-family: 'Fraunces', serif; font-size: 1.05rem; white-space: nowrap; }
+.calc-field input[type="range"] { width: 100%; accent-color: var(--gold); cursor: pointer; height: 24px; }
+.calc-field .field-hint { font-size: 0.82rem; color: var(--slate); margin-top: 4px; }
+.calc-result { background: var(--ink); color: #B9C4D4; border-radius: var(--radius-lg); padding: 30px; }
+.calc-result h3 { color: var(--white); margin-bottom: 20px; }
+.calc-line { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; padding: 12px 0; border-bottom: 1px dashed #2A3D5A; font-size: 0.93rem; }
+.calc-line:last-of-type { border-bottom: none; }
+.calc-line strong { font-family: 'Fraunces', serif; font-size: 1.5rem; color: var(--gold); white-space: nowrap; }
+.calc-line.big strong { font-size: 2rem; }
+.calc-note { font-size: 0.8rem; margin-top: 16px; color: #8FA0B8; }
