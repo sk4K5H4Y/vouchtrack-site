@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Google Review QR Poster Maker | VouchTrack</title>
+<meta name="description" content="Make a printable 'leave us a review' counter card: paste your Google review link, get a crisp QR poster to print — free, in your browser.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VouchTrack">
+<meta property="og:title" content="Free Google Review QR Poster Maker | VouchTrack">
+<meta property="og:description" content="Make a printable 'leave us a review' counter card: paste your Google review link, get a crisp QR poster to print — free, in your browser.">
+<meta property="og:url" content="https://www.vouchtrack.com/tools/review-qr-poster">
+<meta property="og:image" content="https://www.vouchtrack.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.vouchtrack.com/og-image.png">
+<meta name="theme-color" content="#1B2A41">
+<link rel="canonical" href="https://www.vouchtrack.com/tools/review-qr-poster">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Where do I get my Google review link?", "acceptedAnswer": {"@type": "Answer", "text": "Sign in to your Google Business Profile (search your business name on Google while signed in as the owner), and look for the 'Ask for reviews' or 'Get more reviews' option — it gives you a short link, usually starting with g.page/r/. That link opens the review box directly. Paste it here."}}, {"@type": "Question", "name": "What size does the poster print at?", "acceptedAnswer": {"@type": "Answer", "text": "It is laid out for a 5 by 7 inch card — big enough to scan from across a counter, small enough to sit by the register. Printing on regular letter paper works too: it centers on the page, and you can trim it. The QR code is generated at high resolution so it stays crisp."}}, {"@type": "Question", "name": "Does the QR code expire or stop working?", "acceptedAnswer": {"@type": "Answer", "text": "No. The QR code is just your review link, encoded — nothing is hosted by us and there is nothing to expire. As long as your Google Business Profile is live, the code keeps working."}}]}</script>
+<style>
+#poster {
+  width: 360px; margin: 0 auto; background: #fff; border: 1px solid var(--line);
+  border-radius: 12px; padding: 36px 28px; text-align: center;
+  box-shadow: var(--shadow);
+}
+#poster .p-stars { color: var(--gold); font-size: 1.6rem; letter-spacing: 4px; }
+#poster .p-head { font-size: 1.7rem; font-weight: 700; color: var(--ink); margin: 12px 0 6px; }
+#poster .p-sub { color: var(--slate); font-size: 0.95rem; margin-bottom: 20px; }
+#poster #qr { display: flex; justify-content: center; }
+#poster #qr img, #poster #qr canvas { width: 220px !important; height: 220px !important; }
+#poster .p-biz { font-weight: 600; color: var(--ink); margin-top: 18px; font-size: 1.05rem; }
+#poster .p-credit { color: #9aa5b1; font-size: 0.65rem; margin-top: 14px; }
+@media print {
+  body * { visibility: hidden; }
+  #poster, #poster * { visibility: visible; }
+  #poster {
+    position: fixed; left: 50%; top: 40px; transform: translateX(-50%);
+    width: 5in; border: none; box-shadow: none;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="/" class="logo"><span class="star">★</span>VouchTrack</a>
+    <button class="menu-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+      <li><a href="/how-it-works">How it works</a></li>
+      <li><a href="/features">Features</a></li>
+      <li><a href="/industries">Industries</a></li>
+      <li><a href="/pricing">Pricing</a></li>
+      <li><a href="/tools">Free tools</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="https://zcal.co/akshaysudarsan/30min" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Book a free demo</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="industry-hero" style="padding-bottom:32px;">
+  <div class="wrap">
+    <span class="eyebrow">Free tool</span>
+    <h1>A review ask that sits on your counter</h1>
+    <p class="lede" style="max-width:40em; margin-top:18px;">Paste your Google review link, get a clean, printable card with a scannable QR code. Tape it by the register, tuck it in the check presenter, done. Everything happens in your browser — your link never leaves this page.</p>
+  </div>
+</section>
+
+<section class="band-white" style="padding-top:48px;">
+  <div class="wrap" style="max-width:980px;">
+    <div class="calc-wrap">
+      <div class="calc-panel">
+        <div class="calc-field">
+          <label for="in-link">Your Google review link</label>
+          <input type="url" id="in-link" placeholder="https://g.page/r/..." style="width:100%; padding:10px; border:1px solid var(--line); border-radius:8px; font-size:1rem;">
+          <p class="field-hint">Don't have it? See "Where do I get my Google review link?" below.</p>
+        </div>
+        <div class="calc-field">
+          <label for="in-biz">Business name</label>
+          <input type="text" id="in-biz" placeholder="e.g. Riverside Salon" style="width:100%; padding:10px; border:1px solid var(--line); border-radius:8px; font-size:1rem;">
+        </div>
+        <div class="calc-field">
+          <label for="in-head">Headline</label>
+          <select id="in-head" style="width:100%; padding:10px; border:1px solid var(--line); border-radius:8px; font-size:1rem; background:var(--white);">
+            <option selected>How did we do?</option>
+            <option>Enjoyed your visit?</option>
+            <option>Leave us a Google review</option>
+          </select>
+        </div>
+        <div class="calc-field">
+          <label style="display:flex; align-items:center; gap:8px; font-weight:normal;">
+            <input type="checkbox" id="in-credit" checked style="width:auto;">
+            Include a small "Powered by VouchTrack" credit
+          </label>
+        </div>
+      </div>
+      <div class="calc-result" aria-live="polite">
+        <h3 style="text-align:center;">Preview</h3>
+        <div id="poster">
+          <div class="p-stars">★★★★★</div>
+          <div class="p-head" id="p-head">How did we do?</div>
+          <div class="p-sub">Scan to leave us a Google review — it takes 30 seconds.</div>
+          <div id="qr"></div>
+          <div class="p-biz" id="p-biz"></div>
+          <div class="p-credit" id="p-credit">Powered by VouchTrack · vouchtrack.com</div>
+        </div>
+        <p class="calc-note" id="qr-note" style="margin-top:14px;">Paste your review link above and the QR code appears here.</p>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:32px;">
+      <button id="btn-print" class="btn btn-primary btn-lg" disabled>🖨 Print my poster</button>
+      <a id="btn-png" class="btn btn-outline" style="margin-left:10px; display:none;" download="review-poster.png">⬇ Download PNG</a>
+    </p>
+    <p class="small" style="text-align:center; margin-top:18px;">Also try: <a href="/tools/review-request-templates">Review request message generator →</a> · <a href="/tools">All free tools →</a></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap" style="max-width:760px;">
+    <div class="section-head center"><h2>Questions</h2></div>
+    <details>
+      <summary>Where do I get my Google review link?</summary>
+      <p>Sign in to your Google Business Profile (search your business name on Google while signed in as the owner), and look for the <strong>"Ask for reviews"</strong> or <strong>"Get more reviews"</strong> option — it gives you a short link, usually starting with <code>g.page/r/</code>. That link opens the review box directly. Paste it here.</p>
+    </details>
+    <details>
+      <summary>What size does the poster print at?</summary>
+      <p>It's laid out for a 5×7 inch card — big enough to scan from across a counter, small enough to sit by the register. Printing on regular letter paper works too: it centers on the page and you can trim it. The QR code is generated at high resolution so it stays crisp.</p>
+    </details>
+    <details>
+      <summary>Does the QR code expire or stop working?</summary>
+      <p>No. The QR code is just your review link, encoded — nothing is hosted by us and there's nothing to expire. As long as your Google Business Profile is live, the code keeps working.</p>
+    </details>
+  </div>
+</section>
+
+<section class="band-ink cta-band">
+  <div class="wrap">
+    <h2>The QR catches walk-ins. Texts catch everyone.</h2>
+    <p>A counter card is the perfect backup. VouchTrack is the machine in front of it: every customer texted or emailed after every visit, every review answered, automatically.</p>
+    <a href="https://zcal.co/akshaysudarsan/30min" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-lg">Book my free demo</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="/" class="logo"><span class="star">★</span>VouchTrack</a>
+        <p style="font-size:0.9rem; max-width:26em;">AI-powered review collection and reputation management for main-street businesses across the United States — human-approved, done for you.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/how-it-works">How it works</a></li>
+          <li><a href="/features">Features</a></li>
+          <li><a href="/review-sites">67+ review sites</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/tools">Free tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Industries</h4>
+        <ul>
+          <li><a href="/industries/hair-salons">Hair salons</a></li>
+          <li><a href="/industries/nail-salons-spas">Nail salons &amp; spas</a></li>
+          <li><a href="/industries/auto-repair">Auto repair</a></li>
+          <li><a href="/industries/dental">Dental offices</a></li>
+          <li><a href="/industries/restaurants">Restaurants</a></li>
+          <li><a href="/industries/hvac-home-services">HVAC &amp; home services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@vouchtrack.com">hello@vouchtrack.com</a></li>
+          <li><a href="https://zcal.co/akshaysudarsan/30min" target="_blank" rel="noopener noreferrer">Book a demo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 VouchTrack. All rights reserved.</span>
+      <span><a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a></span>
+      <span>Made for main-street businesses.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/qrcode.min.js"></script>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var qrObj = null;
+
+  function isValidUrl(u) { return /^https?:\/\/.+\..+/.test(u); }
+
+  function render() {
+    var link = $("in-link").value.trim();
+    var biz = $("in-biz").value.trim();
+    var head = $("in-head").value;
+    $("p-head").textContent = head;
+    $("p-biz").textContent = biz;
+    $("p-credit").style.display = $("in-credit").checked ? "" : "none";
+
+    var qrEl = $("qr"), note = $("qr-note"),
+        printBtn = $("btn-print"), pngBtn = $("btn-png");
+
+    if (!window.QRCode) {
+      note.textContent = "The QR generator couldn't load — check your connection and refresh.";
+      return;
+    }
+    if (!isValidUrl(link)) {
+      qrEl.innerHTML = "";
+      qrObj = null;
+      note.textContent = link ? "That doesn't look like a full link yet — it should start with https://" : "Paste your review link above and the QR code appears here.";
+      printBtn.disabled = true;
+      pngBtn.style.display = "none";
+      return;
+    }
+    qrEl.innerHTML = "";
+    qrObj = new QRCode(qrEl, {
+      text: link, width: 512, height: 512,
+      colorDark: "#1B2A41", colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+    note.textContent = "Scan it with your phone camera to test before printing.";
+    printBtn.disabled = false;
+    // PNG needs the QR image to finish rendering
+    setTimeout(updatePng, 150);
+  }
+
+  function updatePng() {
+    try {
+      var img = $("qr").querySelector("img");
+      var src = img && img.src;
+      if (!src) { var cv = $("qr").querySelector("canvas"); src = cv && cv.toDataURL("image/png"); }
+      if (!src) return;
+      var biz = $("in-biz").value.trim();
+      var head = $("in-head").value;
+      var credit = $("in-credit").checked;
+      var W = 1000, H = 1400;
+      var c = document.createElement("canvas"); c.width = W; c.height = H;
+      var ctx = c.getContext("2d");
+      ctx.fillStyle = "#ffffff"; ctx.fillRect(0, 0, W, H);
+      ctx.textAlign = "center";
+      ctx.fillStyle = "#E8A33D"; ctx.font = "80px Arial";
+      ctx.fillText("\u2605 \u2605 \u2605 \u2605 \u2605", W / 2, 150);
+      ctx.fillStyle = "#1B2A41"; ctx.font = "bold 72px Arial";
+      ctx.fillText(head, W / 2, 270);
+      ctx.fillStyle = "#5A6B7E"; ctx.font = "36px Arial";
+      ctx.fillText("Scan to leave us a Google review \u2014 it takes 30 seconds.", W / 2, 340);
+      var qi = new Image();
+      qi.onload = function () {
+        ctx.drawImage(qi, (W - 560) / 2, 400, 560, 560);
+        ctx.fillStyle = "#1B2A41"; ctx.font = "bold 44px Arial";
+        if (biz) ctx.fillText(biz, W / 2, 1060);
+        if (credit) {
+          ctx.fillStyle = "#9aa5b1"; ctx.font = "26px Arial";
+          ctx.fillText("Powered by VouchTrack \u00b7 vouchtrack.com", W / 2, 1330);
+        }
+        var a = $("btn-png");
+        a.href = c.toDataURL("image/png");
+        a.style.display = "";
+      };
+      qi.src = src;
+    } catch (e) { /* PNG export is best-effort; printing still works */ }
+  }
+
+  $("btn-print").addEventListener("click", function () { window.print(); });
+  ["in-link", "in-biz", "in-head", "in-credit"].forEach(function (id) {
+    $(id).addEventListener("input", render);
+    $(id).addEventListener("change", render);
+  });
+  render();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Review Request Templates — Text &amp; Email | VouchTrack</title>
+<meta name="description" content="Free generator: ready-to-send review request messages by text and email, tuned to your industry, with your business name and review link filled in.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VouchTrack">
+<meta property="og:title" content="Review Request Templates — Text &amp; Email | VouchTrack">
+<meta property="og:description" content="Free generator: ready-to-send review request messages by text and email, tuned to your industry, with your business name and review link filled in.">
+<meta property="og:url" content="https://www.vouchtrack.com/tools/review-request-templates">
+<meta property="og:image" content="https://www.vouchtrack.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.vouchtrack.com/og-image.png">
+<meta name="theme-color" content="#1B2A41">
+<link rel="canonical" href="https://www.vouchtrack.com/tools/review-request-templates">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is it allowed to ask customers for Google reviews?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Google is fine with asking customers for honest reviews — what it prohibits is paying for them, gating them, or soliciting a specific sentiment. Every template on this page asks for a review, never for a positive one."}}, {"@type": "Question", "name": "Can I offer a discount or freebie for a review?", "acceptedAnswer": {"@type": "Answer", "text": "No. Google's review policies prohibit incentivized reviews outright, and the FTC's Consumer Reviews and Testimonials Rule prohibits compensation or incentives conditioned on a review expressing a particular sentiment, positive or negative. Just ask — most happy customers will."}}, {"@type": "Question", "name": "Can I send the review link only to customers I know are happy?", "acceptedAnswer": {"@type": "Answer", "text": "That is called review gating — using a pre-check like 'were you happy?' and only routing the happy ones to Google — and Google's policies prohibit it. Ask everyone, every time. A private feedback path for unhappy customers is fine, as long as happy and unhappy customers alike can reach the public review page."}}, {"@type": "Question", "name": "Do I need permission to text customers?", "acceptedAnswer": {"@type": "Answer", "text": "In the US, texting customers falls under the TCPA: get consent to send them messages — a checkbox or a line at booking or checkout works — keep volume low, and honor opt-outs immediately. Email is safer if you have not collected texting consent yet."}}]}</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="/" class="logo"><span class="star">★</span>VouchTrack</a>
+    <button class="menu-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+      <li><a href="/how-it-works">How it works</a></li>
+      <li><a href="/features">Features</a></li>
+      <li><a href="/industries">Industries</a></li>
+      <li><a href="/pricing">Pricing</a></li>
+      <li><a href="/tools">Free tools</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="https://zcal.co/akshaysudarsan/30min" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Book a free demo</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="industry-hero" style="padding-bottom:32px;">
+  <div class="wrap">
+    <span class="eyebrow">Free tool</span>
+    <h1>Review request messages that actually get reviews</h1>
+    <p class="lede" style="max-width:40em; margin-top:18px;">Pick your industry and channel, drop in your business name and review link, and copy messages that sound like a person — not a robot with a survey. Every template follows <a href="#rules" style="color:inherit;">the rules</a>.</p>
+  </div>
+</section>
+
+<section class="band-white" style="padding-top:48px;">
+  <div class="wrap" style="max-width:980px;">
+    <div class="calc-wrap">
+      <div class="calc-panel">
+        <div class="calc-field">
+          <label for="in-industry">Your industry</label>
+          <select id="in-industry" style="width:100%; padding:10px; border:1px solid var(--line); border-radius:8px; font-size:1rem; background:var(--white);">
+            <option value="general">General local business</option>
+            <option value="salon" selected>Hair salon / barbershop</option>
+            <option value="nails">Nail salon / spa</option>
+            <option value="auto">Auto repair</option>
+            <option value="dental">Dental office</option>
+            <option value="restaurant">Restaurant / café</option>
+            <option value="hvac">HVAC / home services</option>
+          </select>
+        </div>
+        <div class="calc-field">
+          <label for="in-channel">Channel</label>
+          <select id="in-channel" style="width:100%; padding:10px; border:1px solid var(--line); border-radius:8px; font-size:1rem; background:var(--white);">
+            <option value="text" selected>Text message</option>
+            <option value="email">Email</option>
+          </select>
+        </div>
+        <div class="calc-field">
+          <label for="in-biz">Business name</label>
+          <input type="text" id="in-biz" placeholder="e.g. Riverside Salon" style="width:100%; padding:10px; border:1px solid var(--line); border-radius:8px; font-size:1rem;">
+          <p class="field-hint">Leave blank to keep a [Your business] placeholder.</p>
+        </div>
+        <div class="calc-field">
+          <label for="in-link">Your Google review link</label>
+          <input type="url" id="in-link" placeholder="https://g.page/r/..." style="width:100%; padding:10px; border:1px solid var(--line); border-radius:8px; font-size:1rem;">
+          <p class="field-hint">Don't have one yet? Our <a href="/tools/review-qr-poster">QR poster tool</a> explains where to find it.</p>
+        </div>
+      </div>
+      <div class="calc-result" aria-live="polite" id="out-wrap">
+        <h3>Your messages</h3>
+        <div id="out-templates"></div>
+        <p class="calc-note">[First name] stays as a placeholder for you to fill in per customer. Texts show character counts — one SMS segment is 160 characters.</p>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:32px;">
+      <a href="https://zcal.co/akshaysudarsan/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Never send these manually again — see how</a>
+    </p>
+    <p style="text-align:center; margin-top:12px;">
+      <a id="email-results" class="btn btn-outline" href="mailto:hello@vouchtrack.com">✉ Email me these templates</a>
+    </p>
+    <p class="small" style="text-align:center; margin-top:18px;">Also try: <a href="/tools/review-qr-poster">Review QR poster maker →</a> · <a href="/tools">All free tools →</a></p>
+  </div>
+</section>
+
+<section id="rules">
+  <div class="wrap" style="max-width:760px;">
+    <div class="section-head center"><h2>The rules (so your reviews stay up)</h2></div>
+    <details>
+      <summary>Is it allowed to ask customers for Google reviews?</summary>
+      <p>Yes. Google is fine with asking customers for honest reviews — what it prohibits is paying for them, gating them, or soliciting a specific sentiment. Every template on this page asks for <em>a review</em>, never for a positive one.</p>
+    </details>
+    <details>
+      <summary>Can I offer a discount or freebie for a review?</summary>
+      <p>No. Google's review policies prohibit incentivized reviews outright, and the <a href="https://www.ftc.gov/business-guidance/resources/consumer-reviews-testimonials-rule-questions-answers" target="_blank" rel="noopener noreferrer">FTC's Consumer Reviews and Testimonials Rule</a> prohibits compensation or incentives conditioned on a review expressing a particular sentiment — positive or negative. Just ask; most happy customers will.</p>
+    </details>
+    <details>
+      <summary>Can I send the review link only to customers I know are happy?</summary>
+      <p>That's called <em>review gating</em> — a "were you happy?" pre-check that only routes the happy ones to Google — and Google's policies prohibit it. Ask everyone, every time. A private feedback path for unhappy customers is fine, as long as it doesn't block anyone from the public review page. Not sure where your current practice stands? Take the <a href="/tools/review-policy-quiz">review policy checkup</a>.</p>
+    </details>
+    <details>
+      <summary>Do I need permission to text customers?</summary>
+      <p>In the US, texting customers falls under the TCPA: get consent to message them (a checkbox or a line at booking or checkout works), keep volume low, and honor opt-outs immediately. Email is the safer channel if you haven't collected texting consent yet.</p>
+    </details>
+  </div>
+</section>
+
+<section class="band-ink cta-band">
+  <div class="wrap">
+    <h2>Copying templates works. Until someone forgets.</h2>
+    <p>VouchTrack sends a message like these to every customer after every visit — in your name, on time, every time — and answers the reviews that come back. You approve the wording once.</p>
+    <a href="https://zcal.co/akshaysudarsan/30min" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-lg">Book my free demo</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="/" class="logo"><span class="star">★</span>VouchTrack</a>
+        <p style="font-size:0.9rem; max-width:26em;">AI-powered review collection and reputation management for main-street businesses across the United States — human-approved, done for you.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/how-it-works">How it works</a></li>
+          <li><a href="/features">Features</a></li>
+          <li><a href="/review-sites">67+ review sites</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/tools">Free tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Industries</h4>
+        <ul>
+          <li><a href="/industries/hair-salons">Hair salons</a></li>
+          <li><a href="/industries/nail-salons-spas">Nail salons &amp; spas</a></li>
+          <li><a href="/industries/auto-repair">Auto repair</a></li>
+          <li><a href="/industries/dental">Dental offices</a></li>
+          <li><a href="/industries/restaurants">Restaurants</a></li>
+          <li><a href="/industries/hvac-home-services">HVAC &amp; home services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@vouchtrack.com">hello@vouchtrack.com</a></li>
+          <li><a href="https://zcal.co/akshaysudarsan/30min" target="_blank" rel="noopener noreferrer">Book a demo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 VouchTrack. All rights reserved.</span>
+      <span><a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a></span>
+      <span>Made for main-street businesses.</span>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+
+  var LINES = {
+    general:    { visit: "coming in today", thanks: "It was great to see you" },
+    salon:      { visit: "letting us take care of your hair today", thanks: "We loved having you in the chair" },
+    nails:      { visit: "treating yourself with us today", thanks: "We loved having you in" },
+    auto:       { visit: "trusting us with your car", thanks: "Thanks for trusting us with your car" },
+    dental:     { visit: "coming in for your appointment", thanks: "It was great to see you at your appointment" },
+    restaurant: { visit: "dining with us", thanks: "Thank you for dining with us" },
+    hvac:       { visit: "letting us take care of your home", thanks: "Thanks for having us out" }
+  };
+
+  function build(industry, channel, biz, link) {
+    var L = LINES[industry] || LINES.general;
+    var b = biz || "[Your business]";
+    var u = link || "[Your review link]";
+    if (channel === "text") {
+      return [
+        { label: "Warm", body: "Hi [First name], thanks so much for " + L.visit + "! If you have 30 seconds, a quick Google review would mean a lot to us at " + b + ": " + u },
+        { label: "Short", body: b + ": thanks for " + L.visit + ", [First name]! Mind sharing the love on Google? " + u },
+        { label: "Gentle reminder", body: "Hi [First name], just a gentle nudge from " + b + " — if you have a moment, we'd love a quick Google review: " + u + " (If not, no worries at all!)" }
+      ];
+    }
+    return [
+      { label: "Warm", subject: "A quick favor, [First name]?", body: "Hi [First name],\n\n" + L.thanks + " — thank you for " + L.visit + ".\n\nIf you have 30 seconds, would you share a quick review of your experience on Google? It genuinely helps neighbors find us:\n" + u + "\n\nThanks so much,\nThe team at " + b },
+      { label: "Short", subject: "How did we do, [First name]?", body: "Hi [First name],\n\nThanks for " + L.visit + "! A one-tap Google review helps us more than you'd think:\n" + u + "\n\n— " + b },
+      { label: "Gentle reminder", subject: "Still time for that review?", body: "Hi [First name],\n\nJust a gentle nudge — if you have a spare moment, we'd still love to hear how your visit to " + b + " went:\n" + u + "\n\nAnd if not, no worries at all. Thanks for being a customer!\n\n— " + b }
+    ];
+  }
+
+  function segments(len) {
+    if (len <= 160) return "1 SMS segment";
+    return Math.ceil(len / 153) + " SMS segments";
+  }
+
+  function esc(s) {
+    return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+
+  function render() {
+    var industry = $("in-industry").value, channel = $("in-channel").value,
+        biz = $("in-biz").value.trim(), link = $("in-link").value.trim();
+    var items = build(industry, channel, biz, link);
+    var html = "";
+    items.forEach(function (t, i) {
+      html += '<div style="border:1px solid var(--line); border-radius:10px; padding:14px; margin-bottom:14px; background:var(--white);">';
+      html += '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">';
+      html += '<strong>' + t.label + '</strong>';
+      html += '<button class="btn btn-outline" data-copy="' + i + '" style="padding:4px 12px; font-size:0.85rem;">Copy</button></div>';
+      if (t.subject) html += '<div class="small" style="margin-bottom:6px;"><em>Subject:</em> ' + esc(t.subject) + '</div>';
+      html += '<div style="white-space:pre-wrap; font-size:0.95rem;">' + esc(t.body) + '</div>';
+      if (channel === "text") html += '<div class="small" style="margin-top:8px; color:var(--slate);">' + t.body.length + ' characters · ' + segments(t.body.length) + '</div>';
+      html += '</div>';
+    });
+    $("out-templates").innerHTML = html;
+
+    var mailBody = "My review request templates from vouchtrack.com/tools/review-request-templates:\n\n"
+      + items.map(function (t) {
+          return "--- " + t.label + " ---\n" + (t.subject ? "Subject: " + t.subject + "\n" : "") + t.body;
+        }).join("\n\n");
+    $("email-results").href = "mailto:hello@vouchtrack.com?subject="
+      + encodeURIComponent("My review request templates") + "&body=" + encodeURIComponent(mailBody);
+
+    Array.prototype.forEach.call(document.querySelectorAll("[data-copy]"), function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        var t = items[+btn.getAttribute("data-copy")];
+        var full = (t.subject ? "Subject: " + t.subject + "\n\n" : "") + t.body;
+        function done() { btn.textContent = "Copied \u2713"; setTimeout(function () { btn.textContent = "Copy"; }, 1500); }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(full).then(done, function () { fallback(full, done); });
+        } else { fallback(full, done); }
+      });
+    });
+  }
+
+  function fallback(text, done) {
+    var ta = document.createElement("textarea");
+    ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); done(); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  ["in-industry", "in-channel", "in-biz", "in-link"].forEach(function (id) {
+    $(id).addEventListener("input", render);
+    $(id).addEventListener("change", render);
+  });
+  render();
+})();
+</script>
+
+</body>
+</html>

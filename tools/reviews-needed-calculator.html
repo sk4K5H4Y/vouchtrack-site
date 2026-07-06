@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Many Reviews Do I Need? Rating Calculator | VouchTrack</title>
+<meta name="description" content="Free calculator: enter your Google rating and review count, pick a target rating, and see exactly how many new reviews it takes to get there.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VouchTrack">
+<meta property="og:title" content="How Many Reviews Do I Need? Rating Calculator | VouchTrack">
+<meta property="og:description" content="Free calculator: enter your Google rating and review count, pick a target rating, and see exactly how many new reviews it takes to get there.">
+<meta property="og:url" content="https://www.vouchtrack.com/tools/reviews-needed-calculator">
+<meta property="og:image" content="https://www.vouchtrack.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.vouchtrack.com/og-image.png">
+<meta name="theme-color" content="#1B2A41">
+<link rel="canonical" href="https://www.vouchtrack.com/tools/reviews-needed-calculator">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How is \"reviews needed\" calculated?", "acceptedAnswer": {"@type": "Answer", "text": "It solves the weighted average for the missing number: your current rating times your current review count, plus new reviews at an assumed 4.8-star average, divided by the new total, set equal to your target. Rearranged, that is current count times (target minus current rating), divided by (4.8 minus target) — rounded up. No hidden fudge factors: the same math Google's average uses."}}, {"@type": "Question", "name": "Why do new reviews average 4.8 stars?", "acceptedAnswer": {"@type": "Answer", "text": "When every customer gets asked — not just the angry ones who show up uninvited — the average skews strongly positive. We use the same 4.8-star assumption as our review ROI calculator, and it is deliberately conservative: many businesses that ask everyone see higher."}}, {"@type": "Question", "name": "Why does the target stop at 4.7 stars?", "acceptedAnswer": {"@type": "Answer", "text": "Because the math assumes new reviews average 4.8 stars, and a weighted average can approach that number but never pass it. As your target gets closer to 4.8, the reviews needed grows toward infinity. Reaching 4.8 or higher is absolutely possible — plenty of businesses do — but it requires a near-perfect review average, and we would rather show you honest math than a slider that promises anything."}}, {"@type": "Question", "name": "What if my rating is already at or above my target?", "acceptedAnswer": {"@type": "Answer", "text": "Then the calculator says zero — and your battle is review count and recency, not the average. A 4.6 with 40 reviews loses to a 4.5 with 400. Steady volume is what keeps you winning the comparison, which is exactly what an always-on review engine is for."}}]}</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="/" class="logo"><span class="star">★</span>VouchTrack</a>
+    <button class="menu-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+      <li><a href="/how-it-works">How it works</a></li>
+      <li><a href="/features">Features</a></li>
+      <li><a href="/industries">Industries</a></li>
+      <li><a href="/pricing">Pricing</a></li>
+      <li><a href="/tools">Free tools</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="https://zcal.co/akshaysudarsan/30min" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Book a free demo</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="industry-hero" style="padding-bottom:32px;">
+  <div class="wrap">
+    <span class="eyebrow">Free tool</span>
+    <h1>How many reviews do I need to raise my rating?</h1>
+    <p class="lede" style="max-width:38em; margin-top:18px;">Set your current rating, your review count, and the rating you want. The math tells you exactly how many new reviews it takes — and how long that takes at your customer volume. Honest math, no email required.</p>
+  </div>
+</section>
+
+<section class="band-white" style="padding-top:48px;">
+  <div class="wrap" style="max-width:980px;">
+    <div class="calc-wrap">
+      <div class="calc-panel">
+        <div class="calc-field">
+          <label>Current Google rating <span class="u-val" id="v-rating">4.0★</span></label>
+          <input type="range" id="in-rating" min="3.0" max="4.9" step="0.1" value="4.0">
+          <p class="field-hint">What your profile shows today.</p>
+        </div>
+        <div class="calc-field">
+          <label>Current review count <span class="u-val" id="v-count">45</span></label>
+          <input type="range" id="in-count" min="5" max="1000" step="5" value="45">
+          <p class="field-hint">Total Google reviews right now.</p>
+        </div>
+        <div class="calc-field">
+          <label>Target rating <span class="u-val" id="v-target">4.5★</span></label>
+          <input type="range" id="in-target" min="3.6" max="4.7" step="0.1" value="4.5">
+          <p class="field-hint">The rating you want to reach. (Why does this stop at 4.7? See the math below.)</p>
+        </div>
+        <div class="calc-field">
+          <label>Customers per month <span class="u-val" id="v-cust">200</span></label>
+          <input type="range" id="in-cust" min="20" max="2000" step="20" value="200">
+          <p class="field-hint">Used to estimate how long it would take if every customer were asked.</p>
+        </div>
+      </div>
+      <div class="calc-result" aria-live="polite">
+        <h3>What it takes</h3>
+        <div class="calc-line big"><span>New reviews needed (at a 4.8★ average)</span><strong id="r-needed">—</strong></div>
+        <div class="calc-line"><span>If every new review were a perfect 5.0★</span><strong id="r-perfect">—</strong></div>
+        <div class="calc-line"><span>Time to get there at your volume</span><strong id="r-months">—</strong></div>
+        <div class="calc-line"><span>Your rating after 90 days of asking everyone</span><strong id="r-90rating">—</strong></div>
+        <p class="calc-note" id="calc-note">Assumes new reviews average 4.8★ and a conservative 25% of asked customers leave one — the same assumptions as our <a href="/tools/review-calculator">review ROI calculator</a>. Estimates, not a guarantee.</p>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:32px;">
+      <a href="https://zcal.co/akshaysudarsan/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Show me my real gap — free rating check</a>
+    </p>
+    <p style="text-align:center; margin-top:12px;">
+      <a id="email-results" class="btn btn-outline" href="mailto:hello@vouchtrack.com">✉ Email me this estimate</a>
+    </p>
+    <p class="small" style="text-align:center; margin-top:18px;">Also try: <a href="/tools/review-calculator">What is your rating costing you? →</a> · <a href="/tools">All free tools →</a></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap" style="max-width:760px;">
+    <div class="section-head center"><h2>About the math</h2></div>
+    <details>
+      <summary>How is "reviews needed" calculated?</summary>
+      <p>It solves the weighted average for the missing number: your current rating × your current review count, plus new reviews at an assumed 4.8★ average, divided by the new total — set equal to your target. Rearranged: <em>current count × (target − current rating) ÷ (4.8 − target)</em>, rounded up. No hidden fudge factors; it's the same math Google's average uses.</p>
+    </details>
+    <details>
+      <summary>Why do new reviews average 4.8★?</summary>
+      <p>When every customer gets asked — not just the angry ones who show up uninvited — the average skews strongly positive. We use the same 4.8★ assumption as our <a href="/tools/review-calculator">review ROI calculator</a>, and it's deliberately conservative: many businesses that ask everyone see higher.</p>
+    </details>
+    <details>
+      <summary>Why does the target stop at 4.7★?</summary>
+      <p>Because the math assumes new reviews average 4.8★ — and a weighted average can approach that number but never pass it. As your target gets closer to 4.8, the reviews needed grows toward infinity. Reaching 4.8+ is absolutely possible (plenty of businesses do), but it requires a near-perfect review average, and we'd rather show you honest math than a slider that promises anything.</p>
+    </details>
+    <details>
+      <summary>What if my rating is already at or above my target?</summary>
+      <p>Then the calculator says zero — and your battle is review <em>count</em> and <em>recency</em>, not the average. A 4.6 with 40 reviews loses to a 4.5 with 400. Steady volume is what keeps you winning the comparison, which is exactly what an <a href="/how-it-works">always-on review engine</a> is for.</p>
+    </details>
+  </div>
+</section>
+
+<section class="band-ink cta-band">
+  <div class="wrap">
+    <h2>The number looks big? It goes fast when everyone gets asked.</h2>
+    <p>A busy salon serving 300 clients a month collects 75 new reviews in a single month at a 25% response rate. The math only feels impossible when asking depends on someone remembering.</p>
+    <a href="https://zcal.co/akshaysudarsan/30min" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-lg">Book my free demo</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="/" class="logo"><span class="star">★</span>VouchTrack</a>
+        <p style="font-size:0.9rem; max-width:26em;">AI-powered review collection and reputation management for main-street businesses across the United States — human-approved, done for you.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/how-it-works">How it works</a></li>
+          <li><a href="/features">Features</a></li>
+          <li><a href="/review-sites">67+ review sites</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/tools">Free tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Industries</h4>
+        <ul>
+          <li><a href="/industries/hair-salons">Hair salons</a></li>
+          <li><a href="/industries/nail-salons-spas">Nail salons &amp; spas</a></li>
+          <li><a href="/industries/auto-repair">Auto repair</a></li>
+          <li><a href="/industries/dental">Dental offices</a></li>
+          <li><a href="/industries/restaurants">Restaurants</a></li>
+          <li><a href="/industries/hvac-home-services">HVAC &amp; home services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@vouchtrack.com">hello@vouchtrack.com</a></li>
+          <li><a href="https://zcal.co/akshaysudarsan/30min" target="_blank" rel="noopener noreferrer">Book a demo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 VouchTrack. All rights reserved.</span>
+      <span><a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a></span>
+      <span>Made for main-street businesses.</span>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var fmt = function (n) { return n.toLocaleString('en-US'); };
+  var A = 4.8, EPS = 1e-9;
+
+  function needed(rating, count, target, avg) {
+    if (target <= rating) return 0;
+    return Math.ceil(count * (target - rating) / (avg - target) - EPS);
+  }
+
+  function calc() {
+    var rating = +$('in-rating').value, count = +$('in-count').value,
+        target = +$('in-target').value, cust = +$('in-cust').value;
+    $('v-rating').textContent = rating.toFixed(1) + '\u2605';
+    $('v-count').textContent = fmt(count);
+    $('v-target').textContent = target.toFixed(1) + '\u2605';
+    $('v-cust').textContent = fmt(cust);
+
+    var perMonth = cust * 0.25;
+    var x = needed(rating, count, target, A);
+    var x5 = needed(rating, count, target, 5.0);
+    var rating90 = Math.min(4.9, (rating * count + A * perMonth * 3) / (count + perMonth * 3));
+
+    var monthsText, neededText, perfectText;
+    if (x === 0) {
+      neededText = '0 \u2014 already there \u2713';
+      perfectText = '\u2014';
+      monthsText = '\u2014';
+      $('calc-note').innerHTML = 'You\u2019re at or above your target \u2014 your battle is review <em>count</em> and <em>recency</em> now. See \u201cWhat if my rating is already at or above my target?\u201d below.';
+    } else {
+      neededText = '+' + fmt(x);
+      perfectText = '+' + fmt(x5);
+      var months = Math.ceil(x / perMonth);
+      monthsText = months <= 1 ? '~1 month' : '~' + fmt(months) + ' months';
+      $('calc-note').innerHTML = 'Assumes new reviews average 4.8\u2605 and a conservative 25% of asked customers leave one \u2014 the same assumptions as our <a href="/tools/review-calculator">review ROI calculator</a>. Estimates, not a guarantee.';
+    }
+    $('r-needed').textContent = neededText;
+    $('r-perfect').textContent = perfectText;
+    $('r-months').textContent = monthsText;
+    $('r-90rating').textContent = rating90.toFixed(1) + '\u2605';
+
+    var mailBody = 'My reviews-needed estimate from vouchtrack.com/tools/reviews-needed-calculator:\n\n'
+      + 'Current rating: ' + rating.toFixed(1) + ' stars (' + fmt(count) + ' reviews)\n'
+      + 'Target rating: ' + target.toFixed(1) + ' stars\n'
+      + 'Customers per month: ' + fmt(cust) + '\n\n'
+      + 'New reviews needed (4.8-star average): ' + (x === 0 ? '0 - already there' : '+' + fmt(x)) + '\n'
+      + 'If every new review were 5.0 stars: ' + (x === 0 ? '-' : '+' + fmt(x5)) + '\n'
+      + 'Estimated time at my volume: ' + monthsText + '\n'
+      + 'Rating after 90 days of asking everyone: ' + rating90.toFixed(1) + ' stars\n\n'
+      + 'Please sanity-check these numbers against my real Google profile.';
+    var emailBtn = $('email-results');
+    if (emailBtn) emailBtn.href = 'mailto:hello@vouchtrack.com?subject='
+      + encodeURIComponent('My reviews-needed estimate') + '&body=' + encodeURIComponent(mailBody);
+  }
+  ['in-rating', 'in-count', 'in-target', 'in-cust'].forEach(function (id) {
+    $(id).addEventListener('input', calc);
+  });
+  calc();
+})();
+</script>
+
+</body>
+</html>
