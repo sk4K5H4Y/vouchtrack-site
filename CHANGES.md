@@ -68,3 +68,69 @@
 4. Search Console: verify domain via Namecheap DNS TXT → submit sitemap
 5. Bing Webmaster Tools: import from GSC
 6. Validate one page at validator.schema.org and one at opengraph.dev
+
+## Local preview
+- preview.py added — run: python3 preview.py  (in the extracted folder), then open
+  http://localhost:8000. Mimics Vercel exactly: clean URLs, index pages, custom 404.
+- NOTE: opening .html files directly from disk (file://) shows NO styling — the
+  clean-URL migration uses root-relative paths that only resolve through a server.
+- preview.py is harmless to commit (Vercel ignores it), or delete it before upload.
+
+# Addition — Reviews Needed Calculator (same day)
+
+## New page
+- tools/reviews-needed-calculator.html -> /tools/reviews-needed-calculator
+  Enter current rating + review count + target rating + customer volume;
+  outputs reviews needed (4.8-star avg), the perfect-5.0 variant, months to
+  get there, and rating after 90 days. Email-capture button included.
+  FAQPage schema (4 Q&As). Target slider caps at 4.7 (honest-math reason
+  explained on-page).
+
+## Math verification
+- Formula unit-tested in Python (sufficiency + minimality) across all 48,000
+  slider combinations; page JS executed in Node and produced byte-identical
+  results. A floating-point off-by-one was caught and fixed with an epsilon
+  guard before the page was written.
+
+## Touched files
+- ALL pages: footer gains "Reviews needed calculator" link (33 pages)
+- tools/review-calculator.html: "Also try" cross-link
+- sitemap.xml: new URL (32 total)
+- llms.txt: new entry
+
+# Addition — Free tools suite (same day)
+
+## New pages (4)
+- /tools — free tools hub (5 tool cards, why-free section, FAQ schema)
+- /tools/review-request-templates — text/email request generator: 7 industries,
+  3 variants each, copy buttons, SMS segment counts, compliance rules section.
+  Templates never solicit sentiment (unit-tested).
+- /tools/review-qr-poster — printable 5x7 counter card with QR code; print +
+  PNG download; QR generated locally by vendored MIT library (assets/qrcode.min.js,
+  no CDN dependency); links never leave the browser
+- /tools/review-policy-quiz — 7-question checkup vs Google policies + FTC
+  Consumer Reviews & Testimonials Rule (16 CFR 465, FTC Q&A page linked);
+  tiered verdicts, per-question explanations, not-legal-advice disclaimer
+
+## Header decision (implemented)
+- "Free tools" added to main nav (after Pricing) on all 37 pages. Rationale:
+  these pages are the inbound engine; competitor research (reviewsense.ai)
+  confirms the pattern. One-line revert if unwanted.
+
+## Footer change
+- The two calculator links replaced by a single "Free tools" hub link (all pages)
+
+## Verification
+- FTC citation verified against ftc.gov (rule effective Oct 21, 2024; the quiz
+  keeps the Google-vs-FTC distinction accurate: Google bans all incentivized
+  reviews; the FTC rule bans sentiment-conditioned incentives)
+- build()/score() logic unit-tested in Node from the shipped page source;
+  all inline scripts syntax-checked; full site suite: 37 pages, 0 errors
+- One bug caught and fixed during checks: pricing.html marks its own nav item
+  with class=active, which briefly misrouted the header insertion to the footer
+
+## Manual checks before shipping (browser-only behaviors)
+1. QR poster: paste a real link, scan the preview with your phone, print-preview
+   (5x7 layout), and try the PNG download
+2. Templates: copy button on desktop + mobile
+3. Quiz: answer all 7, check verdicts render and email button appears
