@@ -1,0 +1,12 @@
+{
+  "name": "vouchtrack-site",
+  "version": "1.0.0",
+  "description": "VouchTrack marketing website",
+  "private": true,
+  "scripts": {
+    "build": "echo 'Static HTML site - no build step required'"
+  },
+  "dependencies": {
+    "@vercel/speed-insights": "^1.1.0"
+  }
+}
