@@ -134,3 +134,24 @@
    (5x7 layout), and try the PNG download
 2. Templates: copy button on desktop + mobile
 3. Quiz: answer all 7, check verdicts render and email button appears
+
+# Addition — Unlisted Essentials page (same day)
+
+## New page: /essentials (NOT linked anywhere, NOT indexed)
+- Two case-by-case downsell tiers: Essentials $99/mo (Google-only: monitoring,
+  hybrid replies — auto 4-5-star, human-approved 3-star and below, Q&A answered,
+  mini-report) and Essentials+ $149/mo (adds 500 email requests/mo + private
+  feedback flow). NO SMS on either tier — the structural gate protecting the
+  $199/$249 public plans. Annual -20% shown statically.
+- Honest framing on-page: openly states these are limited plans offered
+  case-by-case; what-is-NOT-included section; one-email upgrade path.
+- Containment verified: noindex meta; absent from sitemap.xml, llms.txt,
+  robots.txt; zero inbound links from all other 37 pages.
+- Deliberate calls (easy to change): capped at $149 (hidden $199 would collide
+  with public Founding $199); hybrid replies preserve the human-approved
+  promise on negatives; if EMR seat cost per account exceeds ~$60/mo,
+  raise $99 to $119-129.
+
+## Sales usage
+- Share the URL directly after a call. Obscurity + noindex, not authentication —
+  anyone with the link can view it, and the copy is written to survive that.
