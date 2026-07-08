@@ -4,6 +4,7 @@
 
 ## Key pages
 - [How it works](https://www.vouchtrack.com/how-it-works): setup, timeline, what owners actually do
+- [Features](https://www.vouchtrack.com/features): review requests, AI replies, one inbox, widgets, video testimonials, ranking maps, AI search visibility
 - [Pricing](https://www.vouchtrack.com/pricing): plans, message allowances, annual discount, guarantee
 - [FAQ](https://www.vouchtrack.com/faq): setup, negative reviews, Yelp policy, review-request legality
 - [Industries](https://www.vouchtrack.com/industries): salons, auto repair, dental, restaurants, HVAC
