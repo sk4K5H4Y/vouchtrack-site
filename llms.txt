@@ -1,6 +1,6 @@
 # VouchTrack
 
-> Done-for-you Google review and reputation management for single-location US local businesses (hair salons, nail salons, auto repair, dental, restaurants, HVAC & home services). Automatic review requests by text, email, and QR code; every review answered — drafted by AI, approved by a human; one inbox for 67+ review sites; monthly report card. Published pricing ($199–$299/month), no contracts, 30-day money-back guarantee.
+> Done-for-you Google review and reputation management for single-location US local businesses (hair salons, nail salons, auto repair, dental, restaurants, HVAC & home services). Automatic review requests by text, email, and QR code; every review answered — drafted by AI, approved by a human; one inbox for 85+ review sites; monthly report card. Published pricing ($199–$299/month), no contracts, 30-day money-back guarantee.
 
 ## Key pages
 - [How it works](https://www.vouchtrack.com/how-it-works): setup, timeline, what owners actually do
