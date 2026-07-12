@@ -389,3 +389,106 @@ td.hl { background: #FDF6E9; font-weight: 600; }
 .calc-line strong { font-family: 'Fraunces', serif; font-size: 1.5rem; color: var(--gold); white-space: nowrap; }
 .calc-line.big strong { font-size: 2rem; }
 .calc-note { font-size: 0.8rem; margin-top: 16px; color: #8FA0B8; }
+
+/* ============================================================
+   July 2026 additions — founding banner, phone mockup, motion,
+   SVG icons, founder section. (Motion is fully disabled by the
+   prefers-reduced-motion block at the top of this file.)
+   ============================================================ */
+
+/* ---------- Founding-offer announcement bar ---------- */
+.announce {
+  display: block; background: var(--ink); color: var(--paper);
+  text-decoration: none; text-align: center;
+  font-size: 0.87rem; padding: 9px 16px; line-height: 1.45;
+}
+.announce strong { color: var(--gold); font-weight: 700; }
+.announce .announce-cta { color: var(--gold); font-weight: 600; white-space: nowrap; margin-left: 6px; }
+.announce:hover .announce-cta { text-decoration: underline; }
+@media (max-width: 640px) { .announce { font-size: 0.8rem; padding: 8px 14px; } }
+
+/* ---------- Header shadow on scroll ---------- */
+header { transition: box-shadow 0.25s ease; }
+header.scrolled { box-shadow: 0 4px 18px rgba(27, 42, 65, 0.08); }
+
+/* ---------- Nav link underline ---------- */
+.nav-links a:not(.btn) { position: relative; }
+.nav-links a:not(.btn)::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -5px; height: 2px;
+  background: var(--gold); border-radius: 2px;
+  transform: scaleX(0); transform-origin: left; transition: transform 0.2s ease;
+}
+.nav-links a:not(.btn):hover::after, .nav-links a.active::after { transform: scaleX(1); }
+
+/* ---------- Cards get the same lift as post-cards ---------- */
+.card { transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+
+/* ---------- Inline SVG icons ---------- */
+.icon svg { width: 27px; height: 27px; display: block; color: var(--leaf); }
+span.icon { line-height: 0; }
+
+/* ---------- Phone mockup ---------- */
+.phone {
+  width: 262px; max-width: 100%; margin: 0 auto;
+  background: var(--ink); border-radius: 30px; padding: 10px;
+  box-shadow: var(--shadow-lift); border: 1px solid var(--ink-soft);
+}
+.phone-screen { background: var(--white); border-radius: 22px; padding: 14px 12px 12px; }
+.ph-contact {
+  display: flex; align-items: center; gap: 8px; padding-bottom: 10px; margin-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+.ph-avatar {
+  width: 26px; height: 26px; border-radius: 50%; background: var(--gold-soft); color: var(--ink);
+  font-weight: 700; font-size: 0.72rem; display: flex; align-items: center; justify-content: center;
+  font-family: 'Fraunces', serif; flex-shrink: 0;
+}
+.ph-name { font-size: 0.8rem; font-weight: 600; color: var(--ink); }
+.ph-bubble {
+  background: #ECEEF1; color: var(--ink); border-radius: 16px; border-bottom-left-radius: 5px;
+  padding: 10px 12px; font-size: 0.83rem; line-height: 1.5; max-width: 92%;
+}
+.ph-bubble .ph-link { color: var(--leaf); font-weight: 600; text-decoration: underline; word-break: break-all; }
+.ph-bubble + .ph-bubble, .ph-bubble + .ph-time { margin-top: 8px; }
+.ph-reply {
+  background: var(--gold-soft); border-bottom-left-radius: 16px; border-bottom-right-radius: 5px;
+  margin-left: auto; max-width: 80%;
+}
+.ph-time { font-size: 0.68rem; color: var(--slate); text-align: right; margin-top: 8px; }
+.phone-mini { width: 218px; margin: 18px auto 4px; border-radius: 24px; }
+.phone-mini .phone-screen { border-radius: 17px; padding: 11px 10px 10px; }
+.phone-mini .ph-bubble { font-size: 0.79rem; }
+
+/* ---------- Scroll reveal (classes applied by site.js only) ---------- */
+.rv { opacity: 0; transform: translateY(14px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.rv-in { opacity: 1; transform: translateY(0); }
+
+/* ---------- Hero lift-card animation states (applied by site.js) ---------- */
+.tick.tick-hide { opacity: 0; transform: translateY(7px); }
+.tick { transition: opacity 0.5s ease, transform 0.5s ease; }
+.lift-stars .st { display: inline-block; }
+.lift-stars .st-dim { opacity: 0.18; transform: scale(0.85); }
+.lift-stars .st { transition: opacity 0.3s ease, transform 0.3s ease; }
+@keyframes starShimmer {
+  0%, 100% { text-shadow: 0 0 0 rgba(232, 163, 61, 0); }
+  50% { text-shadow: 0 0 14px rgba(232, 163, 61, 0.55); }
+}
+.lift-after .lift-stars.shimmer { animation: starShimmer 3.5s ease-in-out infinite; animation-delay: 1s; }
+
+/* ---------- Calculator output tick ---------- */
+@keyframes calcTick {
+  0% { transform: translateY(4px); color: var(--gold); opacity: 0.4; }
+  100% { transform: translateY(0); color: inherit; opacity: 1; }
+}
+.calc-tick { display: inline-block; animation: calcTick 0.35s ease; }
+
+/* ---------- Founder section (about page) ---------- */
+.founder-grid { display: grid; grid-template-columns: 300px 1fr; gap: 44px; align-items: start; }
+@media (max-width: 800px) { .founder-grid { grid-template-columns: 1fr; } }
+.founder-photo {
+  width: 100%; max-width: 300px; height: auto; display: block;
+  border-radius: var(--radius-lg); border: 1px solid var(--line); box-shadow: var(--shadow);
+}
+.founder-links { margin-top: 14px; font-size: 0.92rem; }
+.founder-links a { font-weight: 600; }
