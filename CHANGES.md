@@ -1,3 +1,37 @@
+# Audit fixes + founding banner, founder page, phone mockups, motion — July 13, 2026
+
+## Consistency fixes
+- 70%+ -> 83% (BrightLocal-consistent) on homepage and features/review-requests; both now cited
+- essentials.html "What's the catch?" rewritten — no longer contradicts Essentials+ email review requests
+- Original 6 industry pages: stat bands retrofitted to the cited format (5–9% HBS + 83% BrightLocal
+  + best vertical stat kept). Uncited 92% salon claim removed.
+
+## New sitewide elements
+- Founding-offer announcement bar on all pages except /essentials (would undercut the downsell there)
+- /assets/site.js on every page: header scroll shadow, scroll-reveal with stagger, stat count-ups,
+  homepage hero lift-card animation (score/count count-up, star fill, ticker cascade, star shimmer),
+  calculator output tick. All motion gated behind prefers-reduced-motion.
+- All 27 emoji icons replaced with inline SVG (Lucide-style, leaf-colored) — consistent cross-platform
+- .card now gets the same hover lift as .post-card; gold nav underline on hover/active
+
+## Phone SMS mockups (CSS-only component)
+- Homepage (#how section, with customer reply bubble), features/review-requests
+  ("What your customer sees" card), and all 20 industry pages (compact variant,
+  per-vertical sender names + messages; existing page quotes reused where present)
+
+## Content
+- features/ai-search: stat band now cites BrightLocal AI adoption (45%, up from 6%; #3 source)
+- features/insights-rankings: ranking map / competitor watch / AI insights labeled
+  "included from the Standard plan"
+- Homepage industries section: "See all 20 industries ->" link added
+- about.html: founder section rebuilt — photo (assets/akshay-sudarsan.jpg, 800px source shown at
+  <=300px), full name Akshay Sudarsan, LinkedIn link, sign-off, AboutPage/Person JSON-LD. TODO removed.
+- 14 meta descriptions (+ og:description) trimmed to <=160 chars
+
+## Files
+- NEW: assets/site.js, assets/akshay-sudarsan.jpg
+- styles.css: appended "July 2026 additions" block (banner, phone, motion states, founder grid, icons)
+
 # Full mechanical batch — July 7, 2026
 (Supersedes the Week 1 changelog. Everything below is included in this package.)
 
