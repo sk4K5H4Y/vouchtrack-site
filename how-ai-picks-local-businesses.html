@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How AI Picks Which Local Business to Recommend | VouchTrack</title>
+<meta name="description" content="A plain guide to how Google Maps, ChatGPT, Gemini and Perplexity choose which local business to name, what actually influences it, and what no one can promise you.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="VouchTrack">
+<meta property="og:title" content="How AI Picks Which Local Business to Recommend | VouchTrack">
+<meta property="og:description" content="A plain guide to how Google Maps, ChatGPT, Gemini and Perplexity choose which local business to name, what actually influences it, and what no one can promise you.">
+<meta property="og:url" content="https://www.vouchtrack.com/how-ai-picks-local-businesses">
+<meta property="og:image" content="https://www.vouchtrack.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.vouchtrack.com/og-image.png">
+<meta name="theme-color" content="#1B2A41">
+<link rel="canonical" href="https://www.vouchtrack.com/how-ai-picks-local-businesses">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How AI decides which local business to recommend", "description": "A plain guide to how Google Maps, ChatGPT, Gemini and Perplexity choose which local business to name, what actually influences it, and what no one can promise you.", "url": "https://www.vouchtrack.com/how-ai-picks-local-businesses", "author": {"@type": "Organization", "name": "VouchTrack"}, "publisher": {"@type": "Organization", "name": "VouchTrack", "logo": {"@type": "ImageObject", "url": "https://www.vouchtrack.com/og-image.png"}}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.vouchtrack.com/how-ai-picks-local-businesses"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does AI really matter for a local business yet?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on your town and your trade, which is why the honest answer is to measure it rather than assume either way. What is not in dispute is the direction of travel: Google now places an AI answer above its own results, and the work that earns an AI recommendation takes months to compound. Starting after it decides your bookings is starting too late."}}, {"@type": "Question", "name": "Can anyone guarantee ChatGPT will recommend my business?", "acceptedAnswer": {"@type": "Answer", "text": "No. AI answers vary by how the question is phrased, change without warning, and differ between users. Any agency guaranteeing placement is either misunderstanding the systems or misleading you. What can be promised is measurement and improvement of the inputs those systems demonstrably draw on."}}, {"@type": "Question", "name": "Is AI visibility just SEO with a new name?", "acceptedAnswer": {"@type": "Answer", "text": "They overlap heavily but treating them as identical is the common mistake. Research across more than 350,000 business locations found that fewer than half the businesses winning Google's local map pack also appear in AI recommendations. Ranking well is a strong signal, not a free pass."}}, {"@type": "Question", "name": "What is the single biggest thing I can change?", "acceptedAnswer": {"@type": "Answer", "text": "Your review signal. Volume, recency and the specific language customers use. It is the largest body of text about your business that an assistant can read and quote, it is the only lever that moves week to week, and most local businesses are barely working it."}}, {"@type": "Question", "name": "How long does it take to see a difference?", "acceptedAnswer": {"@type": "Answer", "text": "Profile fixes can register within weeks. Review signal builds over 60 to 90 days depending on customer volume. AI recommendations are the slowest of the three, because assistants take time to pick up and trust changes. Anyone quoting you a fortnight is guessing."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vouchtrack.com/"}, {"@type": "ListItem", "position": 2, "name": "How AI Decides Which Local Business to Recommend", "item": "https://www.vouchtrack.com/how-ai-picks-local-businesses"}]}</script>
+</head>
+<body>
+<a class="announce" href="/pricing#ai-visibility">&#9733; Founding offer: the first 15 businesses lock in the Visibility plan at <strong>$199/mo for life</strong>, normally $249.<span class="announce-cta">See pricing &rarr;</span></a>
+
+<header>
+  <div class="wrap nav">
+    <a href="/" class="logo"><span class="star">★</span>VouchTrack</a>
+    <button class="menu-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+      <li><a href="/how-it-works">How it works</a></li>
+      <li class="has-menu">
+        <a href="/features/ai-search" class="menu-trigger active">AI visibility <span class="caret" aria-hidden="true">&#9662;</span></a>
+        <div class="nav-menu menu-panel">
+          <div class="menu-col">
+            <div class="menu-group-label">See where you stand</div>
+            <ul>
+              <li><a href="/features/ai-search">AI visibility tracking</a></li>
+              <li><a href="/how-ai-picks-local-businesses">How AI picks local businesses</a></li>
+              <li><a href="/features/aeo-content">Content &amp; profile work</a></li>
+              <li><a href="https://app.vouchtrack.com/intel-request" target="_blank" rel="noopener noreferrer">Free visibility report</a></li>
+            </ul>
+          </div>
+          <div class="menu-col">
+            <div class="menu-group-label">The review engine</div>
+            <ul>
+              <li><a href="/features/review-requests">Review requests</a></li>
+              <li><a href="/features/ai-replies">AI-written replies</a></li>
+              <li><a href="/features/review-inbox">Review inbox</a></li>
+              <li><a href="/features/website-widgets">Widgets &amp; testimonials</a></li>
+              <li><a href="/features/insights-rankings">Rank tracking</a></li>
+            </ul>
+          </div>
+          <div class="menu-all"><a href="/features">All features &rarr;</a></div>
+        </div>
+      </li>
+      <li class="has-menu">
+        <a href="/industries" class="menu-trigger">Industries <span class="caret" aria-hidden="true">&#9662;</span></a>
+        <ul class="nav-menu two-col">
+          <li><a href="/industries/hair-salons">Hair salons</a></li>
+          <li><a href="/industries/dental">Dental offices</a></li>
+          <li><a href="/industries/nail-salons-spas">Nail salons &amp; spas</a></li>
+          <li><a href="/industries/restaurants">Restaurants</a></li>
+          <li><a href="/industries/med-spas">Med spas</a></li>
+          <li><a href="/industries/hvac-home-services">HVAC &amp; home services</a></li>
+          <li><a href="/industries/auto-repair">Auto repair</a></li>
+          <li><a href="/industries/plumbers">Plumbers</a></li>
+          <li class="menu-all"><a href="/industries">All 20 industries &rarr;</a></li>
+        </ul>
+      </li>
+      <li><a href="/pricing">Pricing</a></li>
+      <li class="has-menu">
+        <a href="/tools" class="menu-trigger">Free tools <span class="caret" aria-hidden="true">&#9662;</span></a>
+        <ul class="nav-menu">
+          <li><a href="/tools/review-calculator">Rating revenue calculator</a></li>
+          <li><a href="/tools/reviews-needed-calculator">Reviews-needed calculator</a></li>
+          <li><a href="/tools/review-qr-poster">Review QR poster maker</a></li>
+          <li><a href="/tools/review-request-templates">Review request templates</a></li>
+          <li><a href="/tools/review-policy-quiz">Review policy quiz</a></li>
+          <li class="menu-all"><a href="/tools">All free tools &rarr;</a></li>
+        </ul>
+      </li>
+      <li><a href="https://app.vouchtrack.com/login">Sign in</a></li>
+      <li><a href="https://zcal.co/akshaysudarsan/30min" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Book a free demo</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="industry-hero">
+  <div class="wrap">
+    <span class="eyebrow">Guide</span>
+    <h1>How AI decides which local business to recommend</h1>
+    <p class="lede" style="max-width:40em; margin-top:18px;">Someone asks an assistant for a business like yours and gets two or three names back. Here is where those names come from, what influences the choice, and what nobody can honestly promise you.</p>
+    <div class="hero-ctas" style="margin-top:28px;">
+      <a href="https://app.vouchtrack.com/intel-request" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">See where you currently stand</a>
+      <a href="/features/ai-search" class="btn btn-outline">How we work on it</a>
+    </div>
+  </div>
+</section>
+
+<section class="band-white">
+  <div class="wrap">
+    <div class="stat-band">
+      <div class="stat"><div class="big">1.2%</div><div class="small">of local business locations get named by ChatGPT when someone asks for a recommendation <a href="https://searchengineland.com/local-geo-baseline-audit-482477" target="_blank" rel="noopener noreferrer" style="color:inherit; opacity:.7;">(source)</a></div></div>
+      <div class="stat"><div class="big">35.9%</div><div class="small">of those same locations do appear in Google&rsquo;s local map pack, which is where the gap lives <a href="https://searchengineland.com/local-geo-baseline-audit-482477" target="_blank" rel="noopener noreferrer" style="color:inherit; opacity:.7;">(source)</a></div></div>
+      <div class="stat"><div class="big">68%</div><div class="small">is how accurate the average business&rsquo;s own information is on ChatGPT and Perplexity <a href="https://searchengineland.com/local-geo-baseline-audit-482477" target="_blank" rel="noopener noreferrer" style="color:inherit; opacity:.7;">(source)</a></div></div>
+    </div>
+    <p style="text-align:center; font-size:0.82rem; color:var(--slate); margin-top:22px; max-width:54em; margin-left:auto; margin-right:auto;">The 2026 analysis behind these figures covered more than 350,000 business locations across 2,751 brands, almost all of them multi-location names with marketing teams behind them. A single location starts further back than these numbers suggest.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="grid-2" style="align-items:center;">
+      <div>
+        <h2 style="margin-bottom:18px;">What actually changed</h2>
+        <p style="margin-bottom:16px;">For twenty years, local search worked one way. A customer typed something into Google, got a page of results, and made up their own mind. Being sixth still meant being seen. There was room to be mediocre and survive.</p>
+        <p style="margin-bottom:16px;">That page is being replaced by an answer. Google now puts an AI summary above its own results, and millions of people skip the search box entirely and ask an assistant instead. Either way, the output is not ten options. It is two or three names, and then it stops.</p>
+        <p>Critically, there is no notification. Nobody tells you a customer asked, got three names, and called one of them. No ranking drop, no alert. You simply never learn you were in the running. The only way to find out is to go and look.</p>
+      </div>
+      <div class="thennow">
+        <div class="tn-panel">
+          <div class="tn-label">Then: ten links</div>
+          <div class="tn-link"></div><div class="tn-link"></div><div class="tn-link"></div>
+          <div class="tn-link"></div><div class="tn-link"></div><div class="tn-link"></div>
+          <div class="tn-link"></div><div class="tn-link"></div>
+          <p class="tn-stop" style="margin-top:12px;">Result #6 still gets seen</p>
+        </div>
+        <div class="tn-panel">
+          <div class="tn-label">Now: one answer</div>
+          <div class="tn-answer">
+            <div class="tn-q">&ldquo;Best plumber near me?&rdquo;</div>
+            <span class="tn-chip">1. Competitor A</span>
+            <span class="tn-chip">2. Competitor B</span>
+            <span class="tn-chip">3. Competitor C</span>
+          </div>
+          <p class="tn-stop" style="margin-top:12px;">There is no #4. It stops.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band-white">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>The three things that decide it</h2>
+      <p>Assistants are not consulting a secret ranking table. They assemble an answer from whatever they can find about the businesses in your area, and for a local business that comes down to three sources.</p>
+    </div>
+    <div class="steps levers">
+      <div class="step">
+        <h3>Your profile</h3>
+        <p>Your Google Business Profile is the structured record an assistant reads first: categories, services, hours, attributes, photos, questions answered. It is the closest thing to a machine-readable description of your business that exists, and it is the one an assistant trusts most because it is verified.</p>
+      </div>
+      <div class="step">
+        <h3>Your review signals</h3>
+        <p>Volume, recency, rating, and above all the actual words customers use. This is the largest body of natural language about your business anywhere on the internet, written by people with no reason to flatter you. It is also the only one of the three that moves every week.</p>
+      </div>
+      <div class="step">
+        <h3>Your content footprint</h3>
+        <p>Everything else the web says: your own site, directories, local press, industry platforms. Assistants answer questions, so they favour businesses whose presence answers questions. Consistency matters as much as volume here, because contradictory details reduce confidence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap" style="max-width:860px;">
+    <h2 style="margin-bottom:18px;">Why your Google ranking will not save you</h2>
+    <p style="margin-bottom:16px;">This is the part most local businesses get wrong. Winning the map pack and being named by an assistant are related but genuinely different outcomes. In a 2026 analysis of the same set of businesses, fewer than half the map pack winners appeared in AI recommendations at all.</p>
+    <div class="gapbars">
+      <div class="gapbar">
+        <div class="gb-head"><span>Appear in Google&rsquo;s local map pack</span><span>35.9%</span></div>
+        <div class="gb-track"><div class="gb-fill leaf" data-w="35.9"></div></div>
+      </div>
+      <div class="gapbar">
+        <div class="gb-head"><span>Named by ChatGPT for the same businesses</span><span>1.2%</span></div>
+        <div class="gb-track"><div class="gb-fill flag" data-w="1.2"></div></div>
+      </div>
+    </div>
+    <p style="font-size:0.82rem; color:var(--slate); margin-bottom:20px;">Same businesses, measured both ways <a href="https://searchengineland.com/local-geo-baseline-audit-482477" target="_blank" rel="noopener noreferrer" style="color:inherit; opacity:.7;">(source)</a>.</p>
+    <p style="margin-bottom:16px;">Part of the reason is proximity. Google Maps weights how close you are to the searcher very heavily, which is why a mediocre business on the right corner still ranks. An assistant asked for &ldquo;the best plumber in Columbus&rdquo; is not standing anywhere. It has no location to be near, so it leans harder on the things that describe quality and trust: your rating, how many people wrote about you, how recently, what they said, and whether your details agree across the web.</p>
+    <p>Which is quietly good news for a genuinely good business on a bad corner.</p>
+  </div>
+</section>
+
+<section class="band-white">
+  <div class="wrap">
+    <div class="grid-2" style="align-items:center;">
+      <div>
+        <h2 style="margin-bottom:18px;">Check your own in ten seconds</h2>
+        <p style="margin-bottom:16px;">Open ChatGPT, paste the line opposite, and put in your own trade and town. Run a variation or two: cheapest, best reviewed, open late.</p>
+        <p style="margin-bottom:16px;">Pay attention to two things. Whether you are named at all, and who is named instead. That second list is more useful than your own result, because it tells you exactly who the assistant currently considers the credible option in your market.</p>
+        <p style="margin-bottom:0;">If you would rather have it done properly across all four assistants with your live Google data alongside it, <a href="https://app.vouchtrack.com/intel-request" target="_blank" rel="noopener noreferrer" style="font-weight:600;">our free report does that in about two minutes</a>.</p>
+      </div>
+      <div>
+        <div class="prompt-box" style="margin-bottom:16px;">
+          <code id="pillar-prompt">Best [your trade] in [your town]? Give me your top three.</code>
+          <button class="prompt-copy" data-copy="#pillar-prompt" type="button">Copy</button>
+        </div>
+        <div class="plat-list">
+          <div class="plat-row"><span class="plat-name">ChatGPT</span><span class="plat-status plat-miss">Not mentioned</span></div>
+          <div class="plat-row"><span class="plat-name">Google Maps</span><span class="plat-status plat-miss">Not mentioned</span></div>
+          <div class="plat-row"><span class="plat-name">Perplexity</span><span class="plat-status plat-hit">Named, 3rd</span></div>
+          <div class="plat-row"><span class="plat-name">Gemini</span><span class="plat-status plat-miss">Not mentioned</span></div>
+        </div>
+        <p class="plat-note">Illustrative layout, not a real result.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap" style="max-width:820px;">
+    <h2 style="margin-bottom:18px;">Four mistakes worth avoiding</h2>
+    <div class="x-grid" style="margin-bottom:22px;">
+      <div class="card x-card"><h3><span class="x-mark">&#10007;</span>Buying a guarantee</h3><p>Nobody can guarantee an assistant will name you. Answers shift with phrasing and change without notice. A guarantee means the seller either does not understand the systems or hopes you do not.</p></div>
+      <div class="card x-card"><h3><span class="x-mark">&#10007;</span>Gating reviews</h3><p>Filtering customers so only happy ones reach Google violates Google&rsquo;s policies and sits badly with the FTC&rsquo;s rules on review suppression. Offer everyone a private channel first, then let them all review.</p></div>
+      <div class="card x-card"><h3><span class="x-mark">&#10007;</span>Chasing stars alone</h3><p>A 5.0 from eleven reviews is weaker than a 4.6 from three hundred. Volume and recency carry real weight, and a perfect score on thin evidence reads as thin evidence.</p></div>
+      <div class="card x-card"><h3><span class="x-mark">&#10007;</span>Letting details drift</h3><p>Different hours on your site than your profile, an old phone number in a directory. Each inconsistency chips away at how confidently a model will describe you.</p></div>
+    </div>
+    <p>None of these are exotic. They are the ordinary ways a good business ends up invisible.</p>
+  </div>
+</section>
+
+<section class="band-white">
+  <div class="wrap" style="max-width:820px;">
+    <h2 style="margin-bottom:18px;">What honest looks like here</h2>
+    <p style="margin-bottom:16px;">Plainly: nobody outside these companies knows exactly how the models weigh their inputs, because none of them publish it, and it changes. Anyone selling certainty here does not have it.</p>
+    <p style="margin-bottom:16px;">What is established is which inputs exist. Assistants read Google Business Profiles, review content, and the wider web, and businesses that are strong on all three turn up in these answers far more often. That is not a theory about the algorithm. It is an observation about the outcome.</p>
+    <p>So the sensible move is not to chase a formula. It is to be unmistakably the best-documented option in your area, and to check regularly whether it is working.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap" style="max-width:760px;">
+    <div class="section-head center"><h2>Common questions</h2></div>
+    <details>
+      <summary>Does AI really matter for a local business yet?</summary>
+      <p>It depends on your town and your trade, which is why the honest answer is to measure it rather than assume either way. What is not in dispute is the direction of travel: Google now places an AI answer above its own results, and the work that earns an AI recommendation takes months to compound. Starting after it decides your bookings is starting too late.</p>
+    </details>
+    <details>
+      <summary>Can anyone guarantee ChatGPT will recommend my business?</summary>
+      <p>No. AI answers vary by how the question is phrased, change without warning, and differ between users. Any agency guaranteeing placement is either misunderstanding the systems or misleading you. What can be promised is measurement and improvement of the inputs those systems demonstrably draw on.</p>
+    </details>
+    <details>
+      <summary>Is AI visibility just SEO with a new name?</summary>
+      <p>They overlap heavily but treating them as identical is the common mistake. Research across more than 350,000 business locations found that fewer than half the businesses winning Google's local map pack also appear in AI recommendations. Ranking well is a strong signal, not a free pass.</p>
+    </details>
+    <details>
+      <summary>What is the single biggest thing I can change?</summary>
+      <p>Your review signal. Volume, recency and the specific language customers use. It is the largest body of text about your business that an assistant can read and quote, it is the only lever that moves week to week, and most local businesses are barely working it.</p>
+    </details>
+    <details>
+      <summary>How long does it take to see a difference?</summary>
+      <p>Profile fixes can register within weeks. Review signal builds over 60 to 90 days depending on customer volume. AI recommendations are the slowest of the three, because assistants take time to pick up and trust changes. Anyone quoting you a fortnight is guessing.</p>
+    </details>
+  </div>
+</section>
+
+<section class="band-ink cta-band">
+  <div class="wrap">
+    <h2>Find out where you actually stand</h2>
+    <p>Free report, about two minutes, no card. We pull your live Google data, check who is outranking you nearby, ask the assistants about your market, and email you the lot.</p>
+    <a href="https://app.vouchtrack.com/intel-request" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-lg">Get my free report</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="/" class="logo"><span class="star">★</span>VouchTrack</a>
+        <p style="font-size:0.9rem; max-width:26em;">Done-for-you AI visibility for single-location businesses across the United States. We get you found in Google Maps, ChatGPT, Gemini and Perplexity, and we do the work for you.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/how-it-works">How it works</a></li>
+          <li><a href="/features">Features</a></li>
+          <li><a href="/review-sites">85+ review sites</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/tools">Free tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Industries</h4>
+        <ul>
+          <li><a href="/industries/hair-salons">Hair salons</a></li>
+          <li><a href="/industries/nail-salons-spas">Nail salons &amp; spas</a></li>
+          <li><a href="/industries/auto-repair">Auto repair</a></li>
+          <li><a href="/industries/dental">Dental offices</a></li>
+          <li><a href="/industries/restaurants">Restaurants</a></li>
+          <li><a href="/industries/hvac-home-services">HVAC &amp; home services</a></li>
+          <li><a href="/industries">All industries →</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@vouchtrack.com">hello@vouchtrack.com</a></li>
+          <li><a href="https://app.vouchtrack.com/login">Customer sign in</a></li>
+          <li><a href="https://zcal.co/akshaysudarsan/30min" target="_blank" rel="noopener noreferrer">Book a demo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 VouchTrack. All rights reserved.</span>
+      <span><a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a></span>
+      <span>Made for main-street businesses.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/site.js" defer></script>
+</body>
+</html>

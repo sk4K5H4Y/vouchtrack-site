@@ -16,11 +16,57 @@
     onScroll();
   }
 
+  /* ---------- Nav dropdowns (functional — runs regardless of motion pref) ---------- */
+  var menuItems = document.querySelectorAll(".nav-links li.has-menu");
+  menuItems.forEach(function (li) {
+    var trigger = li.querySelector(".menu-trigger");
+    if (!trigger) return;
+    trigger.setAttribute("aria-expanded", "false");
+
+    trigger.addEventListener("click", function (ev) {
+      // On narrow screens the trigger opens the submenu instead of navigating.
+      if (window.innerWidth > 820) return;
+      ev.preventDefault();
+      var isOpen = li.classList.toggle("open");
+      trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+  });
+
+  // Close any open desktop menu on Escape.
+  document.addEventListener("keydown", function (ev) {
+    if (ev.key !== "Escape") return;
+    menuItems.forEach(function (li) {
+      li.classList.remove("open");
+      var t = li.querySelector(".menu-trigger");
+      if (t) {
+        t.setAttribute("aria-expanded", "false");
+        if (li.contains(document.activeElement)) t.focus();
+      }
+    });
+  });
+
+  /* ---------- Copyable prompt boxes ---------- */
+  document.querySelectorAll(".prompt-copy").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var target = document.querySelector(btn.getAttribute("data-copy"));
+      if (!target || !navigator.clipboard) return;
+      navigator.clipboard.writeText(target.textContent.trim()).then(function () {
+        var original = btn.textContent;
+        btn.textContent = "Copied";
+        btn.classList.add("copied");
+        setTimeout(function () {
+          btn.textContent = original;
+          btn.classList.remove("copied");
+        }, 2000);
+      });
+    });
+  });
+
   if (reduce || !("IntersectionObserver" in window)) return;
 
   /* ---------- Scroll reveal ---------- */
   var revealTargets = document.querySelectorAll(
-    ".card, .post-card, .stat, .step, .site-cat"
+    ".card, .post-card, .stat, .step, .site-cat, .vt-item, .tn-panel, .sk-panel"
   );
   var io = new IntersectionObserver(
     function (entries) {
@@ -130,6 +176,119 @@
       { threshold: 0.35 }
     );
     liftIO.observe(lift);
+  }
+
+  /* ---------- Hero platform simulator (homepage) ---------- */
+  var sim = document.getElementById("hero-sim");
+  if (sim) {
+    var SCENES = [
+      { skin: "sim-gpt", brand: "ChatGPT", glyph: "\u25CF",
+        q: "Best plumber in Brooklyn, NY? Give me your top three.",
+        intro: "Here are three well-reviewed options:",
+        rows: [["Greenpoint Pipe & Drain"], ["Bedford Ave Plumbing Co."], ["Five Boro Flow"]] },
+      { skin: "sim-maps", brand: "", glyph: "",
+        q: "hair salons near me",
+        intro: "Results",
+        rows: [["Studio Marlowe", "\u2605 4.9 (312) \u00B7 Open \u00B7 0.4 mi"],
+               ["The Gilded Comb", "\u2605 4.8 (196) \u00B7 Open \u00B7 0.7 mi"],
+               ["Salon Verano", "\u2605 4.8 (154) \u00B7 Closes 7 PM \u00B7 1.1 mi"]] },
+      { skin: "sim-pplx", brand: "Perplexity", glyph: "\u25C9",
+        q: "Trusted BMW repair shop near me?",
+        intro: "Based on recent reviews, three stand out:",
+        rows: [["Autohaus Meridian", null, "1"], ["Precision Bay Motors", null, "2"], ["Kessler Automotive", null, "3"]] },
+      { skin: "sim-gem", brand: "Gemini", glyph: "\u2726",
+        q: "Who's the best dentist in Austin for nervous patients?",
+        intro: "Three practices come up consistently:",
+        rows: [["Cedar Smile Studio"], ["Lantern Dental"], ["Bluebonnet Family Dental"]] }
+    ];
+    var head = document.getElementById("sim-head");
+    var brand = document.getElementById("sim-brand");
+    var qEl = document.getElementById("sim-q");
+    var cursor = document.getElementById("sim-cursor");
+    var introEl = document.getElementById("sim-intro");
+    var rowsEl = document.getElementById("sim-rows");
+    var youEl = document.getElementById("sim-you");
+
+    function renderScene(sc) {
+      sim.className = "sim sim-swap " + sc.skin;
+      if (sc.skin === "sim-maps") {
+        head.innerHTML = '<span class="sim-search"><span class="sim-glyph">\u2315</span><span id="sim-q"></span><span class="ac-cursor" id="sim-cursor" hidden></span></span>';
+      } else {
+        head.innerHTML = '<span class="sim-glyph" aria-hidden="true">' + sc.glyph + '</span><span class="sim-brand" id="sim-brand">' + sc.brand + '</span>';
+      }
+      var isMaps = sc.skin === "sim-maps";
+      var body = "";
+      if (!isMaps) {
+        body += '<p class="sim-q"><span id="sim-q"></span><span class="ac-cursor" id="sim-cursor" hidden></span></p>';
+      }
+      body += '<p class="sim-intro sim-step" id="sim-intro">' + sc.intro + '</p><ol class="sim-rows" id="sim-rows">';
+      sc.rows.forEach(function (r, i) {
+        body += '<li class="sim-row sim-step">';
+        if (isMaps) body += '<span class="sim-thumb"></span>';
+        else body += '<span class="sim-rank">' + (i + 1) + '</span>';
+        body += '<span><span class="sim-name">' + r[0] + '</span>';
+        if (r[2]) body += '<span class="sim-cite">' + r[2] + '</span>';
+        if (r[1]) body += '<div class="sim-meta"><span class="sim-stars">\u2605</span> ' + r[1].slice(2) + '</div>';
+        body += '</span></li>';
+      });
+      body += '</ol><div class="sim-you sim-step" id="sim-you"><span class="sim-you-label">Your business</span><span class="sim-you-status">Not mentioned</span></div>';
+      document.getElementById("sim-body").innerHTML = body;
+      qEl = document.getElementById("sim-q");
+      cursor = document.getElementById("sim-cursor");
+    }
+
+    function typeText(text, done) {
+      qEl.textContent = "";
+      cursor.hidden = false;
+      var i = 0;
+      (function tick() {
+        if (i <= text.length) {
+          qEl.textContent = text.slice(0, i); i++;
+          setTimeout(tick, 26);
+        } else { cursor.hidden = true; done(); }
+      })();
+    }
+
+    function playScene(idx) {
+      var sc = SCENES[idx % SCENES.length];
+      sim.classList.add("out");
+      setTimeout(function () {
+        renderScene(sc);
+        sim.classList.remove("out");
+        var steps = [].slice.call(sim.querySelectorAll(".sim-step"));
+        typeText(sc.q, function () {
+          steps.forEach(function (el, i) {
+            setTimeout(function () { el.classList.add("sim-in"); }, 220 + i * 280);
+          });
+          setTimeout(function () { playScene(idx + 1); }, 220 + steps.length * 280 + 2600);
+        });
+      }, idx === 0 ? 0 : 340);
+    }
+
+    var simPlayed = false;
+    var simIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting || simPlayed) return;
+        simPlayed = true;
+        simIO.unobserve(sim);
+        playScene(0);
+      });
+    }, { threshold: 0.35 });
+    simIO.observe(sim);
+  }
+
+  /* ---------- Gap bar fills (pillar page) ---------- */
+  var fills = document.querySelectorAll(".gb-fill[data-w]");
+  if (fills.length) {
+    var barIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        barIO.unobserve(e.target);
+        var w = Math.max(parseFloat(e.target.dataset.w), 1.2);
+        requestAnimationFrame(function () { e.target.style.width = w + "%"; });
+      });
+    }, { threshold: 0.5 });
+    fills.forEach(function (el) { barIO.observe(el); });
   }
 
   /* ---------- Calculator output tick (free-tools pages) ---------- */
