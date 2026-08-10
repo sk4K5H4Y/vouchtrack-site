@@ -224,3 +224,40 @@ home services x6, health x4, beauty x1, plus movers, law, fitness.
 52 pages, 0 errors: schema counts match on all 20 industry pages, all links
 resolve, footers uniform, titles <=66 chars, essentials still contained
 (noindex, out of sitemap, zero inbound links).
+
+# Google Tag Manager sitewide, photographers vertical, /demo page (August 10, 2026)
+
+## Tracking
+- GTM container GTM-5X9X3KZ2 installed on all 61 HTML pages: script in <head> directly
+  after charset, noscript iframe directly after <body>. GA4 and Meta Pixel to be
+  configured inside GTM (no further code changes needed).
+
+## New pages
+- /industries/photographers: 21st vertical (wedding-leaning, mixed genres). Added to
+  industries index grid and sitemap.
+- /demo: guided walkthrough page (agenda, live-report framing, feature grid, USPs).
+  Intentionally noindexed and unlinked until generalized.
+
+## Sitewide text
+- "All 20 industries" -> "All 21 industries" in nav and homepage; llms.txt 20 -> 21 verticals.
+
+# New pricing structure: DIY / Done For You / Credits & one-time (August 10, 2026)
+
+## Pricing page rebuilt
+- Tabs now: Do it yourself (Starter $29/$19, Standard $79/$59, Pro $99/$79 featured with
+  "Full AI suite" flag) / Done for you (Launch $299/$249, Growth $499/$399, Enterprise) /
+  Credits & one-time (existing sliders + $499 one-time AEO/SEO website card, hosting incl.).
+- Annual toggle kept; badge now "Save up to 34%" (discounts vary by tier). Legacy
+  /pricing#ai-visibility hash maps to the Done For You tab.
+- Location add-on: $49/mo per location on DIY (was $99 any plan except Starter);
+  DFY multi-location routed to Enterprise conversation.
+- Founding offer fully retired: announce bar removed from all pages, founding FAQ/CTA
+  rewritten. "Rate you join at is the rate you keep" retained.
+
+## Sitewide
+- Announce bar removed (59 pages). Footer tagline: "single-location businesses" ->
+  "local businesses". faq.html money answers + JSON-LD updated to new plans.
+  features/ai-search + features/aeo-content re-pointed from AI Visibility/Growth to
+  Pro/Done For You; website $500 -> $499 with hosting included. llms.txt updated
+  ($29-$499, DIY/DFY framing, 15 more industries). Sitemap lastmod bumped for changed pages.
+- essentials.html left untouched (unreachable, redirected to /pricing since July).
