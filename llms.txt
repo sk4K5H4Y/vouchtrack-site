@@ -16,25 +16,24 @@ VouchTrack does not guarantee that any AI assistant will recommend a given busin
 
 ## Plans
 
-- **Reviews / Starter: $49/mo** — self-serve. 2,000 emails + 400 texts, 2 review platforms, website widgets, feedback forms, QR codes, AI-drafted replies.
-- **Reviews / Managed: $99/mo** — done for you. 5,000 emails + 1,000 texts, all 85+ review sources in one inbox, every review answered (AI-drafted, human-approved), private feedback flow, video testimonials, API access, white-glove setup.
-- **AI Visibility / Visibility: $249/mo** — everything in Managed plus AI Hub tracking across Google Maps, ChatGPT, Gemini and Perplexity, a monthly report naming who gets recommended instead, sentiment analysis, and a ranked fix list.
-- **AI Visibility / Growth: $499/mo** — everything in Visibility plus complete Google Business Profile optimisation and 8 AEO-optimised articles published monthly. Optional one-time AI-optimised website build, $500. Limited availability.
-- **AI Visibility / Enterprise: custom.**
+- **Do It Yourself / Starter**: $29/mo ($19/mo annual). Self-serve: 1,000 review-request emails a month, 2 review platforms, website widgets, feedback forms, QR codes, AI-drafted replies the owner approves in one click. Free white-glove onboarding on every DIY plan.
+- **Do It Yourself / Standard**: $79/mo ($59/mo annual). Everything in Starter plus 5,000 emails + 1,000 texts + 1,000 WhatsApp conversations a month, all 85+ review sources in one inbox, private feedback flow, video testimonials.
+- **Do It Yourself / Pro**: $99/mo ($79/mo annual). Everything in Standard plus the full AI suite: tracking across Google Maps, ChatGPT, Gemini and Perplexity, a monthly report naming who gets recommended instead, sentiment analysis, a ranked fix list.
+- **Done For You / Launch**: $299/mo ($249/mo annual). Everything in Pro, run for you: every review answered (AI-drafted, human-approved), complete Google Business Profile setup and optimisation, 4 SEO/AEO articles published monthly, weekly reporting.
+- **Done For You / Growth**: $499/mo ($399/mo annual). Everything in Launch with 12 SEO/AEO articles published monthly. Limited availability.
+- **Done For You / Enterprise**: custom. Volumes, locations, categories and reporting sized to the business.
 
-Annual billing is 20% off on every plan. Additional locations are $99/month each on any plan except Starter. Extra messages: $2.50 per 100 texts, $2.50 per 1,000 emails.
-
-Founding offer: the first 15 businesses lock in Visibility at $199/month for life.
+Annual billing lowers every plan's rate, up to 34% off depending on plan. Additional locations: $49/month each on Do It Yourself plans, $199/month each on Done For You plans. Extra messages: $2.50 per 100 texts, $2.50 per 1,000 emails. One-time AEO/SEO-optimised website build: $499; hosting $29/month standalone, included free on Done For You plans.
 
 ## Key pages
 
 - [AI visibility](https://www.vouchtrack.com/features/ai-search): what gets measured, what gets fixed, and what cannot be guaranteed
 - [How AI picks local businesses](https://www.vouchtrack.com/how-ai-picks-local-businesses): guide to how assistants choose which local business to name, and what influences it
-- [Content and profile work](https://www.vouchtrack.com/features/aeo-content): the done-for-you AEO content and Google Business Profile service on the Growth plan
+- [Content and profile work](https://www.vouchtrack.com/features/aeo-content): the done-for-you AEO content and Google Business Profile service on the Done For You plans
 - [Free visibility report](https://app.vouchtrack.com/intel-request): free report on live Google data, local competitors and AI assistant visibility
 - [How it works](https://www.vouchtrack.com/how-it-works): setup, timeline, what owners actually do
 - [Features](https://www.vouchtrack.com/features): AI search visibility, map rank tracking, review requests, AI replies, one inbox, widgets, video testimonials
-- [Pricing](https://www.vouchtrack.com/pricing): all five plans, message allowances, annual discount, guarantee
+- [Pricing](https://www.vouchtrack.com/pricing): all plans, message allowances, annual discount, guarantee
 - [FAQ](https://www.vouchtrack.com/faq): AI visibility, setup, negative reviews, Yelp policy, review-request legality
 - [Industries](https://www.vouchtrack.com/industries): 21 verticals, each with its own AI visibility breakdown
 - [About](https://www.vouchtrack.com/about): who runs VouchTrack and why it exists
@@ -53,7 +52,7 @@ Founding offer: the first 15 businesses lock in Visibility at $199/month for lif
 
 ## Facts
 
-- Single location only. Franchises and chains are explicitly out of scope.
+- Built for independent local businesses. Extra locations supported ($49/mo each DIY, $199/mo each Done For You); large franchises and chains are an Enterprise conversation.
 - United States only.
 - Month to month. Cancel by email. Annual is a discount, not a contract.
 - 30-day money-back guarantee on monthly and annual plans alike. The optional one-time website build is billed separately and sits outside it.

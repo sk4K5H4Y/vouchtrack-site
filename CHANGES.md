@@ -261,3 +261,13 @@ resolve, footers uniform, titles <=66 chars, essentials still contained
   Pro/Done For You; website $500 -> $499 with hosting included. llms.txt updated
   ($29-$499, DIY/DFY framing, 15 more industries). Sitemap lastmod bumped for changed pages.
 - essentials.html left untouched (unreachable, redirected to /pricing since July).
+
+# Location + hosting pricing (August 10, 2026, same day)
+- Extra locations: $49/mo DIY (unchanged), $199/mo per location on Done For You plans
+  (was routed to Enterprise). Location card, pricing FAQ and comparison table updated.
+- Website hosting priced at $29/mo standalone, shown in Credits & one-time tab;
+  included free on Done For You plans. faq.html and features/aeo-content aligned.
+
+# Growth article count (August 10, 2026, same day)
+- Growth plan: 8 -> 12 SEO/AEO articles/month on pricing card; aeo-content meta updated to four or twelve.
+- llms.txt Plans section rewritten to DIY/DFY structure (missed in the earlier sweep; caught via grep). 'Single location only' fact replaced, founding line removed, API access dropped pending confirmation.
