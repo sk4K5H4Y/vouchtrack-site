@@ -1,3 +1,30 @@
+# Phase 3 — messaging propagation: industries, features, pricing, llms.txt, OG image — August 15, 2026
+
+- 21 industry pages: H1 is now "Improve your local search ranking and AI visibility, built for
+  [vertical]"; each page's old emotive H1 moved to the opening line of its lede. Verb kickers
+  (Capture experiences / Build authority / Increase visibility) added to the 16 pages that have a
+  three-step section; the 5 older-layout pages (auto-repair, dental, hvac, nail-salons-spas,
+  restaurants) keep their structure.
+- Feature pages: eyebrows now carry the three verbs (review-requests + video-testimonials =
+  Capture experiences; inbox, ai-replies, widgets, aeo-content = Build authority; ai-search,
+  insights-rankings = Increase visibility). Two em-dash H1s rewritten.
+- pricing.html: H1 "Two ways in. Both published."; Starter/Standard/Pro card CTAs now
+  "Start now" -> app.vouchtrack.com/register (register CTA per site CTA policy); Enterprise
+  CTA is "Book a call".
+- how-it-works.html: verb kickers on steps 3-5.
+- faq.html: multi-location question added ($49 DIY / $199 DFY per additional location).
+- demo.html: example card switched from wedding photographer to dentist.
+- llms.txt: summary replaced with the positioning paragraph, including the contrast against
+  Birdeye/Podium/Reputation/Experience.com and the three verbs; US spellings fixed.
+- index.html Organization schema description aligned to the positioning statement (competitor
+  names deliberately left out of structured data).
+- og-image.png regenerated at 1200x630: ink background, faint gold star, Fraunces headline
+  "Own local search. Be the first they find.", Public Sans subline, vouchtrack.com.
+- Sitewide: 25 " — VouchTrack" title/og separators -> " | VouchTrack"; data-cta attributes added
+  to every demo link (216) and report link (90) for GTM cta_click events.
+- Known debt: ~690 em dashes remain in older body prose (blog posts, tools, feature bodies).
+  These need a contextual rewrite pass, not find-and-replace.
+
 # Phase 2 — positioning rebuild: homepage, adopted messaging, sitewide language — August 15, 2026
 
 ## Positioning (per vouchtrack-messaging-framework-v1.md)

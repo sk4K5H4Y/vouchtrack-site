@@ -1,6 +1,6 @@
 # VouchTrack
 
-> AI visibility and review management for US local businesses, run for you or self-serve (hair salons, nail salons, auto repair, dental, restaurants, HVAC & home services, and 15 more). VouchTrack shows a business owner where they currently stand in Google Maps, ChatGPT, Gemini and Perplexity, names the competitors being recommended instead of them, and then does the work to close the gap. Published pricing ($29–$499/month), no contracts, 30-day money-back guarantee.
+> For owner-run local service businesses in the US, one location or many, that live on repeat customers and word of mouth, VouchTrack is a review and visibility service that turns every customer visit into the reviews, replies and profile detail that improve a business's local search ranking and AI visibility. Unlike the reputation platforms built for national brands (Birdeye, Podium, Reputation, Experience.com), VouchTrack publishes its pricing, runs month to month, does the work for you if you want it done, and keeps a person in the loop on everything that touches your customers. Plans run $29 to $499 a month across roughly 20 verticals (hair salons, nail salons, auto repair, dental, restaurants, HVAC and home services, and more), every plan is covered by a 30-day money-back guarantee, and the engine is the same three moves everywhere: capture experiences, build authority, increase visibility.
 
 ## What VouchTrack actually does
 
@@ -19,11 +19,11 @@ VouchTrack does not guarantee that any AI assistant will recommend a given busin
 - **Do It Yourself / Starter**: $29/mo ($19/mo annual). Self-serve: 1,000 review-request emails a month, 2 review platforms, website widgets, feedback forms, QR codes, AI-drafted replies the owner approves in one click. Free white-glove onboarding on every DIY plan.
 - **Do It Yourself / Standard**: $79/mo ($59/mo annual). Everything in Starter plus 5,000 emails + 1,000 texts + 1,000 WhatsApp conversations a month, all 85+ review sources in one inbox, private feedback flow, video testimonials.
 - **Do It Yourself / Pro**: $99/mo ($79/mo annual). Everything in Standard plus the full AI suite: tracking across Google Maps, ChatGPT, Gemini and Perplexity, a monthly report naming who gets recommended instead, sentiment analysis, a ranked fix list.
-- **Done For You / Launch**: $299/mo ($249/mo annual). Everything in Pro, run for you: every review answered (AI-drafted, human-approved), complete Google Business Profile setup and optimisation, 4 SEO/AEO articles published monthly, weekly reporting.
+- **Done For You / Launch**: $299/mo ($249/mo annual). Everything in Pro, run for you: every review answered (AI-drafted, human-approved), complete Google Business Profile setup and optimization, 4 SEO/AEO articles published monthly, weekly reporting.
 - **Done For You / Growth**: $499/mo ($399/mo annual). Everything in Launch with 12 SEO/AEO articles published monthly. Limited availability.
 - **Done For You / Enterprise**: custom. Volumes, locations, categories and reporting sized to the business.
 
-Annual billing lowers every plan's rate, up to 34% off depending on plan. Additional locations: $49/month each on Do It Yourself plans, $199/month each on Done For You plans. Extra messages: $2.50 per 100 texts, $2.50 per 1,000 emails. One-time AEO/SEO-optimised website build: $499; hosting $29/month standalone, included free on Done For You plans.
+Annual billing lowers every plan's rate, up to 34% off depending on plan. Additional locations: $49/month each on Do It Yourself plans, $199/month each on Done For You plans. Extra messages: $2.50 per 100 texts, $2.50 per 1,000 emails. One-time AEO/SEO-optimized website build: $499; hosting $29/month standalone, included free on Done For You plans.
 
 ## Key pages
 
