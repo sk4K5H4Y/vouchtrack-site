@@ -1,3 +1,40 @@
+# Phase 2 — positioning rebuild: homepage, adopted messaging, sitewide language — August 15, 2026
+
+## Positioning (per vouchtrack-messaging-framework-v1.md)
+- Hero H1 adopted: "Improve your local search ranking. Build AI visibility. Turn your reputation into revenue."
+- Three-step labels adopted: Capture experiences / Build authority / Increase visibility
+- Closing line and alt H1: "Be the first they find." / "Own local search. Be the first they find."
+- New title/meta/OG/schema on homepage to match
+
+## Homepage rebuilt (index.html)
+- Hero duel animation: 4 rotating scenes (Google pack dentist Chattanooga, ChatGPT plumber Des Moines,
+  Perplexity salon Greenville SC, Gemini HVAC Tulsa), each typed query -> before state with
+  "Your business: not shown" -> after state sliding the business to #1 with count-up to 4.8 (212),
+  star fill, Recommended badge and the "+87 reviews · every review answered · profile complete" chip.
+  Pauses on hover. Reduced motion / no-JS get a static after-state. Photos load from /assets/hero/
+  (dentist|plumber|salon|hvac).jpg with automatic initial-tile fallback; see assets/hero/README.txt.
+- Review-source marquee: two counter-scrolling rows, 30 US platforms (13 brand icons inlined from
+  simple-icons, 17 typographic wordmarks), links to /review-sites, pauses on hover, static under
+  reduced motion.
+- Problem section now runs four cited stats (added 83% BrightLocal with source link).
+- Four pillar rows with mockups: SMS phone, review inbox with approve micro-moment, widget + GBP
+  checklist, rank-grid heatmap + mini AI answer. Rank tracking row notes Pro / Done-for-you gating.
+- Big-platforms vs VouchTrack comparison table + guarantee card (merged robot + owners sections).
+- Pricing teaser: DIY from $29 with Start now -> app.vouchtrack.com/register; DFY from $299 -> demo.
+- FAQ tightened to 7, new multi-location question ($49 DIY / $199 DFY per additional location).
+- Closing: "Be the first they find." Sticky mobile demo bar. data-cta/data-loc on every CTA with a
+  dataLayer cta_click push for GTM.
+
+## Sitewide
+- Nav dropdown label "AI visibility" -> "What we do" (46 pages)
+- Footer blurb replaced everywhere with the ranking + AI visibility one-liner (one location or twenty)
+- US spelling sweep: optimis-/neighbourhood/favour/colour/organis- -> American spellings (0 left)
+- Single-location positioning language removed from about + 3 blog spots (kept 3 factual dataset notes)
+- features/insights-rankings.html: ranking map, competitor watch and AI insights now say Pro plan
+
+## Removed
+- Old hero simulator and dead lift-card code from assets/site.js (replaced by the duel player)
+
 # Audit fixes + founding banner, founder page, phone mockups, motion — July 13, 2026
 
 ## Consistency fixes
@@ -224,3 +261,50 @@ home services x6, health x4, beauty x1, plus movers, law, fitness.
 52 pages, 0 errors: schema counts match on all 20 industry pages, all links
 resolve, footers uniform, titles <=66 chars, essentials still contained
 (noindex, out of sitemap, zero inbound links).
+
+# Google Tag Manager sitewide, photographers vertical, /demo page (August 10, 2026)
+
+## Tracking
+- GTM container GTM-5X9X3KZ2 installed on all 61 HTML pages: script in <head> directly
+  after charset, noscript iframe directly after <body>. GA4 and Meta Pixel to be
+  configured inside GTM (no further code changes needed).
+
+## New pages
+- /industries/photographers: 21st vertical (wedding-leaning, mixed genres). Added to
+  industries index grid and sitemap.
+- /demo: guided walkthrough page (agenda, live-report framing, feature grid, USPs).
+  Intentionally noindexed and unlinked until generalized.
+
+## Sitewide text
+- "All 20 industries" -> "All 21 industries" in nav and homepage; llms.txt 20 -> 21 verticals.
+
+# New pricing structure: DIY / Done For You / Credits & one-time (August 10, 2026)
+
+## Pricing page rebuilt
+- Tabs now: Do it yourself (Starter $29/$19, Standard $79/$59, Pro $99/$79 featured with
+  "Full AI suite" flag) / Done for you (Launch $299/$249, Growth $499/$399, Enterprise) /
+  Credits & one-time (existing sliders + $499 one-time AEO/SEO website card, hosting incl.).
+- Annual toggle kept; badge now "Save up to 34%" (discounts vary by tier). Legacy
+  /pricing#ai-visibility hash maps to the Done For You tab.
+- Location add-on: $49/mo per location on DIY (was $99 any plan except Starter);
+  DFY multi-location routed to Enterprise conversation.
+- Founding offer fully retired: announce bar removed from all pages, founding FAQ/CTA
+  rewritten. "Rate you join at is the rate you keep" retained.
+
+## Sitewide
+- Announce bar removed (59 pages). Footer tagline: "single-location businesses" ->
+  "local businesses". faq.html money answers + JSON-LD updated to new plans.
+  features/ai-search + features/aeo-content re-pointed from AI Visibility/Growth to
+  Pro/Done For You; website $500 -> $499 with hosting included. llms.txt updated
+  ($29-$499, DIY/DFY framing, 15 more industries). Sitemap lastmod bumped for changed pages.
+- essentials.html left untouched (unreachable, redirected to /pricing since July).
+
+# Location + hosting pricing (August 10, 2026, same day)
+- Extra locations: $49/mo DIY (unchanged), $199/mo per location on Done For You plans
+  (was routed to Enterprise). Location card, pricing FAQ and comparison table updated.
+- Website hosting priced at $29/mo standalone, shown in Credits & one-time tab;
+  included free on Done For You plans. faq.html and features/aeo-content aligned.
+
+# Growth article count (August 10, 2026, same day)
+- Growth plan: 8 -> 12 SEO/AEO articles/month on pricing card; aeo-content meta updated to four or twelve.
+- llms.txt Plans section rewritten to DIY/DFY structure (missed in the earlier sweep; caught via grep). 'Single location only' fact replaced, founding line removed, API access dropped pending confirmation.
