@@ -1,3 +1,67 @@
+# Phase 3 — messaging propagation: industries, features, pricing, llms.txt, OG image — August 15, 2026
+
+- 21 industry pages: H1 is now "Improve your local search ranking and AI visibility, built for
+  [vertical]"; each page's old emotive H1 moved to the opening line of its lede. Verb kickers
+  (Capture experiences / Build authority / Increase visibility) added to the 16 pages that have a
+  three-step section; the 5 older-layout pages (auto-repair, dental, hvac, nail-salons-spas,
+  restaurants) keep their structure.
+- Feature pages: eyebrows now carry the three verbs (review-requests + video-testimonials =
+  Capture experiences; inbox, ai-replies, widgets, aeo-content = Build authority; ai-search,
+  insights-rankings = Increase visibility). Two em-dash H1s rewritten.
+- pricing.html: H1 "Two ways in. Both published."; Starter/Standard/Pro card CTAs now
+  "Start now" -> app.vouchtrack.com/register (register CTA per site CTA policy); Enterprise
+  CTA is "Book a call".
+- how-it-works.html: verb kickers on steps 3-5.
+- faq.html: multi-location question added ($49 DIY / $199 DFY per additional location).
+- demo.html: example card switched from wedding photographer to dentist.
+- llms.txt: summary replaced with the positioning paragraph, including the contrast against
+  Birdeye/Podium/Reputation/Experience.com and the three verbs; US spellings fixed.
+- index.html Organization schema description aligned to the positioning statement (competitor
+  names deliberately left out of structured data).
+- og-image.png regenerated at 1200x630: ink background, faint gold star, Fraunces headline
+  "Own local search. Be the first they find.", Public Sans subline, vouchtrack.com.
+- Sitewide: 25 " — VouchTrack" title/og separators -> " | VouchTrack"; data-cta attributes added
+  to every demo link (216) and report link (90) for GTM cta_click events.
+- Known debt: ~690 em dashes remain in older body prose (blog posts, tools, feature bodies).
+  These need a contextual rewrite pass, not find-and-replace.
+
+# Phase 2 — positioning rebuild: homepage, adopted messaging, sitewide language — August 15, 2026
+
+## Positioning (per vouchtrack-messaging-framework-v1.md)
+- Hero H1 adopted: "Improve your local search ranking. Build AI visibility. Turn your reputation into revenue."
+- Three-step labels adopted: Capture experiences / Build authority / Increase visibility
+- Closing line and alt H1: "Be the first they find." / "Own local search. Be the first they find."
+- New title/meta/OG/schema on homepage to match
+
+## Homepage rebuilt (index.html)
+- Hero duel animation: 4 rotating scenes (Google pack dentist Chattanooga, ChatGPT plumber Des Moines,
+  Perplexity salon Greenville SC, Gemini HVAC Tulsa), each typed query -> before state with
+  "Your business: not shown" -> after state sliding the business to #1 with count-up to 4.8 (212),
+  star fill, Recommended badge and the "+87 reviews · every review answered · profile complete" chip.
+  Pauses on hover. Reduced motion / no-JS get a static after-state. Photos load from /assets/hero/
+  (dentist|plumber|salon|hvac).jpg with automatic initial-tile fallback; see assets/hero/README.txt.
+- Review-source marquee: two counter-scrolling rows, 30 US platforms (13 brand icons inlined from
+  simple-icons, 17 typographic wordmarks), links to /review-sites, pauses on hover, static under
+  reduced motion.
+- Problem section now runs four cited stats (added 83% BrightLocal with source link).
+- Four pillar rows with mockups: SMS phone, review inbox with approve micro-moment, widget + GBP
+  checklist, rank-grid heatmap + mini AI answer. Rank tracking row notes Pro / Done-for-you gating.
+- Big-platforms vs VouchTrack comparison table + guarantee card (merged robot + owners sections).
+- Pricing teaser: DIY from $29 with Start now -> app.vouchtrack.com/register; DFY from $299 -> demo.
+- FAQ tightened to 7, new multi-location question ($49 DIY / $199 DFY per additional location).
+- Closing: "Be the first they find." Sticky mobile demo bar. data-cta/data-loc on every CTA with a
+  dataLayer cta_click push for GTM.
+
+## Sitewide
+- Nav dropdown label "AI visibility" -> "What we do" (46 pages)
+- Footer blurb replaced everywhere with the ranking + AI visibility one-liner (one location or twenty)
+- US spelling sweep: optimis-/neighbourhood/favour/colour/organis- -> American spellings (0 left)
+- Single-location positioning language removed from about + 3 blog spots (kept 3 factual dataset notes)
+- features/insights-rankings.html: ranking map, competitor watch and AI insights now say Pro plan
+
+## Removed
+- Old hero simulator and dead lift-card code from assets/site.js (replaced by the duel player)
+
 # Audit fixes + founding banner, founder page, phone mockups, motion — July 13, 2026
 
 ## Consistency fixes

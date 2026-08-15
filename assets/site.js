@@ -62,6 +62,30 @@
     });
   });
 
+  /* ---------- CTA events for GTM (data-cta / data-loc) ---------- */
+  document.addEventListener("click", function (ev) {
+    var el = ev.target && ev.target.closest ? ev.target.closest("[data-cta]") : null;
+    if (!el) return;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "cta_click",
+      ctaType: el.getAttribute("data-cta"),
+      ctaLoc: el.getAttribute("data-loc") || ""
+    });
+  });
+
+  /* ---------- Sticky mobile CTA (homepage) ---------- */
+  var sticky = document.getElementById("sticky-cta");
+  if (sticky) {
+    sticky.hidden = false;
+    document.body.classList.add("has-sticky");
+    var stickyTick = function () {
+      sticky.classList.toggle("on", window.scrollY > 620);
+    };
+    window.addEventListener("scroll", stickyTick, { passive: true });
+    stickyTick();
+  }
+
   if (reduce || !("IntersectionObserver" in window)) return;
 
   /* ---------- Scroll reveal ---------- */
@@ -121,160 +145,254 @@
   );
   bigs.forEach(function (el) { statIO.observe(el); });
 
-  /* ---------- Hero lift-card sequence (homepage only) ---------- */
-  var lift = document.querySelector(".lift-card");
-  if (lift) {
-    var score = lift.querySelector(".lift-after .lift-score");
-    var count = lift.querySelector(".lift-after .lift-count");
-    var stars = lift.querySelector(".lift-after .lift-stars");
-    var ticks = lift.querySelectorAll(".ticker .tick");
+  /* ---------- Hero duel: before/after results card (homepage) ---------- */
+  var duel = document.getElementById("duel");
+  if (duel) {
+    var FRAME = document.getElementById("duel-frame");
+    var paused = false;
+    duel.addEventListener("mouseenter", function () { paused = true; });
+    duel.addEventListener("mouseleave", function () { paused = false; });
 
-    // Prepare initial states.
-    ticks.forEach(function (t) { t.classList.add("tick-hide"); });
-    var starSpans = [];
-    if (stars) {
-      var chars = stars.textContent.trim().split("");
-      stars.textContent = "";
-      chars.forEach(function (c) {
-        var s = document.createElement("span");
-        s.className = "st st-dim";
-        s.textContent = c;
-        stars.appendChild(s);
-        starSpans.push(s);
-      });
-    }
-
-    var played = false;
-    var liftIO = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (e) {
-          if (!e.isIntersecting || played) return;
-          played = true;
-          liftIO.unobserve(lift);
-
-          if (score) {
-            animateNumber(score, 3.9, 4.6, 1300, function (v) {
-              return v.toFixed(1);
-            });
-          }
-          if (count) {
-            animateNumber(count, 47, 212, 1300, function (v) {
-              return Math.round(v) + " reviews";
-            });
-          }
-          starSpans.forEach(function (s, i) {
-            setTimeout(function () { s.classList.remove("st-dim"); }, 350 + i * 140);
-          });
-          ticks.forEach(function (t, i) {
-            setTimeout(function () { t.classList.remove("tick-hide"); }, 1500 + i * 650);
-          });
-          if (stars) {
-            setTimeout(function () { stars.classList.add("shimmer"); }, 3600);
-          }
-        });
-      },
-      { threshold: 0.35 }
-    );
-    liftIO.observe(lift);
-  }
-
-  /* ---------- Hero platform simulator (homepage) ---------- */
-  var sim = document.getElementById("hero-sim");
-  if (sim) {
     var SCENES = [
-      { skin: "sim-gpt", brand: "ChatGPT", glyph: "\u25CF",
-        q: "Best plumber in Brooklyn, NY? Give me your top three.",
-        intro: "Here are three well-reviewed options:",
-        rows: [["Greenpoint Pipe & Drain"], ["Bedford Ave Plumbing Co."], ["Five Boro Flow"]] },
-      { skin: "sim-maps", brand: "", glyph: "",
-        q: "hair salons near me",
-        intro: "Results",
-        rows: [["Studio Marlowe", "\u2605 4.9 (312) \u00B7 Open \u00B7 0.4 mi"],
-               ["The Gilded Comb", "\u2605 4.8 (196) \u00B7 Open \u00B7 0.7 mi"],
-               ["Salon Verano", "\u2605 4.8 (154) \u00B7 Closes 7 PM \u00B7 1.1 mi"]] },
-      { skin: "sim-pplx", brand: "Perplexity", glyph: "\u25C9",
-        q: "Trusted BMW repair shop near me?",
-        intro: "Based on recent reviews, three stand out:",
-        rows: [["Autohaus Meridian", null, "1"], ["Precision Bay Motors", null, "2"], ["Kessler Automotive", null, "3"]] },
-      { skin: "sim-gem", brand: "Gemini", glyph: "\u2726",
-        q: "Who's the best dentist in Austin for nervous patients?",
-        intro: "Three practices come up consistently:",
-        rows: [["Cedar Smile Studio"], ["Lantern Dental"], ["Bluebonnet Family Dental"]] }
+      {
+        mode: "pack", loc: "Chattanooga, TN", q: "dentist near me",
+        you: { name: "Riverbend Family Dental", cat: "Family & Cosmetic Dentistry",
+               sub: "0.4 mi &middot; <b class=\"d-open\">Open now</b> &middot; (423) 555-0148",
+               img: "dentist", init: "R", pct: 96 },
+        before: [
+          { name: "Scenic City Smiles", pct: 92, meta: "4.6 (180) &middot; Dentist", sub: "1.2 mi &middot; Open now", t: 1, init: "S" },
+          { name: "Lookout Family Dentistry", pct: 90, meta: "4.5 (143) &middot; Dentist", sub: "2.0 mi &middot; Closes 5 PM", t: 2, init: "L" },
+          { name: "Market Street Dental", pct: 88, meta: "4.4 (97) &middot; Dentist", sub: "0.8 mi &middot; Open now", t: 3, init: "M" }
+        ]
+      },
+      {
+        mode: "ai", brand: "ChatGPT", skin: "dp-gpt", glyph: "\u25CF",
+        q: "Best plumber in Des Moines? Give me your top three.",
+        introBefore: "Here are three well-reviewed options:",
+        introAfter: "Here are the three I'd call first:",
+        you: { name: "Cedar Ridge Plumbing", why: "praised for fast response and clear pricing", img: "plumber", init: "C" },
+        before: ["Capitol Drain & Pipe", "Two Rivers Plumbing Co.", "Ingersoll Pipeworks"]
+      },
+      {
+        mode: "ai", brand: "Perplexity", skin: "dp-pplx", glyph: "\u25C9",
+        q: "best hair salon in Greenville, SC",
+        introBefore: "Based on recent reviews, three stand out:",
+        introAfter: "Based on recent reviews, one clearly leads:",
+        you: { name: "Studio Marlowe", why: "top rated on Google and Booksy, every review answered", img: "salon", init: "S" },
+        before: ["The Gilded Comb", "Main & Vine Salon", "Falls Park Hair Co."]
+      },
+      {
+        mode: "ai", brand: "Gemini", skin: "dp-gem", glyph: "\u2726",
+        q: "Who should I call for AC repair in Tulsa?",
+        introBefore: "Three companies come up consistently:",
+        introAfter: "One company stands out right now:",
+        you: { name: "Prairie Air Heating & Cooling", why: "complete profile and fast, personal replies", img: "hvac", init: "P" },
+        before: ["Route 66 Air Co.", "Redbud Heating & Cooling", "Greenline Mechanical"]
+      }
     ];
-    var head = document.getElementById("sim-head");
-    var brand = document.getElementById("sim-brand");
-    var qEl = document.getElementById("sim-q");
-    var cursor = document.getElementById("sim-cursor");
-    var introEl = document.getElementById("sim-intro");
-    var rowsEl = document.getElementById("sim-rows");
-    var youEl = document.getElementById("sim-you");
 
-    function renderScene(sc) {
-      sim.className = "sim sim-swap " + sc.skin;
-      if (sc.skin === "sim-maps") {
-        head.innerHTML = '<span class="sim-search"><span class="sim-glyph">\u2315</span><span id="sim-q"></span><span class="ac-cursor" id="sim-cursor" hidden></span></span>';
-      } else {
-        head.innerHTML = '<span class="sim-glyph" aria-hidden="true">' + sc.glyph + '</span><span class="sim-brand" id="sim-brand">' + sc.brand + '</span>';
-      }
-      var isMaps = sc.skin === "sim-maps";
-      var body = "";
-      if (!isMaps) {
-        body += '<p class="sim-q"><span id="sim-q"></span><span class="ac-cursor" id="sim-cursor" hidden></span></p>';
-      }
-      body += '<p class="sim-intro sim-step" id="sim-intro">' + sc.intro + '</p><ol class="sim-rows" id="sim-rows">';
-      sc.rows.forEach(function (r, i) {
-        body += '<li class="sim-row sim-step">';
-        if (isMaps) body += '<span class="sim-thumb"></span>';
-        else body += '<span class="sim-rank">' + (i + 1) + '</span>';
-        body += '<span><span class="sim-name">' + r[0] + '</span>';
-        if (r[2]) body += '<span class="sim-cite">' + r[2] + '</span>';
-        if (r[1]) body += '<div class="sim-meta"><span class="sim-stars">\u2605</span> ' + r[1].slice(2) + '</div>';
-        body += '</span></li>';
-      });
-      body += '</ol><div class="sim-you sim-step" id="sim-you"><span class="sim-you-label">Your business</span><span class="sim-you-status">Not mentioned</span></div>';
-      document.getElementById("sim-body").innerHTML = body;
-      qEl = document.getElementById("sim-q");
-      cursor = document.getElementById("sim-cursor");
+    var CHIP = "<div class=\"d-chip\"><span class=\"d-chip-star\" aria-hidden=\"true\">\u2605</span>+87 reviews in 6 months &middot; every review answered &middot; profile complete</div>";
+
+    function thumb(img, init, cls) {
+      return "<span class=\"d-thumb " + (cls || "") + "\">" +
+        (img ? "<img src=\"/assets/hero/" + img + ".jpg\" alt=\"\" onerror=\"this.remove()\">" : "") +
+        "<span class=\"d-init\">" + init + "</span></span>";
     }
 
-    function typeText(text, done) {
-      qEl.textContent = "";
-      cursor.hidden = false;
-      var i = 0;
-      (function tick() {
-        if (i <= text.length) {
-          qEl.textContent = text.slice(0, i); i++;
-          setTimeout(tick, 26);
-        } else { cursor.hidden = true; done(); }
+    function packRow(r, isYou) {
+      if (isYou) {
+        return "<li class=\"d-row d-you-row\">" + thumb(r.img, r.init) +
+          "<span class=\"d-main\"><span class=\"d-name\">" + r.name +
+          " <span class=\"d-badge\">Recommended</span></span>" +
+          "<span class=\"d-meta\"><span class=\"d-stars\"><i></i></span> <b>4.8</b> (<span class=\"d-cnt\">47</span>) &middot; " + r.cat + "</span>" +
+          "<span class=\"d-sub\">" + r.sub + "</span></span></li>";
+      }
+      return "<li class=\"d-row\">" + thumb(null, r.init, "d-tile d-t" + r.t) +
+        "<span class=\"d-main\"><span class=\"d-name\">" + r.name + "</span>" +
+        "<span class=\"d-meta\"><span class=\"d-stars\"><i style=\"width:" + r.pct + "%\"></i></span> " + r.meta + "</span>" +
+        "<span class=\"d-sub\">" + r.sub + "</span></span></li>";
+    }
+
+    function aiRow(name, i) {
+      return "<li class=\"d-row\"><span class=\"d-rank\">" + (i + 1) + "</span>" +
+        "<span class=\"d-main\"><span class=\"d-name\">" + name + "</span></span></li>";
+    }
+
+    function aiYouRow(you) {
+      return "<li class=\"d-row d-you-row\"><span class=\"d-rank\">1</span>" +
+        thumb(you.img, you.init, "d-avatar") +
+        "<span class=\"d-main\"><span class=\"d-name\">" + you.name +
+        " <span class=\"d-badge\">Recommended</span></span>" +
+        "<span class=\"d-why\"><span class=\"d-stars\"><i></i></span> <b>4.8</b> (<span class=\"d-cnt\">47</span> reviews), " + you.why + "</span></span></li>";
+    }
+
+    function strip(name, word) {
+      return "<div class=\"d-strip\"><span class=\"d-strip-label\">Your business: " + name + "</span><b>" + word + "</b></div>";
+    }
+
+    function head(sc) {
+      if (sc.mode === "pack") {
+        return "<div class=\"duel-head dh-google\"><span class=\"d-search\">" +
+          "<span class=\"d-glass\" aria-hidden=\"true\">\u26B2</span><span class=\"d-q\" id=\"d-q\"></span><span class=\"d-cursor\" id=\"d-cursor\"></span></span>" +
+          "<span class=\"d-loc\">" + sc.loc + "</span></div>";
+      }
+      return "<div class=\"duel-head dh-" + sc.skin.slice(3) + "\"><span><span class=\"d-glyph\" aria-hidden=\"true\">" + sc.glyph + "</span>" +
+        "<span class=\"d-brand\">" + sc.brand + "</span></span></div>";
+    }
+
+    function wait(ms, cb) {
+      var left = ms;
+      (function step() {
+        if (!paused) left -= 80;
+        if (left <= 0) return cb();
+        setTimeout(step, 80);
       })();
+    }
+
+    function typeInto(el, cur, text, cb) {
+      var i = 0;
+      el.textContent = "";
+      if (cur) cur.hidden = false;
+      (function tick() {
+        if (paused) return setTimeout(tick, 120);
+        if (i <= text.length) {
+          el.textContent = text.slice(0, i); i++;
+          setTimeout(tick, 24);
+        } else {
+          if (cur) cur.hidden = true;
+          cb();
+        }
+      })();
+    }
+
+    function stagger(els, gap, cb) {
+      els.forEach(function (el, i) {
+        setTimeout(function () { el.classList.add("d-in"); }, 140 + i * gap);
+      });
+      wait(140 + els.length * gap + 120, cb);
     }
 
     function playScene(idx) {
       var sc = SCENES[idx % SCENES.length];
-      sim.classList.add("out");
+      duel.classList.add("out");
       setTimeout(function () {
-        renderScene(sc);
-        sim.classList.remove("out");
-        var steps = [].slice.call(sim.querySelectorAll(".sim-step"));
-        typeText(sc.q, function () {
-          steps.forEach(function (el, i) {
-            setTimeout(function () { el.classList.add("sim-in"); }, 220 + i * 280);
+        duel.className = "duel d-anim" + (sc.mode === "ai" ? " duel-dark " + sc.skin : "");
+
+        var body = "";
+        if (sc.mode === "pack") {
+          body = "<ol class=\"d-rows\">" + sc.before.map(function (r) { return packRow(r, false); }).join("") +
+            "</ol>" + strip(sc.you.name, "Not shown");
+        } else {
+          body = "<div class=\"d-userq\"><span id=\"d-q\"></span><span class=\"d-cursor\" id=\"d-cursor\"></span></div>" +
+            "<p class=\"d-intro\">" + sc.introBefore + "</p>" +
+            "<ol class=\"d-rows\">" + sc.before.map(aiRow).join("") + "</ol>" +
+            strip(sc.you.name, "Not mentioned");
+        }
+        FRAME.innerHTML = head(sc) + "<div class=\"duel-body\">" + body + "</div>";
+        duel.classList.remove("out");
+
+        var qEl = FRAME.querySelector("#d-q");
+        var cur = FRAME.querySelector("#d-cursor");
+
+        typeInto(qEl, cur, sc.q, function () {
+          var steps = [].slice.call(FRAME.querySelectorAll(".d-intro, .d-row, .d-strip"));
+          stagger(steps, 240, function () {
+            wait(1900, function () { swapToAfter(sc, idx); });
           });
-          setTimeout(function () { playScene(idx + 1); }, 220 + steps.length * 280 + 2600);
         });
-      }, idx === 0 ? 0 : 340);
+      }, idx === 0 ? 60 : 360);
     }
 
-    var simPlayed = false;
-    var simIO = new IntersectionObserver(function (entries) {
+    function swapToAfter(sc, idx) {
+      var bodyEl = FRAME.querySelector(".duel-body");
+      bodyEl.style.opacity = "0";
+      setTimeout(function () {
+        var body = "";
+        if (sc.mode === "pack") {
+          body = "<ol class=\"d-rows\">" + packRow(sc.you, true) +
+            packRow(sc.before[0], false) + packRow(sc.before[1], false) + "</ol>" + CHIP;
+        } else {
+          body = "<div class=\"d-userq d-in\">" + sc.q + "</div>" +
+            "<p class=\"d-intro\">" + sc.introAfter + "</p>" +
+            "<ol class=\"d-rows\">" + aiYouRow(sc.you) +
+            aiRow(sc.before[0], 1) + aiRow(sc.before[1], 2) + "</ol>" + CHIP;
+        }
+        bodyEl.innerHTML = body;
+        bodyEl.style.opacity = "";
+
+        var steps = [].slice.call(bodyEl.querySelectorAll(".d-intro, .d-row, .d-chip"));
+        stagger(steps, 220, function () {
+          var cnt = bodyEl.querySelector(".d-cnt");
+          var star = bodyEl.querySelector(".d-you-row .d-stars i");
+          if (cnt) animateNumber(cnt, 47, 212, 1000, function (v) { return String(Math.round(v)); });
+          if (star) requestAnimationFrame(function () { star.style.width = "96%"; });
+          wait(3300, function () { playScene(idx + 1); });
+        });
+      }, 200);
+    }
+
+    var duelPlayed = false;
+    var duelIO = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (!e.isIntersecting || simPlayed) return;
-        simPlayed = true;
-        simIO.unobserve(sim);
+        if (!e.isIntersecting || duelPlayed) return;
+        duelPlayed = true;
+        duelIO.unobserve(duel);
         playScene(0);
       });
     }, { threshold: 0.35 });
-    simIO.observe(sim);
+    duelIO.observe(duel);
+  }
+
+  /* ---------- Inbox mockup: approve micro-moment (homepage) ---------- */
+  var inbox = document.getElementById("mock-inbox");
+  if (inbox) {
+    var inboxIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        inboxIO.unobserve(inbox);
+        var btn = inbox.querySelector(".mi-approve");
+        var posted = inbox.querySelector(".mi-posted");
+        setTimeout(function () {
+          if (btn) btn.classList.add("pressed");
+          setTimeout(function () {
+            if (btn) btn.classList.remove("pressed");
+            if (posted) posted.hidden = false;
+          }, 260);
+        }, 1100);
+      });
+    }, { threshold: 0.5 });
+    inboxIO.observe(inbox);
+  }
+
+  /* ---------- GBP bar + rank grid micro-reveals (homepage) ---------- */
+  var gbpBar = document.querySelector(".mg-bar i");
+  if (gbpBar) {
+    gbpBar.style.width = "24%";
+    var gbpIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        gbpIO.unobserve(e.target);
+        requestAnimationFrame(function () { e.target.style.width = "100%"; });
+      });
+    }, { threshold: 0.6 });
+    gbpIO.observe(gbpBar);
+  }
+  var rankCells = document.querySelectorAll(".rank-grid i");
+  if (rankCells.length) {
+    rankCells.forEach(function (c) {
+      c.style.opacity = "0";
+      c.style.transition = "opacity 0.5s ease";
+    });
+    var gridIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        gridIO.unobserve(e.target);
+        rankCells.forEach(function (c, i) {
+          setTimeout(function () { c.style.opacity = ""; }, i * 45);
+        });
+      });
+    }, { threshold: 0.5 });
+    gridIO.observe(rankCells[0].parentElement);
   }
 
   /* ---------- Gap bar fills (pillar page) ---------- */
