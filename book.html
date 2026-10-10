@@ -168,5 +168,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   })();
 </script>
 <script async src="https://static.zcal.co/embed/v1/embed.js"></script>
+<script>
+  /* The Zcal calendar is a cross-origin frame, so bookings can't be read from here.
+     Clicking into it moves focus to the frame; we log that once as an engagement signal. */
+  (function () {
+    var sent = false;
+    window.addEventListener("blur", function () {
+      setTimeout(function () {
+        var el = document.activeElement;
+        if (sent || !el || el.tagName !== "IFRAME" || !el.closest(".cal-card")) return;
+        sent = true;
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: "calendar_engaged" });
+      }, 0);
+    });
+  })();
+</script>
 </body>
 </html>
