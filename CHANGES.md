@@ -1,3 +1,13 @@
+# Booking moves on-site: /book with embedded calendar (October 11, 2026)
+
+- New /book page (noindex, not in sitemap): Zcal calendar embedded inline via the official
+  embed script, logo-only header, ad UTMs passed through to Zcal. Built first as the Meta ads
+  landing page.
+- All 222 "Book a demo" links across 61 pages now point to /book instead of opening
+  zcal.co in a new tab.
+- /book pushes a `calendar_engaged` dataLayer event the first time a visitor clicks into the
+  calendar (Zcal's free plan exposes no booking event, pixel, or redirect).
+
 # Phase 3 — messaging propagation: industries, features, pricing, llms.txt, OG image — August 15, 2026
 
 - 21 industry pages: H1 is now "Improve your local search ranking and AI visibility, built for
