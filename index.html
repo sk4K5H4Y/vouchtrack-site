@@ -22,7 +22,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://www.vouchtrack.com/og-image.png">
-<meta name="theme-color" content="#1B2A41">
+<meta name="theme-color" content="#FFC93C">
 <link rel="canonical" href="https://www.vouchtrack.com/">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="stylesheet" href="/styles.css">
@@ -37,7 +37,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <header>
   <div class="wrap nav">
-    <a href="/" class="logo"><span class="star">★</span>VouchTrack</a>
+    <a href="/" class="logo"><svg class="logo-mark" width="26" height="31" viewBox="0 0 34 40" aria-hidden="true"><path class="lm-pin" d="M17 1C8.2 1 1 8 1 16.6 1 28 17 39 17 39s16-11 16-22.4C33 8 25.8 1 17 1z"/><path class="lm-star" d="M17 7.5l2.6 5.3 5.8.8-4.2 4 1 5.7L17 20.6l-5.2 2.7 1-5.7-4.2-4 5.8-.8z"/></svg>VouchTrack</a>
     <button class="menu-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
     <ul class="nav-links">
       <li><a href="/how-it-works">How it works</a></li>
@@ -102,7 +102,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow">Review management &amp; AI visibility for local businesses</span>
-      <h1>Improve your local search ranking. Build AI visibility. <em>Turn your reputation into revenue.</em></h1>
+      <h1>Improve your local search ranking. Build AI visibility. Turn your reputation into revenue.</h1>
       <p class="lede">VouchTrack asks every customer for a review, answers every one in your voice, keeps your Google Business Profile complete, and shows you where you stand in Google Maps, ChatGPT, Gemini and Perplexity. Done for you from $299 a month, or run it yourself from $29.</p>
       <div class="hero-ctas">
         <a href="/book" class="btn btn-primary btn-lg" data-cta="demo" data-loc="hero">Book a free 15-minute demo</a>
@@ -111,43 +111,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="hero-note">Month to month. Pricing published below. 30-day money-back guarantee.</p>
     </div>
 
-    <div class="duel-wrap">
-      <div class="duel" id="duel" role="img" aria-label="Animated example: a local business missing from Google and AI results, then appearing first after working with VouchTrack">
-        <div class="duel-frame" id="duel-frame">
-          <div class="duel-head dh-google">
-            <span class="d-search"><span class="d-glass" aria-hidden="true">&#9906;</span><span class="d-q">dentist near me</span></span>
-            <span class="d-loc">Chattanooga, TN</span>
-          </div>
-          <div class="duel-body">
-            <ol class="d-rows">
-              <li class="d-row d-you-row d-in">
-                <span class="d-thumb"><img src="/assets/hero/dentist.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="d-init">R</span></span>
-                <span class="d-main">
-                  <span class="d-name">Riverbend Family Dental <span class="d-badge">Recommended</span></span>
-                  <span class="d-meta"><span class="d-stars"><i style="width:96%"></i></span> <b>4.8</b> (212) &middot; Family &amp; Cosmetic Dentistry</span>
-                  <span class="d-sub">0.4 mi &middot; <b class="d-open">Open now</b> &middot; (423) 555-0148</span>
-                </span>
-              </li>
-              <li class="d-row d-in">
-                <span class="d-thumb d-tile d-t1"><span class="d-init">S</span></span>
-                <span class="d-main">
-                  <span class="d-name">Scenic City Smiles</span>
-                  <span class="d-meta"><span class="d-stars"><i style="width:92%"></i></span> 4.6 (180) &middot; Dentist</span>
-                  <span class="d-sub">1.2 mi &middot; Open now</span>
-                </span>
-              </li>
-              <li class="d-row d-in">
-                <span class="d-thumb d-tile d-t2"><span class="d-init">L</span></span>
-                <span class="d-main">
-                  <span class="d-name">Lookout Family Dentistry</span>
-                  <span class="d-meta"><span class="d-stars"><i style="width:90%"></i></span> 4.5 (143) &middot; Dentist</span>
-                  <span class="d-sub">2.0 mi &middot; Closes 5 PM</span>
-                </span>
-              </li>
-            </ol>
-            <div class="d-chip d-in"><span class="d-chip-star" aria-hidden="true">★</span>+87 reviews in 6 months &middot; every review answered &middot; profile complete</div>
+    <div class="map-wrap">
+      <div class="map" id="hero-map" role="img" aria-label="Example: someone asks an AI assistant who to call for AC repair in Tulsa, and it names a local business that also ranks first on Google Maps">
+        <svg class="map-streets" viewBox="0 0 600 580" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect x="360" y="330" width="170" height="130" rx="10" fill="#E2EDC8"/>
+          <path d="M-20 150 C 120 120, 220 210, 360 170 S 560 120, 640 160" fill="none" stroke="#D6E2F7" stroke-width="26"/>
+          <g stroke="#FFFFFF" stroke-width="16" stroke-linecap="square"><path d="M0 270 H600"/><path d="M0 480 H600"/><path d="M120 0 V580"/><path d="M320 0 V580"/><path d="M500 0 V580"/></g>
+          <g stroke="#FFFFFF" stroke-width="7"><path d="M0 60 H600"/><path d="M0 380 H600"/><path d="M220 0 V580"/><path d="M420 0 V580"/><path d="M30 580 L250 300"/></g>
+          <g fill="#A9B2CC"><circle cx="180" cy="330" r="7"/><circle cx="270" cy="420" r="7"/><circle cx="455" cy="230" r="7"/><circle cx="80" cy="410" r="7"/><circle cx="560" cy="420" r="7"/></g>
+        </svg>
+        <div class="map-ai">
+          <p class="map-q"><span class="map-q-text">Who should I call for AC repair in Tulsa?</span></p>
+          <p class="map-a">I'd start with <b>Prairie Air Heating &amp; Cooling</b>. They're rated 4.8 across 300+ reviews, and customers mention same-day visits.</p>
+          <div class="map-chips"><span>ChatGPT</span><span>Gemini</span><span>Perplexity</span></div>
+        </div>
+        <div class="map-biz">
+          <span class="map-avatar" aria-hidden="true">P</span>
+          <div>
+            <div class="map-name">Prairie Air Heating &amp; Cooling</div>
+            <div class="map-rating"><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><b>4.8</b> (312)</div>
+            <div class="map-rank">First on Google Maps in your area</div>
           </div>
         </div>
+        <svg class="map-pin" viewBox="0 0 34 40" aria-hidden="true"><path class="lm-pin" d="M17 1C8.2 1 1 8 1 16.6 1 28 17 39 17 39s16-11 16-22.4C33 8 25.8 1 17 1z"/><path class="lm-star" d="M17 7.5l2.6 5.3 5.8.8-4.2 4 1 5.7L17 20.6l-5.2 2.7 1-5.7-4.2-4 5.8-.8z"/></svg>
       </div>
       <p class="d-foot">Illustrative names. On your demo we use your business and your market.</p>
     </div>
@@ -200,36 +186,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<section id="how">
+<section class="band-white" id="pillars">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" id="how">
       <span class="eyebrow">How it works</span>
       <h2>From happy customer to first name in the results</h2>
       <p>Each step runs in the background. You approve the wording once. Then it just runs.</p>
     </div>
-    <div class="steps levers">
-      <div class="step">
-        <span class="step-kicker">1 &middot; Capture experiences</span>
-        <h3>Every customer gets asked</h3>
-        <p>After each visit your customer gets a friendly text, email or WhatsApp in your name, or scans a QR at the counter. One tap opens the review box. Happy customers post on Google. Anyone with a complaint gets a private way to reach you first.</p>
-      </div>
-      <div class="step">
-        <span class="step-kicker">2 &middot; Build authority</span>
-        <h3>Every review gets put to work</h3>
-        <p>Reviews from Google, Facebook, Yelp and 85+ other sites land in one inbox. Every one gets a reply drafted by AI in your voice and approved by a person before it posts. Your best reviews go on your website with the markup Google reads, and out to your social channels. On Done-for-you plans we also keep your Google Business Profile complete and publish the pages that answer what people in your area are asking.</p>
-      </div>
-      <div class="step">
-        <span class="step-kicker">3 &middot; Increase visibility</span>
-        <h3>Watch yourself climb the answer</h3>
-        <p>See exactly where you rank in Google Maps, block by block, and where ChatGPT, Gemini and Perplexity name you, or who they name instead. A plain-English report, with a ranked list of what to fix next.</p>
-        <p style="margin-top:12px; font-size:0.92rem;"><a href="/how-ai-picks-local-businesses" style="font-weight:600;">How AI picks local businesses &rarr;</a></p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section class="band-white" id="pillars">
-  <div class="wrap">
 
     <div class="grid-2 pillar-row" style="align-items:center;">
       <div>
@@ -319,7 +283,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h3 class="pillar-h">See where you stand. See what moved.</h3>
         <p style="margin-bottom:14px;">A map grid of your area shows exactly where you rank in Google Maps and how it changes over time. AI tracking shows where ChatGPT, Gemini and Perplexity name you and who they name instead. Plain-English reports and a ranked fix list.</p>
         <p style="font-size:0.9rem; margin-bottom:14px; color:var(--slate);">Included on Pro and every Done-for-you plan.</p>
-        <p style="font-size:0.95rem;"><a href="/features/insights-rankings" style="font-weight:600;">Rank tracking &rarr;</a> &nbsp;&middot;&nbsp; <a href="/features/ai-search" style="font-weight:600;">AI visibility tracking &rarr;</a></p>
+        <p style="font-size:0.95rem;"><a href="/features/insights-rankings" style="font-weight:600;">Rank tracking &rarr;</a> &nbsp;&middot;&nbsp; <a href="/features/ai-search" style="font-weight:600;">AI visibility tracking &rarr;</a> &nbsp;&middot;&nbsp; <a href="/how-ai-picks-local-businesses" style="font-weight:600;">How AI picks local businesses &rarr;</a></p>
       </div>
     </div>
 
@@ -344,7 +308,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="cmp-row"><span>Enterprise minimums</span><span class="cmp-vt">One location or twenty</span></div>
         <div class="cmp-row"><span>Hope it works</span><span class="cmp-vt">30-day money-back guarantee</span></div>
       </div>
-      <div class="card" style="padding:36px; border:2px solid var(--gold);">
+      <div class="card" style="padding:36px; border:2px solid var(--ink); box-shadow:var(--shadow-hard);">
         <h3 style="margin-bottom:16px;">The 30-day money-back guarantee</h3>
         <p style="margin-bottom:16px;">Try VouchTrack for a full month. If you are not seeing your visibility move, or you simply do not want to keep it, for any reason, one email gets you every dollar back.</p>
         <p style="font-size:0.9rem;">We can offer that because the first thing we do is show you exactly where you stand today. You will know within a week whether this is worth paying for.</p>
@@ -360,12 +324,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>Independent and multi-location local businesses that run on repeat customers and word of mouth, where one recommendation is the difference between a full week and a quiet one.</p>
     </div>
     <div class="grid-3">
-      <a class="post-card" href="/industries/hair-salons"><span class="tag">Industry</span><h3>Hair salons &amp; barbershops</h3><p>When someone asks AI for the best salon in town, make sure your name is in the answer.</p></a>
-      <a class="post-card" href="/industries/nail-salons-spas"><span class="tag">Industry</span><h3>Nail salons &amp; spas</h3><p>Your regulars love you. Make sure the assistant answering "nail salon near me" knows it too.</p></a>
-      <a class="post-card" href="/industries/auto-repair"><span class="tag">Industry</span><h3>Auto repair shops</h3><p>Trust is everything in auto repair. Be the shop AI recommends before the phone ever rings.</p></a>
-      <a class="post-card" href="/industries/dental"><span class="tag">Industry</span><h3>Dental offices</h3><p>New patients ask for a recommendation before they book. Make sure your practice is the one they get.</p></a>
-      <a class="post-card" href="/industries/restaurants"><span class="tag">Industry</span><h3>Restaurants &amp; cafés</h3><p>Diners ask for a shortlist now, not a page of links. Get yourself onto it.</p></a>
-      <a class="post-card" href="/industries/hvac-home-services"><span class="tag">Industry</span><h3>HVAC &amp; home services</h3><p>Homeowners check who to trust before they let anyone through the door. Be that answer.</p></a>
+      <a class="post-card" href="/industries/hair-salons"><h3>Hair salons &amp; barbershops</h3><p>When someone asks AI for the best salon in town, make sure your name is in the answer.</p></a>
+      <a class="post-card" href="/industries/nail-salons-spas"><h3>Nail salons &amp; spas</h3><p>Your regulars love you. Make sure the assistant answering "nail salon near me" knows it too.</p></a>
+      <a class="post-card" href="/industries/auto-repair"><h3>Auto repair shops</h3><p>Trust is everything in auto repair. Be the shop AI recommends before the phone ever rings.</p></a>
+      <a class="post-card" href="/industries/dental"><h3>Dental offices</h3><p>New patients ask for a recommendation before they book. Make sure your practice is the one they get.</p></a>
+      <a class="post-card" href="/industries/restaurants"><h3>Restaurants &amp; cafés</h3><p>Diners ask for a shortlist now, not a page of links. Get yourself onto it.</p></a>
+      <a class="post-card" href="/industries/hvac-home-services"><h3>HVAC &amp; home services</h3><p>Homeowners check who to trust before they let anyone through the door. Be that answer.</p></a>
     </div>
     <p style="text-align:center; margin-top:28px;"><a href="/industries" style="font-weight:600;">See all 21 industries &rarr;</a></p>
   </div>
@@ -374,7 +338,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section id="plans">
   <div class="wrap">
     <div class="section-head center">
-      <h2>Two ways in. Both published.</h2>
+      <h2>Run it yourself, or let us run it.</h2>
       <p>Every price is on our pricing page, down to the dollar. Both routes are month to month and covered by the 30-day guarantee.</p>
     </div>
     <div class="grid-2 teaser-grid">
@@ -449,7 +413,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a href="/" class="logo"><span class="star">★</span>VouchTrack</a>
+        <a href="/" class="logo"><svg class="logo-mark" width="26" height="31" viewBox="0 0 34 40" aria-hidden="true"><path class="lm-pin" d="M17 1C8.2 1 1 8 1 16.6 1 28 17 39 17 39s16-11 16-22.4C33 8 25.8 1 17 1z"/><path class="lm-star" d="M17 7.5l2.6 5.3 5.8.8-4.2 4 1 5.7L17 20.6l-5.2 2.7 1-5.7-4.2-4 5.8-.8z"/></svg>VouchTrack</a>
         <p style="font-size:0.9rem; max-width:26em;">Local search ranking and AI visibility for US local businesses, one location or twenty. We turn every customer visit into reviews, replies and rankings, and we can do the whole thing for you.</p>
       </div>
       <div>

@@ -145,6 +145,33 @@
   );
   bigs.forEach(function (el) { statIO.observe(el); });
 
+  /* ---------- Hero map: question types, answer appears, pin drops (homepage) ---------- */
+  var heroMap = document.getElementById("hero-map");
+  if (heroMap) {
+    var mq = heroMap.querySelector(".map-q-text");
+    var mqFull = mq ? mq.textContent : "";
+    heroMap.classList.add("map-pre");
+    if (mq) mq.textContent = "";
+    var mapPlayed = false;
+    var mapIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting || mapPlayed) return;
+        mapPlayed = true;
+        mapIO.unobserve(heroMap);
+        var i = 0;
+        (function typeNext() {
+          i += 1;
+          if (mq) mq.textContent = mqFull.slice(0, i);
+          if (i < mqFull.length) { setTimeout(typeNext, 26); return; }
+          setTimeout(function () { heroMap.classList.add("map-s1"); }, 300);
+          setTimeout(function () { heroMap.classList.add("map-s2"); }, 1000);
+          setTimeout(function () { heroMap.classList.add("map-s3"); }, 1600);
+        })();
+      });
+    }, { threshold: 0.35 });
+    mapIO.observe(heroMap);
+  }
+
   /* ---------- Hero duel: before/after results card (homepage) ---------- */
   var duel = document.getElementById("duel");
   if (duel) {

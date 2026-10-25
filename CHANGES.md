@@ -1,3 +1,13 @@
+# Brand D rollout (October 25, 2026, preview branch brand-d-preview)
+
+- New look sitewide: marigold #FFC93C, navy #142B6F, white and butter #FFF7DB; Bricolage Grotesque (display at 75% width, weight 800; body at normal width).
+- New logo on all 62 pages: navy map pin with a yellow star plus the VouchTrack wordmark (inline SVG, white pin in the footer). New favicon and OG image.
+- Header and each page's opening section share the yellow; buttons are pills (navy on light, yellow on navy); labels are sentence-case pills instead of tracked capitals; cards are flat and outlined, with a hard navy shadow on the one card to look at; FAQ uses a +/- marker.
+- Homepage: hero visual is now the neighborhood map (AI answer card, business card, pin) with a one-time load sequence (question types, answer appears, pin drops; reduced motion shows the final frame). Headline accent removed. The three step cards were merged into the pillar rows (same story was told twice). Pricing teaser heading no longer repeats the pricing page H1. Removed the repeated "Industry" label on industry cards.
+- Pricing: lede no longer opens with "Two ways in" right under the H1.
+- Three-up grids center a short last row, so no card hangs alone (tools page had 3 + 1).
+- Old palette and Fraunces/Public Sans removed from the stylesheet; theme-color now #FFC93C.
+
 # Quick fixes (October 25, 2026)
 
 - Pricing page: plan prices render at full size again (the "/mo" suffix rule no longer shrinks the number).
