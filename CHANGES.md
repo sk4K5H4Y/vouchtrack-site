@@ -1,3 +1,10 @@
+# Quick fixes (October 25, 2026)
+
+- Pricing page: plan prices render at full size again (the "/mo" suffix rule no longer shrinks the number).
+- Homepage pricing teaser: "Do it yourself" and "Done for you" labels now render as pills (`.tag` had no style outside blog cards).
+- Homepage stat band: removed the BrightLocal-sourced 83% stat; `.stat-band` now sizes columns to the number of stats, so no stat sits alone on a second row.
+- Blog: four footer blurbs said "AI Overviews"; now "Google Maps, ChatGPT, Gemini and Perplexity".
+
 # Booking moves on-site: /book with embedded calendar (October 11, 2026)
 
 - New /book page (noindex, not in sitemap): Zcal calendar embedded inline via the official

@@ -219,7 +219,7 @@ section { padding: 72px 0; }
 .plan-name { font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 600; margin-bottom: 6px; }
 .plan-for { font-size: 0.9rem; color: var(--slate); margin-bottom: 20px; min-height: 2.6em; }
 .plan-price { font-family: 'Fraunces', serif; font-size: 2.6rem; font-weight: 700; }
-.plan-price span { font-family: 'Public Sans', sans-serif; font-size: 1rem; font-weight: 500; color: var(--slate); }
+.plan-price span:not(.p-base):not(.plan-strike) { font-family: 'Public Sans', sans-serif; font-size: 1rem; font-weight: 500; color: var(--slate); }
 .plan-strike { text-decoration: line-through; color: var(--slate); font-size: 1.2rem; font-weight: 500; margin-right: 8px; }
 .plan .checklist { margin: 24px 0 28px; flex: 1; }
 .plan .checklist li { font-size: 0.94rem; }
@@ -236,7 +236,7 @@ td.muted { color: var(--slate); }
 /* ---------- Industries ---------- */
 .industry-hero { padding: 64px 0 56px; }
 .industry-hero h1 { max-width: 16em; }
-.stat-band { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
 @media (max-width: 800px) { .stat-band { grid-template-columns: 1fr; } }
 .stat { background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--line); padding: 26px; text-align: center; }
 .stat .big { font-family: 'Fraunces', serif; font-size: 2.2rem; font-weight: 700; color: var(--ink); }
@@ -1254,6 +1254,7 @@ span.icon { line-height: 0; }
 .teaser-grid { align-items: stretch; }
 .teaser { padding: 30px; display: flex; flex-direction: column; }
 .teaser-dfy { border: 2px solid var(--gold); }
+.tag:not(.post-card .tag) { display: inline-block; align-self: flex-start; padding: 4px 10px; border-radius: 999px; background: var(--leaf-soft); color: var(--leaf); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; line-height: 1.4; }
 .tag-gold { background: var(--gold-soft); color: #8A6420; }
 .teaser-price { font-family: 'Fraunces', serif; font-size: 1.15rem; margin: 12px 0 10px; }
 .teaser-price b { font-size: 2rem; font-weight: 700; }
