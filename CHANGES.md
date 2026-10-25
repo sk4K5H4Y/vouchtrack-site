@@ -1,3 +1,11 @@
+# Astro migration (October 25, 2026, preview branch astro-preview)
+
+- Site now builds with Astro 5.18.2 (static output, same file layout: pricing.html, features/index.html). Vercel builds with `npm run build` and serves `dist/`.
+- One shared header (`src/components/Header.astro`) and footer (`src/components/Footer.astro`) replace 62 hand-copied versions. A nav or footer change is now one edit.
+- Normalized along the way: feature pages called the menu "AI visibility" while every other page said "What we do"; 4 older blog posts had an outdated footer blurb; most pages' nav demo button lacked `data-loc="nav"`.
+- Every built page was compared to the pre-migration HTML: identical outside the header and footer.
+- See README.md for where to edit pages.
+
 # Copy and template cleanup (October 25, 2026, preview branch brand-d-preview)
 
 - Em dashes: all 674 removed sitewide (visible copy, meta tags, FAQ schema, tool scripts and copyable templates), each rewritten in context as a comma, colon, parentheses or a new sentence. Calculator placeholders use an en dash.

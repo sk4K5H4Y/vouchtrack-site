@@ -1,0 +1,22 @@
+---
+// Renders a page body kept as plain HTML in src/raw, swapping in the shared
+// header and footer where the markers sit. Everything else stays byte for byte.
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+interface Props { html: string; }
+const { html } = Astro.props;
+const re = /<!--@(header|footer)(?: active=(\w*))?-->/g;
+const parts: Array<{ kind: "html" | "header" | "footer"; value: string }> = [];
+let last = 0;
+for (const m of html.matchAll(re)) {
+  parts.push({ kind: "html", value: html.slice(last, m.index) });
+  parts.push({ kind: m[1] as "header" | "footer", value: m[2] ?? "" });
+  last = (m.index ?? 0) + m[0].length;
+}
+parts.push({ kind: "html", value: html.slice(last) });
+---
+{parts.map((p) =>
+  p.kind === "header" ? <Header active={p.value as any} /> :
+  p.kind === "footer" ? <Footer /> :
+  <Fragment set:html={p.value} />
+)}
