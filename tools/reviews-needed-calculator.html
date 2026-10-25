@@ -26,7 +26,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="canonical" href="https://www.vouchtrack.com/tools/reviews-needed-calculator">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="stylesheet" href="/styles.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How is \"reviews needed\" calculated?", "acceptedAnswer": {"@type": "Answer", "text": "It solves the weighted average for the missing number: your current rating times your current review count, plus new reviews at an assumed 4.8-star average, divided by the new total, set equal to your target. Rearranged, that is current count times (target minus current rating), divided by (4.8 minus target) — rounded up. No hidden fudge factors: the same math Google's average uses."}}, {"@type": "Question", "name": "Why do new reviews average 4.8★?", "acceptedAnswer": {"@type": "Answer", "text": "When every customer gets asked — not just the angry ones who show up uninvited — the average skews strongly positive. We use the same 4.8-star assumption as our review ROI calculator, and it is deliberately conservative: many businesses that ask everyone see higher."}}, {"@type": "Question", "name": "Why does the target stop at 4.7★?", "acceptedAnswer": {"@type": "Answer", "text": "Because the math assumes new reviews average 4.8 stars, and a weighted average can approach that number but never pass it. As your target gets closer to 4.8, the reviews needed grows toward infinity. Reaching 4.8 or higher is absolutely possible — plenty of businesses do — but it requires a near-perfect review average, and we would rather show you honest math than a slider that promises anything."}}, {"@type": "Question", "name": "What if my rating is already at or above my target?", "acceptedAnswer": {"@type": "Answer", "text": "Then the calculator says zero — and your battle is review count and recency, not the average. A 4.6 with 40 reviews loses to a 4.5 with 400. Steady volume is what keeps you winning the comparison, which is exactly what an always-on review engine is for."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How is \"reviews needed\" calculated?", "acceptedAnswer": {"@type": "Answer", "text": "It solves the weighted average for the missing number: your current rating times your current review count, plus new reviews at an assumed 4.8-star average, divided by the new total, set equal to your target. Rearranged, that is current count times (target minus current rating), divided by (4.8 minus target): rounded up. No hidden fudge factors: the same math Google's average uses."}}, {"@type": "Question", "name": "Why do new reviews average 4.8★?", "acceptedAnswer": {"@type": "Answer", "text": "When every customer gets asked, not just the angry ones who show up uninvited, the average skews strongly positive. We use the same 4.8-star assumption as our review ROI calculator, and it is deliberately conservative: many businesses that ask everyone see higher."}}, {"@type": "Question", "name": "Why does the target stop at 4.7★?", "acceptedAnswer": {"@type": "Answer", "text": "Because the math assumes new reviews average 4.8 stars, and a weighted average can approach that number but never pass it. As your target gets closer to 4.8, the reviews needed grows toward infinity. Reaching 4.8 or higher is absolutely possible, plenty of businesses do, but it requires a near-perfect review average, and we would rather show you honest math than a slider that promises anything."}}, {"@type": "Question", "name": "What if my rating is already at or above my target?", "acceptedAnswer": {"@type": "Answer", "text": "Then the calculator says zero, and your battle is review count and recency, not the average. A 4.6 with 40 reviews loses to a 4.5 with 400. Steady volume is what keeps you winning the comparison, which is exactly what an always-on review engine is for."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vouchtrack.com/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://www.vouchtrack.com/tools"}, {"@type": "ListItem", "position": 3, "name": "How Many Reviews Do I Need? Rating Calculator", "item": "https://www.vouchtrack.com/tools/reviews-needed-calculator"}]}</script>
 </head>
 <body>
@@ -102,7 +102,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap">
     <span class="eyebrow">Free tool</span>
     <h1>How many reviews do I need to raise my rating?</h1>
-    <p class="lede" style="max-width:38em; margin-top:18px;">Set your current rating, your review count, and the rating you want. The math tells you exactly how many new reviews it takes — and how long that takes at your customer volume. Honest math, no email required.</p>
+    <p class="lede" style="max-width:38em; margin-top:18px;">Set your current rating, your review count, and the rating you want. The math tells you exactly how many new reviews it takes, and how long that takes at your customer volume. Honest math, no email required.</p>
   </div>
 </section>
 
@@ -133,15 +133,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="calc-result" aria-live="polite">
         <h3>What it takes</h3>
-        <div class="calc-line big"><span>New reviews needed (at a 4.8★ average)</span><strong id="r-needed">—</strong></div>
-        <div class="calc-line"><span>If every new review were a perfect 5.0★</span><strong id="r-perfect">—</strong></div>
-        <div class="calc-line"><span>Time to get there at your volume</span><strong id="r-months">—</strong></div>
-        <div class="calc-line"><span>Your rating after 90 days of asking everyone</span><strong id="r-90rating">—</strong></div>
-        <p class="calc-note" id="calc-note">Assumes new reviews average 4.8★ and a conservative 25% of asked customers leave one — the same assumptions as our <a href="/tools/review-calculator">review ROI calculator</a>. Estimates, not a guarantee.</p>
+        <div class="calc-line big"><span>New reviews needed (at a 4.8★ average)</span><strong id="r-needed"></strong></div>
+        <div class="calc-line"><span>If every new review were a perfect 5.0★</span><strong id="r-perfect"></strong></div>
+        <div class="calc-line"><span>Time to get there at your volume</span><strong id="r-months"></strong></div>
+        <div class="calc-line"><span>Your rating after 90 days of asking everyone</span><strong id="r-90rating"></strong></div>
+        <p class="calc-note" id="calc-note">Assumes new reviews average 4.8★ and a conservative 25% of asked customers leave one: the same assumptions as our <a href="/tools/review-calculator">review ROI calculator</a>. Estimates, not a guarantee.</p>
       </div>
     </div>
     <p style="text-align:center; margin-top:32px;">
-      <a href="/book" class="btn btn-primary btn-lg" data-cta="demo">Show me my real gap — free rating check</a>
+      <a href="/book" class="btn btn-primary btn-lg" data-cta="demo">Show me my real gap: free rating check</a>
     </p>
     <p style="text-align:center; margin-top:12px;">
       <a id="email-results" class="btn btn-outline" href="mailto:hello@vouchtrack.com">✉ Email me this estimate</a>
@@ -155,19 +155,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="section-head center"><h2>About the math</h2></div>
     <details>
       <summary>How is "reviews needed" calculated?</summary>
-      <p>It solves the weighted average for the missing number: your current rating × your current review count, plus new reviews at an assumed 4.8★ average, divided by the new total — set equal to your target. Rearranged: <em>current count × (target − current rating) ÷ (4.8 − target)</em>, rounded up. No hidden fudge factors; it's the same math Google's average uses.</p>
+      <p>It solves the weighted average for the missing number: your current rating × your current review count, plus new reviews at an assumed 4.8★ average, divided by the new total: set equal to your target. Rearranged: <em>current count × (target − current rating) ÷ (4.8 − target)</em>, rounded up. No hidden fudge factors; it's the same math Google's average uses.</p>
     </details>
     <details>
       <summary>Why do new reviews average 4.8★?</summary>
-      <p>When every customer gets asked — not just the angry ones who show up uninvited — the average skews strongly positive. We use the same 4.8★ assumption as our <a href="/tools/review-calculator">review ROI calculator</a>, and it's deliberately conservative: many businesses that ask everyone see higher.</p>
+      <p>When every customer gets asked, not just the angry ones who show up uninvited, the average skews strongly positive. We use the same 4.8★ assumption as our <a href="/tools/review-calculator">review ROI calculator</a>, and it's deliberately conservative: many businesses that ask everyone see higher.</p>
     </details>
     <details>
       <summary>Why does the target stop at 4.7★?</summary>
-      <p>Because the math assumes new reviews average 4.8★ — and a weighted average can approach that number but never pass it. As your target gets closer to 4.8, the reviews needed grows toward infinity. Reaching 4.8+ is absolutely possible (plenty of businesses do), but it requires a near-perfect review average, and we'd rather show you honest math than a slider that promises anything.</p>
+      <p>Because the math assumes new reviews average 4.8★, and a weighted average can approach that number but never pass it. As your target gets closer to 4.8, the reviews needed grows toward infinity. Reaching 4.8+ is absolutely possible (plenty of businesses do), but it requires a near-perfect review average, and we'd rather show you honest math than a slider that promises anything.</p>
     </details>
     <details>
       <summary>What if my rating is already at or above my target?</summary>
-      <p>Then the calculator says zero — and your battle is review <em>count</em> and <em>recency</em>, not the average. A 4.6 with 40 reviews loses to a 4.5 with 400. Steady volume is what keeps you winning the comparison, which is exactly what an <a href="/how-it-works">always-on review engine</a> is for.</p>
+      <p>Then the calculator says zero, and your battle is review <em>count</em> and <em>recency</em>, not the average. A 4.6 with 40 reviews loses to a 4.5 with 400. Steady volume is what keeps you winning the comparison, which is exactly what an <a href="/how-it-works">always-on review engine</a> is for.</p>
     </details>
   </div>
 </section>

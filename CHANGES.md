@@ -1,3 +1,9 @@
+# Copy and template cleanup (October 25, 2026, preview branch brand-d-preview)
+
+- Em dashes: all 674 removed sitewide (visible copy, meta tags, FAQ schema, tool scripts and copyable templates), each rewritten in context as a comma, colon, parentheses or a new sentence. Calculator placeholders use an en dash.
+- 10-second test: the browser's native suggestion popup is replaced with an on-brand list (arrow keys, Enter, Escape, screen-reader labels). The question mark stays attached to the town field.
+- Industry pages: the third card on all 21 pages is now styled as "the moment that matters" (navy card) instead of posing as a statistic. The five older-layout pages (dental, auto repair, HVAC, nail salons, restaurants) gained the three-step "How it works" section the other 16 have.
+
 # Brand D follow-ups (October 25, 2026, preview branch brand-d-preview)
 
 - Yellow toned down from #FFC93C to #F5C860 (navy on it still 8.3:1); favicon, OG image and theme-color updated.

@@ -1,4 +1,4 @@
-/* VouchTrack — shared behaviors (progressive enhancement only).
+/* VouchTrack: shared behaviors (progressive enhancement only).
    Everything motion-related respects prefers-reduced-motion. */
 (function () {
   "use strict";
@@ -16,7 +16,7 @@
     onScroll();
   }
 
-  /* ---------- Nav dropdowns (functional — runs regardless of motion pref) ---------- */
+  /* ---------- Nav dropdowns (functional; runs regardless of motion pref) ---------- */
   var menuItems = document.querySelectorAll(".nav-links li.has-menu");
   menuItems.forEach(function (li) {
     var trigger = li.querySelector(".menu-trigger");
@@ -48,6 +48,50 @@
   /* ---------- Ask-the-assistant boxes: open ChatGPT or Perplexity with the question typed ---------- */
   document.querySelectorAll("form[data-ask]").forEach(function (form) {
     var hint = form.querySelector(".ask-hint");
+    /* Branded suggestion list in place of the browser's datalist popup */
+    form.querySelectorAll(".ask-field input[list]").forEach(function (inp, n) {
+      var dl = document.getElementById(inp.getAttribute("list"));
+      if (!dl) return;
+      var all = [].map.call(dl.options, function (o) { return o.value; });
+      inp.removeAttribute("list");
+      var field = inp.closest(".ask-field");
+      var box = document.createElement("ul");
+      var id = (form.getAttribute("data-loc") || "ask") + "-sug-" + n;
+      box.id = id; box.className = "ask-sug"; box.setAttribute("role", "listbox"); box.hidden = true;
+      field.appendChild(box);
+      inp.setAttribute("aria-controls", id);
+      var active = -1, items = [];
+      var close = function () { box.hidden = true; inp.setAttribute("aria-expanded", "false"); active = -1; inp.removeAttribute("aria-activedescendant"); };
+      var paint = function () {
+        items.forEach(function (li, i) { li.classList.toggle("on", i === active); li.setAttribute("aria-selected", i === active ? "true" : "false"); });
+        if (active >= 0) { inp.setAttribute("aria-activedescendant", items[active].id); items[active].scrollIntoView({ block: "nearest" }); }
+      };
+      var pick = function (v) { inp.value = v; var ev = new Event("input"); ev.fromPick = true; inp.dispatchEvent(ev); close(); };
+      var open = function () {
+        var q = inp.value.trim().toLowerCase();
+        var list = all.filter(function (v) { return !q || v.toLowerCase().indexOf(q) > -1; }).slice(0, 8);
+        box.innerHTML = "";
+        items = list.map(function (v, i) {
+          var li = document.createElement("li");
+          li.id = id + "-" + i; li.setAttribute("role", "option"); li.textContent = v;
+          li.addEventListener("mousedown", function (e) { e.preventDefault(); pick(v); });
+          box.appendChild(li); return li;
+        });
+        if (!items.length) { close(); return; }
+        active = -1; box.hidden = false; inp.setAttribute("aria-expanded", "true"); paint();
+      };
+      inp.addEventListener("focus", open);
+      inp.addEventListener("input", function (e) { if (!e.fromPick) open(); });
+      inp.addEventListener("blur", function () { setTimeout(close, 120); });
+      inp.addEventListener("keydown", function (e) {
+        if (box.hidden && (e.key === "ArrowDown")) { open(); e.preventDefault(); return; }
+        if (box.hidden) return;
+        if (e.key === "ArrowDown") { active = Math.min(active + 1, items.length - 1); paint(); e.preventDefault(); }
+        else if (e.key === "ArrowUp") { active = Math.max(active - 1, 0); paint(); e.preventDefault(); }
+        else if (e.key === "Enter" && active >= 0) { pick(items[active].textContent); e.preventDefault(); }
+        else if (e.key === "Escape") { close(); }
+      });
+    });
     form.querySelectorAll(".ask-field input").forEach(function (inp) {
       var fit = function () {
         var n = Math.max((inp.value || inp.placeholder).length, 6);
