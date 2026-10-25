@@ -3,8 +3,17 @@
 // header and footer where the markers sit. Everything else stays byte for byte.
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { readFileSync } from "node:fs";
+import { createHash } from "node:crypto";
 interface Props { html: string; }
-const { html } = Astro.props;
+// Vercel caches /assets/* for a year, so the script URL carries a hash of its
+// contents. Any edit to site.js gives it a new URL and browsers fetch it fresh.
+const ver = (f: string) => createHash("sha1").update(readFileSync(`public/${f}`)).digest("hex").slice(0, 10);
+const jsV = ver("assets/site.js");
+const cssV = ver("styles.css");
+const html = Astro.props.html
+  .replaceAll('src="/assets/site.js"', `src="/assets/site.js?v=${jsV}"`)
+  .replaceAll('href="/styles.css"', `href="/styles.css?v=${cssV}"`);
 const re = /<!--@(header|footer)(?: active=(\w*))?-->/g;
 const parts: Array<{ kind: "html" | "header" | "footer"; value: string }> = [];
 let last = 0;
