@@ -408,3 +408,9 @@ resolve, footers uniform, titles <=66 chars, essentials still contained
 - Industry pages: two-column opening section with the photo on the right (navy border, hard shadow). Stacks under the text on phones.
 - Photo thumbnails on all 21 industry cards on /industries and the six on the home page.
 - Photographers and IDs are listed in the photos commit message. No on-page credits (Oct 26, per Akshay).
+
+## Inside the dashboard: feature tour (Oct 26)
+- Home "Inside the dashboard" is now a five-tab tour: Review requests, Reviews and replies, AI visibility, Google results, Overview. Each tab has the pillar label, a short how-it-works blurb, three points, a link to the feature page and a screenshot.
+- Every screenshot is exactly 2920x1520 (shown in a fixed 2920/1520 frame with a soft fade at the bottom), so nothing jumps between tabs. Panels stack in one grid cell, so the section height stays the same on every tab.
+- New captures from the Mark 1 client view with the new app palette (navy tabs and buttons): review requests analytics and Google profile results with search terms. Search AI, reviews and overview recaptured to match. Same Hollis & Pine sample data, on screen only.
+- Feature pages (AI search, review inbox, insights) now use the same new screenshots; old images removed.

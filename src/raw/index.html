@@ -246,19 +246,68 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="app-demo" data-app-tabs>
       <div class="app-demo-head">
         <span class="eyebrow">Inside the dashboard</span>
-        <h3>And this is where you check on it</h3>
-        <p>Your rating, every review and reply, and where ChatGPT, Gemini and Perplexity name you. Open it whenever you like. The monthly email covers the rest.</p>
+        <h3>Every part of it, one login</h3>
+        <p>Here is what each piece does and what you see when it is running. Pick one to take a look.</p>
       </div>
-      <div class="app-tabs" role="tablist" aria-label="Dashboard screens">
-        <button class="app-tab" type="button" role="tab" id="apt-ov" aria-controls="app-ov" aria-selected="true">Overview</button>
-        <button class="app-tab" type="button" role="tab" id="apt-ai" aria-controls="app-ai" aria-selected="false" tabindex="-1">AI visibility</button>
-        <button class="app-tab" type="button" role="tab" id="apt-rv" aria-controls="app-rv" aria-selected="false" tabindex="-1">Reviews and replies</button>
+      <div class="app-tabs" role="tablist" aria-label="Dashboard features">
+        <button class="app-tab" type="button" role="tab" id="tt-requests" aria-controls="tp-requests" aria-selected="true">Review requests</button>
+        <button class="app-tab" type="button" role="tab" id="tt-reviews" aria-controls="tp-reviews" aria-selected="false" tabindex="-1">Reviews and replies</button>
+        <button class="app-tab" type="button" role="tab" id="tt-ai" aria-controls="tp-ai" aria-selected="false" tabindex="-1">AI visibility</button>
+        <button class="app-tab" type="button" role="tab" id="tt-google" aria-controls="tp-google" aria-selected="false" tabindex="-1">Google results</button>
+        <button class="app-tab" type="button" role="tab" id="tt-overview" aria-controls="tp-overview" aria-selected="false" tabindex="-1">Overview</button>
       </div>
-      <figure class="app-shot">
-        <div role="tabpanel" id="app-ov" aria-labelledby="apt-ov"><div class="app-bar" aria-hidden="true"><i></i><i></i><i></i><span class="app-url">app.vouchtrack.com/dashboard</span></div><img src="/assets/app/dashboard-overview-1400.webp" srcset="/assets/app/dashboard-overview-1400.webp 1400w, /assets/app/dashboard-overview-2200.webp 2200w" sizes="(min-width: 1200px) 1160px, 100vw" width="1400" height="613" alt="VouchTrack dashboard for a sample events business in Savannah: 4.8 star rating, 612 reviews, 98.6% response rate, 1.2 hour average response time" loading="lazy" decoding="async"></div>
-        <div role="tabpanel" id="app-ai" aria-labelledby="apt-ai" hidden><div class="app-bar" aria-hidden="true"><i></i><i></i><i></i><span class="app-url">app.vouchtrack.com/search-ai</span></div><img src="/assets/app/search-ai-1400.webp" srcset="/assets/app/search-ai-1400.webp 1400w, /assets/app/search-ai-2200.webp 2200w" sizes="(min-width: 1200px) 1160px, 100vw" width="1400" height="759" alt="Search AI screen: visibility score 81 out of 100, named in 12 of 18 sampled questions, Gemini 83%, ChatGPT 67%, Perplexity 50%" loading="lazy" decoding="async"></div>
-        <div role="tabpanel" id="app-rv" aria-labelledby="apt-rv" hidden><div class="app-bar" aria-hidden="true"><i></i><i></i><i></i><span class="app-url">app.vouchtrack.com/reviews</span></div><img src="/assets/app/reviews-inbox-1400.webp" srcset="/assets/app/reviews-inbox-1400.webp 1400w, /assets/app/reviews-inbox-2200.webp 2200w" sizes="(min-width: 1200px) 1160px, 100vw" width="1400" height="759" alt="Reviews screen: every review with the reply posted underneath, plus filters for flagged, needs response and negative reviews" loading="lazy" decoding="async"></div>
-      </figure>
+      <div class="tour-stage">
+      <div class="tour-panel" role="tabpanel" id="tp-requests" aria-labelledby="tt-requests">
+        <div class="tour-copy">
+          <span class="eyebrow">Capture experiences</span>
+          <h4>Every customer gets asked</h4>
+          <p>Connect your booking or invoicing tool once. After each visit, a text, email or WhatsApp goes out in your name with a one-tap link to your Google review box.</p>
+          <ul class="checklist"><li>QR codes for the counter and the receipt</li><li>Unhappy customers go to a private feedback flow first</li><li>See which channel brings in the most reviews</li></ul>
+          <a class="tour-link" href="/features/review-requests">How review requests work &rarr;</a>
+        </div>
+        <figure class="app-shot tour-shot"><div class="app-bar" aria-hidden="true"><i></i><i></i><i></i><span class="app-url">app.vouchtrack.com/request-reviews</span></div><img class="tour-img" src="/assets/app/tour-requests-1100.webp" srcset="/assets/app/tour-requests-1100.webp 1100w, /assets/app/tour-requests-1900.webp 1900w" sizes="(min-width: 1100px) 760px, 100vw" width="1100" height="573" alt="Review requests screen for a sample events business: 248 requests sent this month, 121 clicks to review sites, 48.8% success rate and 7 private messages" loading="lazy" decoding="async"></figure>
+      </div>
+      <div class="tour-panel" role="tabpanel" id="tp-reviews" aria-labelledby="tt-reviews" hidden>
+        <div class="tour-copy">
+          <span class="eyebrow">Build authority</span>
+          <h4>One inbox. Every review answered.</h4>
+          <p>Google, Facebook, Yelp and 85+ more sites land in one list. Every reply is AI-drafted, human-approved, and posted within hours.</p>
+          <ul class="checklist"><li>Replies mention what the customer actually wrote</li><li>Filter by site, rating or anything still waiting</li><li>Negative reviews flagged the moment they land</li></ul>
+          <a class="tour-link" href="/features/review-inbox">The review inbox &rarr;</a>
+        </div>
+        <figure class="app-shot tour-shot"><div class="app-bar" aria-hidden="true"><i></i><i></i><i></i><span class="app-url">app.vouchtrack.com/reviews</span></div><img class="tour-img" src="/assets/app/tour-reviews-1100.webp" srcset="/assets/app/tour-reviews-1100.webp 1100w, /assets/app/tour-reviews-1900.webp 1900w" sizes="(min-width: 1100px) 760px, 100vw" width="1100" height="573" alt="Reviews screen: a five-star Google review with the owner’s reply underneath, plus filters for flagged, needs response and negative reviews" loading="lazy" decoding="async"></figure>
+      </div>
+      <div class="tour-panel" role="tabpanel" id="tp-ai" aria-labelledby="tt-ai" hidden>
+        <div class="tour-copy">
+          <span class="eyebrow">Increase visibility</span>
+          <h4>See when AI assistants name you</h4>
+          <p>Every week we ask ChatGPT, Gemini and Perplexity the questions your customers ask, then show how often you get named, who gets named instead, and what to fix first.</p>
+          <ul class="checklist"><li>A score for each assistant</li><li>The competitors named in your place</li><li>A ranked list of what to fix next</li></ul>
+          <a class="tour-link" href="/features/ai-search">AI visibility tracking &rarr;</a>
+        </div>
+        <figure class="app-shot tour-shot"><div class="app-bar" aria-hidden="true"><i></i><i></i><i></i><span class="app-url">app.vouchtrack.com/search-ai</span></div><img class="tour-img" src="/assets/app/tour-ai-1100.webp" srcset="/assets/app/tour-ai-1100.webp 1100w, /assets/app/tour-ai-1900.webp 1900w" sizes="(min-width: 1100px) 760px, 100vw" width="1100" height="573" alt="Search AI screen: visibility score 81 out of 100, named in 12 of 18 sampled questions, Gemini 83%, ChatGPT 67%, Perplexity 50%" loading="lazy" decoding="async"></figure>
+      </div>
+      <div class="tour-panel" role="tabpanel" id="tp-google" aria-labelledby="tt-google" hidden>
+        <div class="tour-copy">
+          <span class="eyebrow">Increase visibility</span>
+          <h4>What your Google profile brings in</h4>
+          <p>Calls, direction requests, website clicks and profile views, pulled from Google every month, plus the exact searches people typed to find you.</p>
+          <ul class="checklist"><li>Brand searches vs. new customers finding you</li><li>Change against last month on every number</li><li>Pairs with the Google Maps rank map</li></ul>
+          <a class="tour-link" href="/features/insights-rankings">Rank tracking and insights &rarr;</a>
+        </div>
+        <figure class="app-shot tour-shot"><div class="app-bar" aria-hidden="true"><i></i><i></i><i></i><span class="app-url">app.vouchtrack.com/dashboard</span></div><img class="tour-img" src="/assets/app/tour-google-1100.webp" srcset="/assets/app/tour-google-1100.webp 1100w, /assets/app/tour-google-1900.webp 1900w" sizes="(min-width: 1100px) 760px, 100vw" width="1100" height="573" alt="Google Business Profile results: 41,820 impressions, 1,186 calls, 2,304 direction requests and 1,472 website clicks, with the top search terms people used" loading="lazy" decoding="async"></figure>
+      </div>
+      <div class="tour-panel" role="tabpanel" id="tp-overview" aria-labelledby="tt-overview" hidden>
+        <div class="tour-copy">
+          <span class="eyebrow">Your dashboard</span>
+          <h4>Everything at a glance</h4>
+          <p>Your rating, review count, response rate and reply speed on one screen. A monthly email sums it all up in two minutes.</p>
+          <ul class="checklist"><li>Every location under one login</li><li>Share it with your team in one click</li><li>Open it when you want. The email covers the rest.</li></ul>
+          <a class="tour-link" href="/how-it-works">How it all fits together &rarr;</a>
+        </div>
+        <figure class="app-shot tour-shot"><div class="app-bar" aria-hidden="true"><i></i><i></i><i></i><span class="app-url">app.vouchtrack.com/dashboard</span></div><img class="tour-img" src="/assets/app/tour-overview-1100.webp" srcset="/assets/app/tour-overview-1100.webp 1100w, /assets/app/tour-overview-1900.webp 1900w" sizes="(min-width: 1100px) 760px, 100vw" width="1100" height="573" alt="Dashboard overview: 4.8 star rating, 612 reviews, 38.4% invite conversion, 98.6% response rate and a 1.2 hour average response time" loading="lazy" decoding="async"></figure>
+      </div>
+      </div>
       <p class="app-note">Sample account. The business, reviewer names and numbers are illustrative.</p>
     </div>
 
