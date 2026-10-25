@@ -1,15 +1,9 @@
 #!/usr/bin/env python3
 """
-Local preview for the VouchTrack site.
+Local preview for the VouchTrack site (after `npm run build`).
 
-Mimics Vercel's behavior so the site looks exactly like production:
-  - clean URLs:  /pricing  ->  pricing.html
-  - directories: /features ->  features/index.html
-  - custom 404 page
-
-Usage:
-    python3 preview.py
-Then open  http://localhost:8000  in your browser. Ctrl+C to stop.
+Serves dist/ the way Vercel does: clean URLs (/pricing -> pricing.html),
+directory indexes and the custom 404. For live editing use `npm run dev`.
 """
 import http.server
 import os
@@ -17,26 +11,23 @@ import socketserver
 import urllib.parse
 
 PORT = 8000
+ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dist")
 
 
 class CleanURLHandler(http.server.SimpleHTTPRequestHandler):
+    def __init__(self, *a, **k):
+        super().__init__(*a, directory=ROOT, **k)
+
     def do_GET(self):
         path = urllib.parse.urlparse(self.path).path
         fs_path = self.translate_path(path)
-
-        # Exists as file or directory -> default handling
-        # (directories redirect to trailing slash, then serve index.html)
         if os.path.exists(fs_path):
             return super().do_GET()
-
-        # Vercel cleanUrls: /pricing -> pricing.html
         if os.path.exists(fs_path + ".html"):
             self.path = path + ".html"
             return super().do_GET()
-
-        # Custom 404, like production
         try:
-            with open(self.translate_path("/404.html"), "rb") as f:
+            with open(os.path.join(ROOT, "404.html"), "rb") as f:
                 body = f.read()
             self.send_response(404)
             self.send_header("Content-Type", "text/html; charset=utf-8")
@@ -48,9 +39,7 @@ class CleanURLHandler(http.server.SimpleHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    os.chdir(os.path.dirname(os.path.abspath(__file__)))
     socketserver.TCPServer.allow_reuse_address = True
     with socketserver.TCPServer(("", PORT), CleanURLHandler) as httpd:
-        print("VouchTrack preview running at http://localhost:%d" % PORT)
-        print("Press Ctrl+C to stop.")
+        print("VouchTrack preview running at http://localhost:%d (serving dist/)" % PORT)
         httpd.serve_forever()

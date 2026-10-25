@@ -1,3 +1,50 @@
+# Review-site logos (October 25, 2026, preview branch astro-preview)
+
+- Real logos for 82 of the 85 review sites, in the homepage strip (all 30), on /review-sites and in the "sites by industry" card on the review inbox page.
+- 27 come from open brand icon sets (simple-icons; SVG, brand color). 55 are each site's own favicon, captured at 64px and stored as WebP (about 1 KB each, 60 KB for all 55). All load lazily below the hero.
+- DealerRater, PatientConnect365 and Homestay keep a text chip: their only available icon is a blurry 16px file.
+- Map of name to file: src/logo-map.json; files in public/assets/logos/.
+
+# Astro migration (October 25, 2026, preview branch astro-preview)
+
+- Site now builds with Astro 5.18.2 (static output, same file layout: pricing.html, features/index.html). Vercel builds with `npm run build` and serves `dist/`.
+- One shared header (`src/components/Header.astro`) and footer (`src/components/Footer.astro`) replace 62 hand-copied versions. A nav or footer change is now one edit.
+- Normalized along the way: feature pages called the menu "AI visibility" while every other page said "What we do"; 4 older blog posts had an outdated footer blurb; most pages' nav demo button lacked `data-loc="nav"`.
+- Every built page was compared to the pre-migration HTML: identical outside the header and footer.
+- See README.md for where to edit pages.
+
+# Copy and template cleanup (October 25, 2026, preview branch brand-d-preview)
+
+- Em dashes: all 674 removed sitewide (visible copy, meta tags, FAQ schema, tool scripts and copyable templates), each rewritten in context as a comma, colon, parentheses or a new sentence. Calculator placeholders use an en dash.
+- 10-second test: the browser's native suggestion popup is replaced with an on-brand list (arrow keys, Enter, Escape, screen-reader labels). The question mark stays attached to the town field.
+- Industry pages: the third card on all 21 pages is now styled as "the moment that matters" (navy card) instead of posing as a statistic. The five older-layout pages (dental, auto repair, HVAC, nail salons, restaurants) gained the three-step "How it works" section the other 16 have.
+
+# Brand D follow-ups (October 25, 2026, preview branch brand-d-preview)
+
+- Yellow toned down from #FFC93C to #F5C860 (navy on it still 8.3:1); favicon, OG image and theme-color updated.
+- Homepage hero map now loops through six questions across ChatGPT, Gemini and Perplexity: the question types, the answer and business card appear, the pin drops in a new spot. Pauses on hover and in background tabs; reduced motion shows the first scene.
+- 10-second test (homepage and the how-AI-picks guide): trade and town fields with suggestion lists or free text; "Ask ChatGPT" and "Ask Perplexity" open the assistant with the question prefilled (chatgpt.com/?q=, perplexity.ai/search?q=). Pushes an ai_test_open dataLayer event.
+- Rank grid replaced with a numbered rank map (25 check points, your shop marked with the pin, legend) plus a ranked fix list; same map on the rank tracking page with a competitor watch bar.
+- Feature pages: text-only side cards replaced with product visuals (monthly report, ask-your-assistant chat, reply before/after, sites by industry, phone notifications, review widget, review form with writing help, video request).
+- Gap bars on the how-AI-picks guide now show their values without animation (were empty with reduced motion).
+
+# Brand D rollout (October 25, 2026, preview branch brand-d-preview)
+
+- New look sitewide: marigold #FFC93C, navy #142B6F, white and butter #FFF7DB; Bricolage Grotesque (display at 75% width, weight 800; body at normal width).
+- New logo on all 62 pages: navy map pin with a yellow star plus the VouchTrack wordmark (inline SVG, white pin in the footer). New favicon and OG image.
+- Header and each page's opening section share the yellow; buttons are pills (navy on light, yellow on navy); labels are sentence-case pills instead of tracked capitals; cards are flat and outlined, with a hard navy shadow on the one card to look at; FAQ uses a +/- marker.
+- Homepage: hero visual is now the neighborhood map (AI answer card, business card, pin) with a one-time load sequence (question types, answer appears, pin drops; reduced motion shows the final frame). Headline accent removed. The three step cards were merged into the pillar rows (same story was told twice). Pricing teaser heading no longer repeats the pricing page H1. Removed the repeated "Industry" label on industry cards.
+- Pricing: lede no longer opens with "Two ways in" right under the H1.
+- Three-up grids center a short last row, so no card hangs alone (tools page had 3 + 1).
+- Old palette and Fraunces/Public Sans removed from the stylesheet; theme-color now #FFC93C.
+
+# Quick fixes (October 25, 2026)
+
+- Pricing page: plan prices render at full size again (the "/mo" suffix rule no longer shrinks the number).
+- Homepage pricing teaser: "Do it yourself" and "Done for you" labels now render as pills (`.tag` had no style outside blog cards).
+- Homepage stat band: removed the BrightLocal-sourced 83% stat; `.stat-band` now sizes columns to the number of stats, so no stat sits alone on a second row.
+- Blog: four footer blurbs said "AI Overviews"; now "Google Maps, ChatGPT, Gemini and Perplexity".
+
 # Booking moves on-site: /book with embedded calendar (October 11, 2026)
 
 - New /book page (noindex, not in sitemap): Zcal calendar embedded inline via the official
@@ -345,3 +392,30 @@ resolve, footers uniform, titles <=66 chars, essentials still contained
 # Growth article count (August 10, 2026, same day)
 - Growth plan: 8 -> 12 SEO/AEO articles/month on pricing card; aeo-content meta updated to four or twelve.
 - llms.txt Plans section rewritten to DIY/DFY structure (missed in the earlier sweep; caught via grep). 'Single location only' fact replaced, founding line removed, API access dropped pending confirmation.
+
+## Real dashboard screenshots (Oct 25)
+- Captured from a real client account in app.vouchtrack.com after the rebrand. On-screen only: the business is shown as "Hollis & Pine Events, Savannah, GA" with fictional reviewers, competitors and fuller numbers. Nothing was changed in the account itself.
+- Home: tabbed "Inside the dashboard" block at the end of How it works (Overview, AI visibility, Reviews and replies).
+- AI search: Search AI screenshot under the report section; competitor and cited-sites cards in "Three things decide". Copy tweak: "More than a score out of a hundred" (the app shows a score).
+- Review inbox: reviews list with replies. Insights: dashboard overview plus Google Business Profile results.
+- Every screenshot carries "Sample account. The business, reviewer names and numbers are illustrative."
+- Images in public/assets/app as WebP, 1400w and 2200w (about 35 to 90 KB each), lazy-loaded.
+- Fix (Oct 25): Vercel caches /assets/* for a year, so browsers kept the old site.js and the home dashboard tabs did nothing. site.js and styles.css URLs now carry a content hash (src/layouts/Page.astro), and /assets is capped at one day in vercel.json.
+- AI replies: real posted-reply screenshot under "Specific beats sorry".
+
+## Real photos (Oct 26)
+- 21 stock photos (20 Unsplash, 1 Pexels), one per industry: real people at work, warm-graded to read as one set, cropped 4:3, WebP at 640w and 1200w in public/assets/photos (about 1.8 MB total, one per page).
+- Industry pages: two-column opening section with the photo on the right (navy border, hard shadow). Stacks under the text on phones.
+- Photo thumbnails on all 21 industry cards on /industries and the six on the home page.
+- Photographers and IDs are listed in the photos commit message. No on-page credits (Oct 26, per Akshay).
+
+## Inside the dashboard: feature tour (Oct 26)
+- Home "Inside the dashboard" is now a five-tab tour: Review requests, Reviews and replies, AI visibility, Google results, Overview. Each tab has the pillar label, a short how-it-works blurb, three points, a link to the feature page and a screenshot.
+- Every screenshot is exactly 2920x1520 (shown in a fixed 2920/1520 frame with a soft fade at the bottom), so nothing jumps between tabs. Panels stack in one grid cell, so the section height stays the same on every tab.
+- New captures from the Mark 1 client view with the new app palette (navy tabs and buttons): review requests analytics and Google profile results with search terms. Search AI, reviews and overview recaptured to match. Same Hollis & Pine sample data, on screen only.
+- Feature pages (AI search, review inbox, insights) now use the same new screenshots; old images removed.
+
+## Pre-launch QA (Oct 26)
+- Automated pass on all 62 pages at 1280px and 390px: sideways scroll, broken images, console errors, title, description, canonical, OG image, GTM, one H1, em dashes. Fixed: How it works steps overflowing on phones (inline 3-column grid), QR poster tool overflowing on phones, escaped em dashes in calculator and QR poster scripts, FAQ structured data rebuilt from the visible answers (it still had old dashed text).
+- Sitemap (58 URLs) and redirects resolve; /book, /demo, /essentials, /404 are noindex on purpose. Every demo CTA goes to /book; the Zcal embed lives only there.
+- Font self-hosted: Bricolage Grotesque variable (wght 400 to 800, wdth 75 to 100, opsz), Latin subset WOFF2 in /fonts (142 KB), preloaded on every page, cached for a year. Replaces the Google Fonts @import chain. Lighthouse mobile: home 95, dental 95 (was 89 to 93), CLS 0, TBT 0.

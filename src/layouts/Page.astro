@@ -1,0 +1,32 @@
+---
+// Renders a page body kept as plain HTML in src/raw, swapping in the shared
+// header and footer where the markers sit. Everything else stays byte for byte.
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { readFileSync } from "node:fs";
+import { createHash } from "node:crypto";
+interface Props { html: string; }
+// Vercel caches /assets/* for a year, so the script URL carries a hash of its
+// contents. Any edit to site.js gives it a new URL and browsers fetch it fresh.
+const ver = (f: string) => createHash("sha1").update(readFileSync(`public/${f}`)).digest("hex").slice(0, 10);
+const jsV = ver("assets/site.js");
+const cssV = ver("styles.css");
+const html = Astro.props.html
+  .replaceAll('src="/assets/site.js"', `src="/assets/site.js?v=${jsV}"`)
+  .replaceAll('<link rel="stylesheet" href="/styles.css">', `<link rel="preload" href="/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>\n<link rel="stylesheet" href="/styles.css?v=${cssV}">`)
+  .replaceAll('href="/styles.css"', `href="/styles.css?v=${cssV}"`);
+const re = /<!--@(header|footer)(?: active=(\w*))?-->/g;
+const parts: Array<{ kind: "html" | "header" | "footer"; value: string }> = [];
+let last = 0;
+for (const m of html.matchAll(re)) {
+  parts.push({ kind: "html", value: html.slice(last, m.index) });
+  parts.push({ kind: m[1] as "header" | "footer", value: m[2] ?? "" });
+  last = (m.index ?? 0) + m[0].length;
+}
+parts.push({ kind: "html", value: html.slice(last) });
+---
+{parts.map((p) =>
+  p.kind === "header" ? <Header active={p.value as any} /> :
+  p.kind === "footer" ? <Footer /> :
+  <Fragment set:html={p.value} />
+)}
