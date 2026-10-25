@@ -402,3 +402,9 @@ resolve, footers uniform, titles <=66 chars, essentials still contained
 - Images in public/assets/app as WebP, 1400w and 2200w (about 35 to 90 KB each), lazy-loaded.
 - Fix (Oct 25): Vercel caches /assets/* for a year, so browsers kept the old site.js and the home dashboard tabs did nothing. site.js and styles.css URLs now carry a content hash (src/layouts/Page.astro), and /assets is capped at one day in vercel.json.
 - AI replies: real posted-reply screenshot under "Specific beats sorry".
+
+## Real photos (Oct 26)
+- 21 stock photos (20 Unsplash, 1 Pexels), one per industry: real people at work, warm-graded to read as one set, cropped 4:3, WebP at 640w and 1200w in public/assets/photos (about 1.8 MB total, one per page).
+- Industry pages: two-column opening section with the photo on the right (navy border, hard shadow), credit line under it ("Stock photo: name on Unsplash"). Stacks under the text on phones.
+- Photo thumbnails on all 21 industry cards on /industries and the six on the home page.
+- Credits live next to each photo. Photographers and IDs are listed in the commit message.
