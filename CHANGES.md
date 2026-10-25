@@ -1,3 +1,10 @@
+# Review-site logos (October 25, 2026, preview branch astro-preview)
+
+- Real logos for 82 of the 85 review sites, in the homepage strip (all 30), on /review-sites and in the "sites by industry" card on the review inbox page.
+- 27 come from open brand icon sets (simple-icons; SVG, brand color). 55 are each site's own favicon, captured at 64px and stored as WebP (about 1 KB each, 60 KB for all 55). All load lazily below the hero.
+- DealerRater, PatientConnect365 and Homestay keep a text chip: their only available icon is a blurry 16px file.
+- Map of name to file: src/logo-map.json; files in public/assets/logos/.
+
 # Astro migration (October 25, 2026, preview branch astro-preview)
 
 - Site now builds with Astro 5.18.2 (static output, same file layout: pricing.html, features/index.html). Vercel builds with `npm run build` and serves `dist/`.
