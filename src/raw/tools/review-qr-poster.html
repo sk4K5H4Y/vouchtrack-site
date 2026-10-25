@@ -29,7 +29,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Where do I get my Google review link?", "acceptedAnswer": {"@type": "Answer", "text": "Sign in to your Google Business Profile (search your business name on Google while signed in as the owner), and look for the 'Ask for reviews' or 'Get more reviews' option: it gives you a short link, usually starting with g.page/r/. That link opens the review box directly. Paste it here."}}, {"@type": "Question", "name": "What size does the poster print at?", "acceptedAnswer": {"@type": "Answer", "text": "It is laid out for a 5 by 7 inch card: big enough to scan from across a counter, small enough to sit by the register. Printing on regular letter paper works too: it centers on the page, and you can trim it. The QR code is generated at high resolution so it stays crisp."}}, {"@type": "Question", "name": "Does the QR code expire or stop working?", "acceptedAnswer": {"@type": "Answer", "text": "No. The QR code is just your review link, encoded: nothing is hosted by us and there is nothing to expire. As long as your Google Business Profile is live, the code keeps working."}}]}</script>
 <style>
 #poster {
-  width: 360px; margin: 0 auto; background: #fff; border: 1px solid var(--line);
+  width: 360px; max-width: 100%; box-sizing: border-box; margin: 0 auto; background: #fff; border: 1px solid var(--line);
   border-radius: 12px; padding: 36px 28px; text-align: center;
   box-shadow: var(--shadow);
 }
@@ -216,7 +216,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       ctx.fillStyle = "#1B2A41"; ctx.font = "bold 72px Arial";
       ctx.fillText(head, W / 2, 270);
       ctx.fillStyle = "#5A6B7E"; ctx.font = "36px Arial";
-      ctx.fillText("Scan to leave us a Google review \u2014 it takes 30 seconds.", W / 2, 340);
+      ctx.fillText("Scan to leave us a Google review. It takes 30 seconds.", W / 2, 340);
       var qi = new Image();
       qi.onload = function () {
         ctx.drawImage(qi, (W - 560) / 2, 400, 560, 560);

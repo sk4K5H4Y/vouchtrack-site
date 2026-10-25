@@ -158,16 +158,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     var monthsText, neededText, perfectText;
     if (x === 0) {
-      neededText = '0 \u2014 already there \u2713';
-      perfectText = '\u2014';
-      monthsText = '\u2014';
-      $('calc-note').innerHTML = 'You\u2019re at or above your target \u2014 your battle is review <em>count</em> and <em>recency</em> now. See \u201cWhat if my rating is already at or above my target?\u201d below.';
+      neededText = '0, already there \u2713';
+      perfectText = '\u2013';
+      monthsText = '\u2013';
+      $('calc-note').innerHTML = 'You\u2019re at or above your target. Your battle is review <em>count</em> and <em>recency</em> now. See \u201cWhat if my rating is already at or above my target?\u201d below.';
     } else {
       neededText = '+' + fmt(x);
       perfectText = '+' + fmt(x5);
       var months = Math.ceil(x / perMonth);
       monthsText = months <= 1 ? '~1 month' : '~' + fmt(months) + ' months';
-      $('calc-note').innerHTML = 'Assumes new reviews average 4.8\u2605 and a conservative 25% of asked customers leave one \u2014 the same assumptions as our <a href="/tools/review-calculator">review ROI calculator</a>. Estimates, not a guarantee.';
+      $('calc-note').innerHTML = 'Assumes new reviews average 4.8\u2605 and a conservative 25% of asked customers leave one. These are the same assumptions as our <a href="/tools/review-calculator">review ROI calculator</a>. Estimates, not a guarantee.';
     }
     $('r-needed').textContent = neededText;
     $('r-perfect').textContent = perfectText;
