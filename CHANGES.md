@@ -1,3 +1,12 @@
+# Brand D follow-ups (October 25, 2026, preview branch brand-d-preview)
+
+- Yellow toned down from #FFC93C to #F5C860 (navy on it still 8.3:1); favicon, OG image and theme-color updated.
+- Homepage hero map now loops through six questions across ChatGPT, Gemini and Perplexity: the question types, the answer and business card appear, the pin drops in a new spot. Pauses on hover and in background tabs; reduced motion shows the first scene.
+- 10-second test (homepage and the how-AI-picks guide): trade and town fields with suggestion lists or free text; "Ask ChatGPT" and "Ask Perplexity" open the assistant with the question prefilled (chatgpt.com/?q=, perplexity.ai/search?q=). Pushes an ai_test_open dataLayer event.
+- Rank grid replaced with a numbered rank map (25 check points, your shop marked with the pin, legend) plus a ranked fix list; same map on the rank tracking page with a competitor watch bar.
+- Feature pages: text-only side cards replaced with product visuals (monthly report, ask-your-assistant chat, reply before/after, sites by industry, phone notifications, review widget, review form with writing help, video request).
+- Gap bars on the how-AI-picks guide now show their values without animation (were empty with reduced motion).
+
 # Brand D rollout (October 25, 2026, preview branch brand-d-preview)
 
 - New look sitewide: marigold #FFC93C, navy #142B6F, white and butter #FFF7DB; Bricolage Grotesque (display at 75% width, weight 800; body at normal width).

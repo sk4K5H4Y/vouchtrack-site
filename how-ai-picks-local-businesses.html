@@ -22,7 +22,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://www.vouchtrack.com/og-image.png">
-<meta name="theme-color" content="#FFC93C">
+<meta name="theme-color" content="#F5C860">
 <link rel="canonical" href="https://www.vouchtrack.com/how-ai-picks-local-businesses">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="stylesheet" href="/styles.css">
@@ -184,11 +184,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="gapbars">
       <div class="gapbar">
         <div class="gb-head"><span>Appear in Google&rsquo;s local map pack</span><span>35.9%</span></div>
-        <div class="gb-track"><div class="gb-fill leaf" data-w="35.9"></div></div>
+        <div class="gb-track"><div class="gb-fill leaf" data-w="35.9" style="--w:35.9%"></div></div>
       </div>
       <div class="gapbar">
         <div class="gb-head"><span>Named by ChatGPT for the same businesses</span><span>1.2%</span></div>
-        <div class="gb-track"><div class="gb-fill flag" data-w="1.2"></div></div>
+        <div class="gb-track"><div class="gb-fill flag" data-w="1.2" style="--w:1.2%"></div></div>
       </div>
     </div>
     <p style="font-size:0.82rem; color:var(--slate); margin-bottom:20px;">Same businesses, measured both ways <a href="https://searchengineland.com/local-geo-baseline-audit-482477" target="_blank" rel="noopener noreferrer" style="color:inherit; opacity:.7;">(source)</a>.</p>
@@ -202,15 +202,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="grid-2" style="align-items:center;">
       <div>
         <h2 style="margin-bottom:18px;">Check your own in ten seconds</h2>
-        <p style="margin-bottom:16px;">Open ChatGPT, paste the line opposite, and put in your own trade and town. Run a variation or two: cheapest, best reviewed, open late.</p>
+        <p style="margin-bottom:16px;">Pick your trade and town opposite and we'll open ChatGPT with the question typed. Then run a variation or two yourself: cheapest, best reviewed, open late.</p>
         <p style="margin-bottom:16px;">Pay attention to two things. Whether you are named at all, and who is named instead. That second list is more useful than your own result, because it tells you exactly who the assistant currently considers the credible option in your market.</p>
         <p style="margin-bottom:0;">If you would rather have it done properly across all four assistants with your live Google data alongside it, <a href="https://app.vouchtrack.com/intel-request" target="_blank" rel="noopener noreferrer" style="font-weight:600;" data-cta="report">our free report does that in about two minutes</a>.</p>
       </div>
       <div>
-        <div class="prompt-box" style="margin-bottom:16px;">
-          <code id="pillar-prompt">Best [your trade] in [your town]? Give me your top three.</code>
-          <button class="prompt-copy" data-copy="#pillar-prompt" type="button">Copy</button>
-        </div>
+        <form class="ask-box ask-compact" data-ask data-loc="pillar" novalidate>
+      <p class="ask-sentence">
+        <span>Best</span>
+        <label class="ask-field"><span class="sr-only">Your trade</span><input name="trade" list="pillar-trades" placeholder="your trade" autocomplete="off" required></label>
+        <span>in</span>
+        <label class="ask-field"><span class="sr-only">Your town</span><input name="town" list="pillar-towns" placeholder="your town" autocomplete="address-level2" required></label><span>?</span>
+        <span>Give me your top three.</span>
+      </p>
+      <datalist id="pillar-trades"><option value="hair salon"></option><option value="barbershop"></option><option value="nail salon"></option><option value="med spa"></option><option value="dentist"></option><option value="orthodontist"></option><option value="chiropractor"></option><option value="physical therapist"></option><option value="optometrist"></option><option value="veterinarian"></option><option value="HVAC company"></option><option value="plumber"></option><option value="electrician"></option><option value="roofer"></option><option value="pest control company"></option><option value="house cleaning service"></option><option value="moving company"></option><option value="auto repair shop"></option><option value="restaurant"></option><option value="gym"></option><option value="law firm"></option><option value="wedding photographer"></option></datalist>
+      <datalist id="pillar-towns"><option value="Atlanta, GA"></option><option value="Austin, TX"></option><option value="Charlotte, NC"></option><option value="Chicago, IL"></option><option value="Columbus, OH"></option><option value="Dallas, TX"></option><option value="Houston, TX"></option><option value="Indianapolis, IN"></option><option value="Jacksonville, FL"></option><option value="Miami, FL"></option><option value="Nashville, TN"></option><option value="New York, NY"></option><option value="Orlando, FL"></option><option value="Philadelphia, PA"></option><option value="Raleigh, NC"></option><option value="San Antonio, TX"></option><option value="Tampa, FL"></option><option value="Tulsa, OK"></option></datalist>
+      <div class="ask-actions">
+        <button type="submit" class="btn btn-primary btn-lg" data-engine="chatgpt" data-cta="ask-chatgpt" data-loc="pillar">Ask ChatGPT</button>
+        <button type="submit" class="btn btn-outline btn-lg" data-engine="perplexity" data-cta="ask-perplexity" data-loc="pillar">Ask Perplexity</button>
+      </div>
+      <p class="ask-hint" aria-live="polite">Pick from the list or type your own. It opens in a new tab with your question filled in.</p>
+    </form>
         <div class="plat-list">
           <div class="plat-row"><span class="plat-name">ChatGPT</span><span class="plat-status plat-miss">Not mentioned</span></div>
           <div class="plat-row"><span class="plat-name">Google Maps</span><span class="plat-status plat-miss">Not mentioned</span></div>

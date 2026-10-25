@@ -22,7 +22,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://www.vouchtrack.com/og-image.png">
-<meta name="theme-color" content="#FFC93C">
+<meta name="theme-color" content="#F5C860">
 <link rel="canonical" href="https://www.vouchtrack.com/features/insights-rankings">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="stylesheet" href="/styles.css">
@@ -115,13 +115,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="grid-2" style="align-items:center;">
       <div>
         <h2 style="margin-bottom:18px;">The neighborhood ranking map</h2>
-        <p style="margin-bottom:16px;">When someone searches "hair salon near me," Google's answer changes street by street. You might be #1 from two blocks away and invisible from the highway exit where new customers actually are. Our ranking map shows your position across a grid of points around your business — green where you're winning, red where you're not — and how it shifts month over month as your reviews grow.</p>
+        <p style="margin-bottom:16px;">When someone searches "hair salon near me," Google's answer changes street by street. You might be #1 from two blocks away and invisible from the highway exit where new customers actually are. Our ranking map shows your position across a grid of points around your business — green where you're in the top 3, pink where you're not — and how it shifts month over month as your reviews grow.</p>
         <p>It's the difference between "I think we're doing okay" and "we're #2 near the mall and it's improving."</p>
       </div>
-      <div class="card" style="padding:36px;">
-        <h3 style="margin-bottom:16px;">Competitor watch</h3>
-        <p style="margin-bottom:12px;">Pick the shop down the street. In every report you'll see their rating, review count, and pace next to yours — so you know exactly when you pass them, and they never sneak ahead without you noticing.</p>
-        <p style="font-size:0.92rem;">Friendly rivalry, weaponized. The ranking map and competitor watch are included from the <a href="/pricing">Pro plan</a>.</p>
+      <div class="card viz">
+        <div class="mock-grid" role="img" aria-label="Google Maps rank checked from 25 spots around a salon: first or second close to the shop, lower toward the edges. Average rank 3, up from 9 in March.">
+          <div class="mg-title">Your Google Maps rank, checked from 25 spots around your shop</div>
+          <div class="rank-map" aria-hidden="true"><span class="rk rk-mid">7</span> <span class="rk rk-mid">4</span> <span class="rk rk-top">3</span> <span class="rk rk-mid">4</span> <span class="rk rk-mid">9</span> <span class="rk rk-mid">4</span> <span class="rk rk-top">2</span> <span class="rk rk-top">1</span> <span class="rk rk-top">2</span> <span class="rk rk-mid">5</span> <span class="rk rk-top">3</span> <span class="rk rk-top">1</span> <span class="rk rk-you"><svg viewBox="0 0 34 40" aria-hidden="true"><path class="lm-pin" d="M17 1C8.2 1 1 8 1 16.6 1 28 17 39 17 39s16-11 16-22.4C33 8 25.8 1 17 1z"/><path class="lm-star" d="M17 7.5l2.6 5.3 5.8.8-4.2 4 1 5.7L17 20.6l-5.2 2.7 1-5.7-4.2-4 5.8-.8z"/></svg></span> <span class="rk rk-top">1</span> <span class="rk rk-top">3</span> <span class="rk rk-mid">5</span> <span class="rk rk-top">2</span> <span class="rk rk-top">1</span> <span class="rk rk-top">2</span> <span class="rk rk-mid">6</span> <span class="rk rk-low">12</span> <span class="rk rk-mid">6</span> <span class="rk rk-top">3</span> <span class="rk rk-mid">5</span> <span class="rk rk-low">14</span></div>
+          <div class="rk-legend" aria-hidden="true"><span><i class="rk-top"></i>Top 3</span><span><i class="rk-mid"></i>4 to 10</span><span><i class="rk-low"></i>11 or lower</span></div>
+        </div>
+        <div class="cw" role="img" aria-label="Competitor watch: you at 4.8 stars with 23 new reviews this month, the salon down the street at 4.6 with 6">
+          <div class="cw-title">Competitor watch, this month</div>
+          <div class="cw-row cw-you"><span class="cw-name">You</span><span class="cw-rate"><b>4.8</b> <span class="viz-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span><span class="cw-bar"><i style="width:92%"></i></span><span class="cw-n">+23 reviews</span></div>
+          <div class="cw-row"><span class="cw-name">Main Street Hair</span><span class="cw-rate"><b>4.6</b> <span class="viz-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span><span class="cw-bar"><i style="width:24%"></i></span><span class="cw-n">+6 reviews</span></div>
+        </div>
+        <p class="viz-note">The ranking map and competitor watch are included from the <a href="/pricing">Pro plan</a>.</p>
       </div>
     </div>
   </div>
@@ -140,10 +148,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </ul>
         <p style="font-size:0.92rem; margin-top:14px;">AI insights are included from the <a href="/pricing">Pro plan</a>.</p>
       </div>
-      <div class="card" style="padding:36px;">
-        <h3 style="margin-bottom:16px;">The report card</h3>
-        <p style="margin-bottom:12px;">One email, readable in two minutes: rating trend, new reviews, ranking map movement, competitor comparison, and the AI's top insights. No dashboard required — though it's there if you want it.</p>
-        <p style="font-size:0.92rem;">It's also how you'll know, in plain numbers, that VouchTrack is paying for itself.</p>
+      <div class="card viz">
+        <div class="rpt" role="img" aria-label="Example monthly report: rating up from 4.6 to 4.8, 23 new reviews, average map rank up from 9 to 3, named by 2 of 3 AI assistants">
+          <div class="rpt-head"><span class="rpt-from">VouchTrack report</span><span class="rpt-subj">Riverside Salon, October</span></div>
+          <div class="rpt-tiles">
+            <div class="rpt-tile"><span class="rpt-k">Rating</span><span class="rpt-v">4.8</span><span class="rpt-d">up from 4.6</span></div>
+            <div class="rpt-tile"><span class="rpt-k">New reviews</span><span class="rpt-v">23</span><span class="rpt-d">all answered</span></div>
+            <div class="rpt-tile"><span class="rpt-k">Map rank</span><span class="rpt-v">#3</span><span class="rpt-d">up from #9</span></div>
+            <div class="rpt-tile"><span class="rpt-k">AI assistants</span><span class="rpt-v">2 of 3</span><span class="rpt-d">name you</span></div>
+          </div>
+          <div class="rpt-insight"><b>Top insight:</b> 14 reviews praise Dani's color work. Feature her on your booking page.</div>
+        </div>
+        <p class="viz-note">One email a month, readable in two minutes. The dashboard is there if you want it.</p>
       </div>
     </div>
   </div>
@@ -157,10 +173,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p style="margin-bottom:16px;">Already use ChatGPT or Claude? On the <a href="/pricing">Pro plan</a>, you can connect your AI assistant directly to your VouchTrack data — and just ask. "What did customers complain about last month?" "Which stylist gets mentioned most?" "How did the new Saturday hours land?" Your assistant answers from your actual reviews, not guesswork.</p>
         <p>It's read-only, your data stays yours, and there's nothing to build — we switch it on, you connect once, and your reviews become something you can have a conversation with.</p>
       </div>
-      <div class="card" style="padding:36px;">
-        <h3 style="margin-bottom:16px;">Why owners love this</h3>
-        <p style="margin-bottom:12px;">Your report answers the questions we think to ask. This answers the questions <em>you</em> think to ask — at 11pm, before a staff meeting, whenever they occur to you — in the AI tool you already talk to every day.</p>
-        <p style="font-size:0.92rem;">Available on Pro. Works with any AI assistant that supports connected tools, including ChatGPT and Claude.</p>
+      <div class="card viz">
+        <div class="chat" role="img" aria-label="Example: the owner asks their AI assistant what customers complained about last month and gets an answer from their real reviews">
+          <div class="chat-q">What did customers complain about last month?</div>
+          <div class="chat-a">Mostly Saturday wait times: 6 reviews mention it. Two also said your online booking showed the old holiday hours.</div>
+          <div class="chat-src">From your 41 reviews in October</div>
+        </div>
+        <p class="viz-note">Available on Pro. Works with ChatGPT, Claude and other assistants that support connected tools.</p>
       </div>
     </div>
   </div>

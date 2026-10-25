@@ -45,6 +45,41 @@
     });
   });
 
+  /* ---------- Ask-the-assistant boxes: open ChatGPT or Perplexity with the question typed ---------- */
+  document.querySelectorAll("form[data-ask]").forEach(function (form) {
+    var hint = form.querySelector(".ask-hint");
+    form.querySelectorAll(".ask-field input").forEach(function (inp) {
+      var fit = function () {
+        var n = Math.max((inp.value || inp.placeholder).length, 6);
+        inp.style.width = (n * 0.66 + 0.9) + "em";
+      };
+      inp.addEventListener("input", fit);
+      fit();
+    });
+    var hintText = hint ? hint.textContent : "";
+    var engine = "chatgpt";
+    form.querySelectorAll("button[data-engine]").forEach(function (b) {
+      b.addEventListener("click", function () { engine = b.getAttribute("data-engine"); });
+    });
+    form.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var trade = form.elements.trade.value.trim();
+      var town = form.elements.town.value.trim();
+      if (!trade || !town) {
+        if (hint) { hint.textContent = "Add your " + (!trade ? "trade" : "town") + " first, then hit ask."; hint.classList.add("ask-warn"); }
+        (!trade ? form.elements.trade : form.elements.town).focus();
+        return;
+      }
+      if (hint) { hint.textContent = hintText; hint.classList.remove("ask-warn"); }
+      var q = "Best " + trade + " in " + town + "? Give me your top three.";
+      var url = engine === "perplexity"
+        ? "https://www.perplexity.ai/search?q=" + encodeURIComponent(q)
+        : "https://chatgpt.com/?q=" + encodeURIComponent(q);
+      if (window.dataLayer) window.dataLayer.push({ event: "ai_test_open", engine: engine, trade: trade, cta_loc: form.getAttribute("data-loc") });
+      window.open(url, "_blank", "noopener");
+    });
+  });
+
   /* ---------- Copyable prompt boxes ---------- */
   document.querySelectorAll(".prompt-copy").forEach(function (btn) {
     btn.addEventListener("click", function () {
@@ -145,28 +180,64 @@
   );
   bigs.forEach(function (el) { statIO.observe(el); });
 
-  /* ---------- Hero map: question types, answer appears, pin drops (homepage) ---------- */
+  /* ---------- Hero map: rolling questions, answers and pins (homepage) ---------- */
   var heroMap = document.getElementById("hero-map");
   if (heroMap) {
-    var mq = heroMap.querySelector(".map-q-text");
-    var mqFull = mq ? mq.textContent : "";
+    var SCENES = [
+      { ai: "ChatGPT", q: "Who should I call for AC repair in Tulsa?", pre: "I'd start with ", name: "Prairie Air Heating & Cooling", post: ". They're rated 4.8 across 300+ reviews, and customers mention same-day visits.", score: "4.8", count: "(312)", x: 72, y: 94 },
+      { ai: "Gemini", q: "Best family dentist in Chattanooga?", pre: "", name: "Riverbend Family Dental", post: " comes up most: 4.8 stars from 212 reviews, and patients say they explain everything first.", score: "4.8", count: "(212)", x: 16, y: 66 },
+      { ai: "Perplexity", q: "Good hair salon in Greenville, SC for curly hair?", pre: "", name: "Willow & Main Salon", post: " is a strong pick, with 4.9 from 187 reviews and lots of praise for curly cuts.", score: "4.9", count: "(187)", x: 44, y: 95 },
+      { ai: "ChatGPT", q: "Honest mechanic in Columbus, Ohio?", pre: "Try ", name: "Northside Auto Care", post: ". They hold 4.7 from 264 reviews, and customers say they never upsell.", score: "4.7", count: "(264)", x: 14, y: 90 },
+      { ai: "Gemini", q: "Emergency plumber in Des Moines open now?", pre: "", name: "TrueFlow Plumbing", post: " answers around the clock and has 4.9 from 141 reviews.", score: "4.9", count: "(141)", x: 88, y: 95 },
+      { ai: "Perplexity", q: "Most trusted med spa in Nashville?", pre: "", name: "Bluebird Med Spa", post: " stands out: 4.8 from 98 reviews, praised for natural-looking results.", score: "4.8", count: "(98)", x: 26, y: 78 }
+    ];
+    var el = function (sel) { return heroMap.querySelector(sel); };
+    var mq = el(".map-q-text"), aPre = el(".map-a-pre"), aName = el(".map-a-name"), aPost = el(".map-a-post");
+    var bAvatar = el(".map-avatar"), bName = el(".map-name"), bScore = el(".map-score"), bCount = el(".map-count");
+    var pinEl = el(".map-pin"), chips = heroMap.querySelectorAll(".map-chips [data-ai]");
+    var held = false, started = false, timer = null;
+    heroMap.addEventListener("mouseenter", function () { held = true; });
+    heroMap.addEventListener("mouseleave", function () { held = false; });
+    var later = function (ms, fn) {
+      timer = setTimeout(function step() {
+        if (held || document.hidden) { timer = setTimeout(step, 250); return; }
+        fn();
+      }, ms);
+    };
+    var fill = function (sc) {
+      aPre.textContent = sc.pre; aName.textContent = sc.name; aPost.textContent = sc.post;
+      bAvatar.textContent = sc.name.charAt(0); bName.textContent = sc.name;
+      bScore.textContent = sc.score; bCount.textContent = sc.count;
+      var narrow = heroMap.clientWidth < 560;
+      pinEl.style.left = sc.x + "%"; pinEl.style.top = (narrow && sc.y < 88 ? 93 : sc.y) + "%";
+      for (var c = 0; c < chips.length; c++) chips[c].classList.toggle("on", chips[c].getAttribute("data-ai") === sc.ai);
+    };
+    var play = function (idx) {
+      var sc = SCENES[idx % SCENES.length];
+      heroMap.classList.remove("map-s1", "map-s2", "map-s3", "map-out");
+      fill(sc);
+      mq.textContent = "";
+      var i = 0;
+      (function typeNext() {
+        i += 1;
+        mq.textContent = sc.q.slice(0, i);
+        if (i < sc.q.length) { later(24, typeNext); return; }
+        later(300, function () { heroMap.classList.add("map-s1"); });
+        later(1000, function () { heroMap.classList.add("map-s2"); });
+        later(1600, function () { heroMap.classList.add("map-s3"); });
+        later(5600, function () {
+          heroMap.classList.add("map-out");
+          later(450, function () { play(idx + 1); });
+        });
+      })();
+    };
     heroMap.classList.add("map-pre");
-    if (mq) mq.textContent = "";
-    var mapPlayed = false;
     var mapIO = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (!e.isIntersecting || mapPlayed) return;
-        mapPlayed = true;
+        if (!e.isIntersecting || started) return;
+        started = true;
         mapIO.unobserve(heroMap);
-        var i = 0;
-        (function typeNext() {
-          i += 1;
-          if (mq) mq.textContent = mqFull.slice(0, i);
-          if (i < mqFull.length) { setTimeout(typeNext, 26); return; }
-          setTimeout(function () { heroMap.classList.add("map-s1"); }, 300);
-          setTimeout(function () { heroMap.classList.add("map-s2"); }, 1000);
-          setTimeout(function () { heroMap.classList.add("map-s3"); }, 1600);
-        })();
+        play(0);
       });
     }, { threshold: 0.35 });
     mapIO.observe(heroMap);
@@ -425,12 +496,13 @@
   /* ---------- Gap bar fills (pillar page) ---------- */
   var fills = document.querySelectorAll(".gb-fill[data-w]");
   if (fills.length) {
+    fills.forEach(function (f) { f.classList.add("gb-pre"); });
     var barIO = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
         barIO.unobserve(e.target);
         var w = Math.max(parseFloat(e.target.dataset.w), 1.2);
-        requestAnimationFrame(function () { e.target.style.width = w + "%"; });
+        requestAnimationFrame(function () { e.target.classList.remove("gb-pre"); e.target.style.width = w + "%"; });
       });
     }, { threshold: 0.5 });
     fills.forEach(function (el) { barIO.observe(el); });
