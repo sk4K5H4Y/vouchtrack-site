@@ -1689,3 +1689,8 @@ footer.book-foot { color: #D5DCF0; border-top: 0; }
 .stat.stat-moment { background: var(--ink); border-color: var(--ink); }
 .stat.stat-moment .big { color: var(--gold); font-size: clamp(2rem, 3vw, 2.6rem); line-height: 1.02; }
 .stat.stat-moment .small { color: #D5DCF0; }
+
+/* Review-site logos (official brand icons in /assets/logos) */
+.mq-tile .lg { width: 18px; height: 18px; flex: none; display: block; }
+.chip .lg { width: 16px; height: 16px; flex: none; display: block; }
+.chip:has(.lg)::before { display: none; }
