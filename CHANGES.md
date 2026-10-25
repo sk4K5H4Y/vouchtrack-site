@@ -400,3 +400,5 @@ resolve, footers uniform, titles <=66 chars, essentials still contained
 - Review inbox: reviews list with replies. Insights: dashboard overview plus Google Business Profile results.
 - Every screenshot carries "Sample account. The business, reviewer names and numbers are illustrative."
 - Images in public/assets/app as WebP, 1400w and 2200w (about 35 to 90 KB each), lazy-loaded.
+- Fix (Oct 25): Vercel caches /assets/* for a year, so browsers kept the old site.js and the home dashboard tabs did nothing. site.js and styles.css URLs now carry a content hash (src/layouts/Page.astro), and /assets is capped at one day in vercel.json.
+- AI replies: real posted-reply screenshot under "Specific beats sorry".
