@@ -1697,3 +1697,29 @@ footer.book-foot { color: #D5DCF0; border-top: 0; }
 .sg-v span { display: inline-flex; align-items: center; gap: 6px; }
 .sg-v .lg { width: 16px; height: 16px; border-radius: 4px; }
 .mq-tile .lg, .chip .lg { border-radius: 4px; }
+
+/* Real product screenshots (sample account, illustrative data) */
+.app-demo { margin-top: 84px; }
+.app-demo-head { text-align: center; max-width: 40em; margin: 0 auto 24px; }
+.app-demo-head h3 { font-family: var(--display); font-stretch: 75%; font-weight: 800; font-size: clamp(1.7rem, 3.2vw, 2.4rem); line-height: 1.02; color: var(--ink); margin: 10px 0 12px; }
+.app-tabs { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+.app-tab { font: 700 15px/1.2 var(--body); padding: 10px 18px; border-radius: 999px; border: 1.5px solid var(--ink); background: var(--white); color: var(--ink); cursor: pointer; }
+.app-tab:hover { background: var(--gold-soft); }
+.app-tab[aria-selected="true"] { background: var(--ink); color: var(--white); }
+.app-tab:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.app-shot { margin: 0; background: var(--white); border: 1.5px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lift); }
+.app-shot img { display: block; width: 100%; height: auto; }
+.app-bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; border-bottom: 1px solid var(--line); background: #F7F8FB; }
+.app-bar i { width: 10px; height: 10px; border-radius: 50%; background: #D9DEEA; }
+.app-url { margin-left: 10px; font-size: 12.5px; line-height: 1; color: var(--slate); background: var(--white); border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; }
+.app-crop { box-shadow: none; }
+.app-note { font-size: 0.82rem; color: var(--slate); text-align: center; margin: 14px auto 0; max-width: 46em; }
+.app-fig { margin-top: 48px; }
+.app-fig-cap { font-size: 0.95rem; color: var(--slate); margin: 0 0 14px; }
+.app-fig-cap b { color: var(--ink); }
+@media (max-width: 640px) {
+  .app-demo { margin-top: 60px; }
+  .app-tab { font-size: 14px; padding: 9px 14px; }
+  .app-bar { padding: 8px 10px; }
+  .app-url { font-size: 11px; }
+}

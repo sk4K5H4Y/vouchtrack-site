@@ -392,3 +392,11 @@ resolve, footers uniform, titles <=66 chars, essentials still contained
 # Growth article count (August 10, 2026, same day)
 - Growth plan: 8 -> 12 SEO/AEO articles/month on pricing card; aeo-content meta updated to four or twelve.
 - llms.txt Plans section rewritten to DIY/DFY structure (missed in the earlier sweep; caught via grep). 'Single location only' fact replaced, founding line removed, API access dropped pending confirmation.
+
+## Real dashboard screenshots (Oct 25)
+- Captured from a real client account in app.vouchtrack.com after the rebrand. On-screen only: the business is shown as "Hollis & Pine Events, Savannah, GA" with fictional reviewers, competitors and fuller numbers. Nothing was changed in the account itself.
+- Home: tabbed "Inside the dashboard" block at the end of How it works (Overview, AI visibility, Reviews and replies).
+- AI search: Search AI screenshot under the report section; competitor and cited-sites cards in "Three things decide". Copy tweak: "More than a score out of a hundred" (the app shows a score).
+- Review inbox: reviews list with replies. Insights: dashboard overview plus Google Business Profile results.
+- Every screenshot carries "Sample account. The business, reviewer names and numbers are illustrative."
+- Images in public/assets/app as WebP, 1400w and 2200w (about 35 to 90 KB each), lazy-loaded.
