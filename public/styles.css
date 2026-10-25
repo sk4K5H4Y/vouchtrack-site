@@ -1729,11 +1729,9 @@ footer.book-foot { color: #D5DCF0; border-top: 0; }
 .ih-grid h1 { font-size: clamp(2.3rem, 4.1vw, 3.5rem); max-width: none; }
 .ih-photo { margin: 0; }
 .ih-img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 24px; border: 2px solid var(--ink); box-shadow: var(--shadow-hard); background: var(--gold-soft); }
-.ih-photo figcaption { font-size: 0.74rem; color: var(--ink); opacity: 0.7; margin-top: 16px; text-align: right; }
 .post-card .pc-img { display: block; height: auto; width: calc(100% + 56px); max-width: none; margin: -28px -28px 18px; aspect-ratio: 16 / 10; object-fit: cover; border-radius: calc(var(--radius-lg) - 1px) calc(var(--radius-lg) - 1px) 0 0; background: var(--gold-soft); }
 @media (max-width: 900px) {
   .ih-grid { grid-template-columns: 1fr; gap: 32px; }
   .ih-photo { max-width: 560px; }
   .ih-img { aspect-ratio: 16 / 10; }
-  .ih-photo figcaption { text-align: left; }
 }

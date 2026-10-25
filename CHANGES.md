@@ -405,6 +405,6 @@ resolve, footers uniform, titles <=66 chars, essentials still contained
 
 ## Real photos (Oct 26)
 - 21 stock photos (20 Unsplash, 1 Pexels), one per industry: real people at work, warm-graded to read as one set, cropped 4:3, WebP at 640w and 1200w in public/assets/photos (about 1.8 MB total, one per page).
-- Industry pages: two-column opening section with the photo on the right (navy border, hard shadow), credit line under it ("Stock photo: name on Unsplash"). Stacks under the text on phones.
+- Industry pages: two-column opening section with the photo on the right (navy border, hard shadow). Stacks under the text on phones.
 - Photo thumbnails on all 21 industry cards on /industries and the six on the home page.
-- Credits live next to each photo. Photographers and IDs are listed in the commit message.
+- Photographers and IDs are listed in the photos commit message. No on-page credits (Oct 26, per Akshay).
