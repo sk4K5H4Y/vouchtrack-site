@@ -419,3 +419,10 @@ resolve, footers uniform, titles <=66 chars, essentials still contained
 - Automated pass on all 62 pages at 1280px and 390px: sideways scroll, broken images, console errors, title, description, canonical, OG image, GTM, one H1, em dashes. Fixed: How it works steps overflowing on phones (inline 3-column grid), QR poster tool overflowing on phones, escaped em dashes in calculator and QR poster scripts, FAQ structured data rebuilt from the visible answers (it still had old dashed text).
 - Sitemap (58 URLs) and redirects resolve; /book, /demo, /essentials, /404 are noindex on purpose. Every demo CTA goes to /book; the Zcal embed lives only there.
 - Font self-hosted: Bricolage Grotesque variable (wght 400 to 800, wdth 75 to 100, opsz), Latin subset WOFF2 in /fonts (142 KB), preloaded on every page, cached for a year. Replaces the Google Fonts @import chain. Lighthouse mobile: home 95, dental 95 (was 89 to 93), CLS 0, TBT 0.
+
+## DIY pricing v2 (draft, preview branch only)
+- DIY plans repriced to Starter $29 ($23 annual), Standard $49 ($39), Pro $69 ($55). "Save up to 20%".
+- Plan cards rewritten to the new plan contents; WhatsApp allowance removed from Standard.
+- New "Compare DIY plans" table under the DIY cards (sticky label column on phones).
+- Extra locations on DIY now Pro only at $49/month each (cards, FAQ, comparison table).
+- FAQ page: DIY range now $29 to $69; message allowance answer updated.

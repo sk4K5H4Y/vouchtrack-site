@@ -1767,3 +1767,25 @@ footer.book-foot { color: #D5DCF0; border-top: 0; }
   .app-demo .app-tabs::-webkit-scrollbar { display: none; }
   .app-demo .app-tab { flex: none; }
 }
+
+/* Pricing: DIY plan comparison table */
+.plan-compare { margin-top: 48px; }
+.plan-compare .pc-title { text-align: center; margin-bottom: 18px; font-size: clamp(1.5rem, 3vw, 2rem); }
+.plan-compare .pc-scroll { position: relative; overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: var(--radius-lg); }
+.plan-compare table { min-width: 620px; }
+.plan-compare th, .plan-compare td { padding: 12px 16px; font-size: 0.9rem; vertical-align: top; }
+.plan-compare thead th { white-space: nowrap; }
+.plan-compare thead th:not(:first-child), .plan-compare td { text-align: center; width: 20%; }
+.plan-compare .pc-price { display: block; font-weight: 500; font-size: 0.8rem; opacity: 0.8; margin-top: 2px; }
+.plan-compare tbody th { background: var(--white); color: var(--ink); font-weight: 600; text-align: left; }
+.plan-compare td.hl { background: #FDF6E9; font-weight: 600; }
+.plan-compare .pc-yes { color: var(--leaf); font-weight: 700; font-size: 1.05rem; }
+.plan-compare .pc-no { color: var(--slate); opacity: 0.6; }
+.plan-compare .pc-foot { text-align: center; font-size: 0.86rem; color: var(--slate); margin-top: 12px; }
+@media (max-width: 640px) {
+  .plan-compare table { min-width: 540px; }
+  .plan-compare th, .plan-compare td { padding: 10px 10px; font-size: 0.82rem; }
+  .plan-compare thead th:first-child, .plan-compare tbody th { position: sticky; left: 0; z-index: 1; width: 128px; min-width: 128px; box-shadow: 1px 0 0 var(--line); }
+  .plan-compare thead th:first-child { z-index: 2; }
+  .plan-compare thead th:not(:first-child), .plan-compare td { width: 137px; }
+}
